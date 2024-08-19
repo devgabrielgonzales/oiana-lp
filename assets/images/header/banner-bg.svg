@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920.2 1075.6">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: .1;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #e08dad;
+      }
+
+      .cls-1, .cls-3 {
+        isolation: isolate;
+      }
+
+      .cls-4, .cls-3 {
+        fill: none;
+      }
+
+      .cls-3 {
+        opacity: .1;
+        stroke: #ab4593;
+        stroke-width: 128px;
+      }
+
+      .cls-5 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <path class="cls-4" d="M0,607.6s95.3,204.2,401.2,161.1,419.7-32.1,544.2,96.9,344,107.5,572.9,67.1,360.2,68.2,401.8,143c0-2.4,0-1075.6,0-1075.6H0s0,607.5,0,607.5Z"/>
+    </clipPath>
+  </defs>
+  <!-- Generator: Adobe Illustrator 28.6.0, SVG Export Plug-In . SVG Version: 1.2.0 Build 709)  -->
+  <g>
+    <g id="Camada_1">
+      <g id="Group_112">
+        <path id="Path_195" class="cls-1" d="M0,607.4s100.4,239.9,401.2,191.5,442.1,9.6,537.6,114.9c95.6,105.4,352.1,94.3,581,52.4s363.2,41.8,400.4,109.4c0,0-.4-1075.6-.4-1075.6H0s0,607.4,0,607.4Z"/>
+        <path id="Path_194" class="cls-2" d="M0,607.6s95.3,204.2,401.2,161.1,419.7-32.1,544.2,96.9c124.5,129,344,107.5,572.9,67.1s360.2,68.2,401.8,143c0-2.4,0-1075.6,0-1075.6H0s0,607.5,0,607.5Z"/>
+        <g class="cls-5">
+          <g id="Mask_Group_6">
+            <path id="Path_4" class="cls-3" d="M25.7,687.7s174.2-392,817.4-255c643.2,137,869.4,77.5,1056.2-464"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

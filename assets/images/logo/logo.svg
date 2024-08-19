@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 111.2 30.6">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #751340;
+      }
+
+      .cls-2, .cls-3 {
+        fill-rule: evenodd;
+      }
+
+      .cls-4 {
+        clip-rule: evenodd;
+        fill: none;
+      }
+
+      .cls-5 {
+        letter-spacing: 0em;
+      }
+
+      .cls-5, .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-6 {
+        font-family: Brava, ' Brava';
+        font-size: 29.7px;
+      }
+
+      .cls-7 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-3 {
+        opacity: .2;
+      }
+    </style>
+    <clipPath id="clippath">
+      <path class="cls-4" d="M81.7,26.4c-2,0-3.9,0-5.9,0-.5,0-.8-.3-1-.7-.1-.4,0-.9.4-1.1l3.3-2.1-4.5-6.6c-.2-.3-.2-.7,0-1l5.4-10.3c.2-.3.5-.5.9-.5h12.3c.3,0,.6.2.8.5l6.9,10.1c.2.3.2.7,0,1l-5.4,10.3c-.2.3-.5.5-.9.5h-12.3s0,0-.1,0h0ZM88.7,9.4l1.3-2.6h-4.2s-5.7,0-5.7,0l-1.2,2.3,3.2,4.7,2.4,3.5,1.3-2.6-3.7-5.4h6.5ZM97.9,16.2l-3.2-4.7-2.4-3.5-1.3,2.6,3.7,5.4h-6.5s-1.3,2.5-1.3,2.5h4.2s5.7,0,5.7,0l1.2-2.3Z"/>
+    </clipPath>
+  </defs>
+  <!-- Generator: Adobe Illustrator 28.6.0, SVG Export Plug-In . SVG Version: 1.2.0 Build 709)  -->
+  <g>
+    <g id="Camada_1">
+      <path class="cls-2" d="M81.7,26.4c-2,0-3.9,0-5.9,0-.5,0-.8-.3-1-.7-.1-.4,0-.9.4-1.1l3.3-2.1-4.5-6.6c-.2-.3-.2-.7,0-1l5.4-10.3c.2-.3.5-.5.9-.5h12.3c.3,0,.6.2.8.5l6.9,10.1c.2.3.2.7,0,1l-5.4,10.3c-.2.3-.5.5-.9.5h-12.3s0,0-.1,0h0ZM88.7,9.4l1.3-2.6h-4.2s-5.7,0-5.7,0l-1.2,2.3,3.2,4.7,2.4,3.5,1.3-2.6-3.7-5.4h6.5ZM97.9,16.2l-3.2-4.7-2.4-3.5-1.3,2.6,3.7,5.4h-6.5s-1.3,2.5-1.3,2.5h4.2s5.7,0,5.7,0l1.2-2.3Z"/>
+      <g class="cls-7">
+        <g>
+          <polygon class="cls-3" points="98.1 26.2 75.1 30.3 73.9 21.3 91.5 26.4 98.1 26.2"/>
+          <polygon class="cls-3" points="97.2 21.6 96.5 28 75.1 30.3 72.7 25 78.5 22.4 97.2 21.6"/>
+        </g>
+      </g>
+      <text class="cls-6" transform="translate(10.7 26.6)"><tspan class="cls-1" x="0" y="0">Oi</tspan><tspan class="cls-5" x="18.9" y="0">Ana</tspan></text>
+    </g>
+  </g>
+</svg>
