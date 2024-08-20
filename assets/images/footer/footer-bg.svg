@@ -1,24 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1920.2 1054.9">
-  <defs>
-    <style>
-      .cls-1, .cls-2 {
-        fill: #7b2f4c;
-      }
-
-      .cls-2 {
-        isolation: isolate;
-        opacity: .1;
-      }
-    </style>
-  </defs>
-  <!-- Generator: Adobe Illustrator 28.6.0, SVG Export Plug-In . SVG Version: 1.2.0 Build 709)  -->
-  <g>
-    <g id="Camada_1">
-      <g id="Camada_1-2" data-name="Camada_1">
+<svg id="Camada_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920.2 1054.9">
+  <g id="Camada_1-2" data-name="Camada_1">
+    <g id="Camada_1-3" data-name="Camada_1">
+      <g id="Camada_1-2">
         <g id="Group_111">
-          <path id="Path_195" class="cls-2" d="M1920.2,675.2s-85.9-337.8-386.7-270.2-439.4,0-538.3-145.2-352-127-574.6-79.2S118.2,159.1,0,0v1054.9h1920.1v-379.6h0Z"/>
-          <path id="Path_194" class="cls-1" d="M1920.2,675.3s-86.3-291.5-385.9-226.4-437.7,0-536.1-139.9-348.5-144.6-576.5-88.3C193.5,277.1,41.6,104.3.1.1v1054.7h1920v-379.6h0Z"/>
+          <path id="Path_195" d="M1920.2,675.2s-85.9-337.8-386.7-270.2-439.4,0-538.3-145.2-352-127-574.6-79.2S118.2,159.1,0,0v1054.9h1920.1v-379.6h0Z" fill="#181817" isolation="isolate" opacity=".1"/>
+          <path id="Path_194" d="M1920.2,675.3s-86.3-291.5-385.9-226.4-437.7,0-536.1-139.9-348.5-144.6-576.5-88.3C193.5,277.1,41.6,104.3.1.1v1054.7h1920v-379.6h0Z" fill="#630831"/>
         </g>
       </g>
     </g>

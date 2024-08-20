@@ -1,7 +1,6 @@
 (function () {
   "use strict";
 
-  // ==== Preloader
   window.onload = function () {
     window.setTimeout(fadeout, 500);
   };
@@ -11,7 +10,6 @@
     document.querySelector(".preloader").style.display = "none";
   }
 
-  // ======= Sticky
   window.onscroll = function () {
     const header_navbar = document.querySelector(".navbar-area");
     const sticky = header_navbar.offsetTop;
@@ -25,7 +23,6 @@
       logo.src = "assets/images/logo/logo.png";
     }
 
-    // show or hide the back-top-top button
     const backToTop = document.querySelector(".back-to-top");
     if (
       document.body.scrollTop > 50 ||
@@ -37,7 +34,6 @@
     }
   };
 
-  // ==== for menu scroll
   const pageLink = document.querySelectorAll(".page-scroll");
 
   pageLink.forEach((elem) => {
@@ -50,7 +46,7 @@
     });
   });
 
-  // section menu active
+
   function onScroll(event) {
     const sections = document.querySelectorAll(".page-scroll");
     const scrollPos =
@@ -77,7 +73,6 @@
 
   window.document.addEventListener("scroll", onScroll);
 
-  //===== close navbar-collapse when a  clicked
   let navbarToggler = document.querySelector(".navbar-toggler");
   const navbarCollapse = document.querySelector(".navbar-collapse");
 
@@ -91,16 +86,16 @@
     navbarToggler.classList.toggle("active");
   });
 
-  // ========= glightbox
+
   const myGallery = GLightbox({
-    href: "https://www.youtube.com/watch?v=r44RKWyfcFw",
+    href: "https://www.youtube.com/watch?v=JaBE3u3Z3zw",
     type: "video",
-    source: "youtube", //vimeo, youtube or local
+    source: "youtube", 
     width: 900,
     autoplayVideos: true,
   });
 
-  //====== counter up
+
   const cu = new counterUp({
     start: 0,
     duration: 2000,
@@ -110,10 +105,10 @@
   });
   cu.start();
 
-  //=====  WOW active
+
   new WOW().init();
 
-  //=====  particles
+
   if (document.getElementById("particles-1"))
     particlesJS("particles-1", {
       particles: {

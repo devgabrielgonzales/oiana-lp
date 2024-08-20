@@ -179,7 +179,7 @@ p {
 .section-title .sub-title {
   font-size: 18px;
   font-weight: 400;
-  color: #361CC1;
+  color: #5a425a;
   text-transform: uppercase;
 }
 
@@ -288,7 +288,7 @@ p {
   height: 100%;
   border-style: solid;
   /* Spinner Color */
-  border-color: #361CC1 #361CC1 #E1E1E1;
+  border-color: #5a425a #5a425a #E1E1E1;
   border-radius: 50%;
   border-width: 6px;
 }
@@ -838,7 +838,7 @@ p {
 }
 
 .single-services .services-content .services-title a:hover {
-  color: #361CC1;
+  color: #5a425a;
 }
 
 .single-services .services-content .text {
@@ -935,7 +935,7 @@ p {
 
 .about-content .main-btn {
   background: -webkit-gradient(linear, left top, right top, from(#e08dad), color-stop(50%, #fe6e9a), to(#e08dad));
-  background: linear-gradient(to right, #e08dad 0%, #fe6e9a 50%, #e08dad 100%);
+  background: linear-gradient(to right, #5a425a 0%, #fe6e9a 50%, #e08dad 100%);
   background-size: 200%;
   height: 50px;
   line-height: 50px;
@@ -1080,8 +1080,8 @@ p {
 }
 
 .counter-wrapper .single-counter.counter-color-3::before {
-  background: -webkit-gradient(linear, left top, left bottom, from(#361cc1), to(#2e82ef));
-  background: linear-gradient(#361cc1 0%, #2e82ef 100%);
+  background: -webkit-gradient(linear, left top, left bottom, from(#5a425a), to(#2e82ef));
+  background: linear-gradient(#5a425a 0%, #2e82ef 100%);
 }
 
 .counter-wrapper .single-counter .count {
@@ -1206,7 +1206,7 @@ p {
 }
 
 .subscribe-form input:focus {
-  border-color: #361CC1;
+  border-color: #5a425a;
 }
 
 .subscribe-form button {
