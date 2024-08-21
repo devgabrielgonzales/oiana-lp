@@ -1,12 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="871.654" height="897.389" viewBox="0 0 871.654 897.389">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 871.7 897.4">
   <defs>
-    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+    <style>
+      .cls-1 {
+        opacity: 0;
+      }
+
+      .cls-1, .cls-2 {
+        isolation: isolate;
+      }
+
+      .cls-2 {
+        display: none;
+        fill: url(#Gradiente_sem_nome_2);
+        opacity: 0;
+      }
+    </style>
+    <linearGradient id="Gradiente_sem_nome_2" data-name="Gradiente sem nome 2" x1="130.6" y1="844.9" x2="130.6" y2="843.9" gradientTransform="translate(114316.4 -757341) rotate(-180) scale(871.7 -897.4)" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#33c8c1"/>
       <stop offset="1" stop-color="#119bd2"/>
     </linearGradient>
   </defs>
-  <g id="Group_109" data-name="Group 109" transform="translate(1933.996 3219.25) rotate(180)">
-    <path id="Path_187" data-name="Path 187" d="M1401.014,2066.862S1306.2,2298.4,976,2224.3s-471.11,172.11-441.91,381.669,109.33,282.112,352.12,174.071,414.688-54.082,514.8,184.208C1403.224,2965.938,1401.014,2066.862,1401.014,2066.862Z" transform="translate(532 255)" opacity="0.03" fill="url(#linear-gradient)"/>
-    <path id="Path_197" data-name="Path 197" d="M1401.014,2066.862S1306.2,2298.4,976,2224.3s-471.11,172.11-441.91,381.669,109.33,282.112,352.12,174.071,414.688-54.082,514.8,184.208C1403.224,2965.938,1401.014,2066.862,1401.014,2066.862Z" transform="translate(532 255)" opacity="0.03" fill="url(#linear-gradient)"/>
+  <!-- Generator: Adobe Illustrator 28.6.0, SVG Export Plug-In . SVG Version: 1.2.0 Build 709)  -->
+  <g>
+    <g id="Camada_1">
+      <g id="Group_109">
+        <path id="Path_187" class="cls-1" d="M1,897.4s94.8-231.5,425-157.4,471.1-172.1,441.9-381.7-109.3-282.1-352.1-174.1C273,292.3,101.1,238.3,1,0c-2.2-1.7,0,897.4,0,897.4Z"/>
+        <path id="Path_197" class="cls-2" d="M1,897.4s94.8-231.5,425-157.4,471.1-172.1,441.9-381.7-109.3-282.1-352.1-174.1C273,292.3,101.1,238.3,1,0c-2.2-1.7,0,897.4,0,897.4Z"/>
+      </g>
+    </g>
   </g>
 </svg>
