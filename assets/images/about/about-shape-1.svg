@@ -1,12 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="871.654" height="897.389" viewBox="0 0 871.654 897.389">
-  <defs>
-    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
-      <stop offset="0" stop-color="#33c8c1"/>
-      <stop offset="1" stop-color="#119bd2"/>
-    </linearGradient>
-  </defs>
-  <g id="Group_109" data-name="Group 109" transform="translate(-1062.343 -2321.862)">
-    <path id="Path_187" data-name="Path 187" d="M1401.014,2066.862S1306.2,2298.4,976,2224.3s-471.11,172.11-441.91,381.669,109.33,282.112,352.12,174.071,414.688-54.082,514.8,184.208C1403.224,2965.938,1401.014,2066.862,1401.014,2066.862Z" transform="translate(532 255)" opacity="0.03" fill="url(#linear-gradient)"/>
-    <path id="Path_197" data-name="Path 197" d="M1401.014,2066.862S1306.2,2298.4,976,2224.3s-471.11,172.11-441.91,381.669,109.33,282.112,352.12,174.071,414.688-54.082,514.8,184.208C1403.224,2965.938,1401.014,2066.862,1401.014,2066.862Z" transform="translate(532 255)" opacity="0.03" fill="url(#linear-gradient)"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 871.7 897.4">
+  <g id="Camada_1-2" data-name="Camada_1">
+    <g id="Group_109">
+      <path id="Path_187" d="M870.7,0s-94.8,231.5-425,157.4S-25.5,329.5,3.7,539.1s109.3,282.1,352.1,174.1c242.8-108,414.7-54.1,514.8,184.2,2.2,1.7,0-897.4,0-897.4Z" fill="#1d1d1b" isolation="isolate" opacity="0"/>
+      <path id="Path_197" d="M870.7,0s-94.8,231.5-425,157.4S-25.5,329.5,3.7,539.1s109.3,282.1,352.1,174.1c242.8-108,414.7-54.1,514.8,184.2,2.2,1.7,0-897.4,0-897.4Z" fill="#1d1d1b" isolation="isolate" opacity="0"/>
+    </g>
   </g>
 </svg>
