@@ -2314,6 +2314,7 @@ p {
   );
   background: linear-gradient(to right, #33c8c1 0%, #119bd2 50%, #33c8c1 100%);
   background-size: 200%;
+  color: #ffffff;
 }
 
 .pricing-table .single-table .table-head .button .btn:hover {
