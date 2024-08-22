@@ -46,7 +46,6 @@
     });
   });
 
-
   function onScroll(event) {
     const sections = document.querySelectorAll(".page-scroll");
     const scrollPos =
@@ -86,15 +85,13 @@
     navbarToggler.classList.toggle("active");
   });
 
-
   const myGallery = GLightbox({
     href: "https://www.youtube.com/watch?v=JaBE3u3Z3zw",
     type: "video",
-    source: "youtube", 
+    source: "youtube",
     width: 900,
     autoplayVideos: true,
   });
-
 
   const cu = new counterUp({
     start: 0,
@@ -105,9 +102,7 @@
   });
   cu.start();
 
-
   new WOW().init();
-
 
   if (document.getElementById("particles-1"))
     particlesJS("particles-1", {
@@ -333,3 +328,26 @@
       retina_detect: !0,
     });
 })();
+
+document.getElementById("dental").addEventListener("click", function () {
+  document.querySelector('select[name="planos"]').value = "1"; // Plano cooperado DentalUni
+});
+
+document.getElementById("consultorio").addEventListener("click", function () {
+  document.querySelector('select[name="planos"]').value = "2"; // Plano para consultórios
+});
+
+document.getElementById("clinicas").addEventListener("click", function () {
+  document.querySelector('select[name="planos"]').value = "3"; // Plano para clínicas
+});
+
+function showModal() {
+  document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+
+// Adiciona o evento de clique ao botão de envio para mostrar o modal
+document.getElementById("send-button").addEventListener("click", showModal);

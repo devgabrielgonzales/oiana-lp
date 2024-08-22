@@ -19,7 +19,6 @@
     <!--====== CSS Files LinkUp ======-->
     <link rel="stylesheet" href="assets/css/animate.css" />
     <link rel="stylesheet" href="assets/css/glightbox.min.css" />
-    <link rel="stylesheet" href="assets/css/lineIcons.css" />
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link
@@ -103,6 +102,7 @@
                     class="main-btn"
                     data-scroll-nav="0"
                     href="#prices"
+                    id="dental"
                   >
                     Resgatar benefício
                   </a>
@@ -681,9 +681,7 @@
                   <h2 class="amount">R$ 0<span class="duration"></span></h2>
                 </div>
                 <div class="button">
-                  <a href="#form" class="btn"
-                    >Resgatar benefício</a
-                  >
+                  <a href="#form" class="btn">Resgatar benefício</a>
                 </div>
               </div>
               <!-- End Table Head -->
@@ -759,7 +757,7 @@
                   </h2>
                 </div>
                 <div class="button">
-                  <a href="#form" class="btn">Comprar</a>
+                  <a id="consultorio" href="#form" class="btn">Comprar</a>
                 </div>
               </div>
               <!-- End Table Head -->
@@ -840,7 +838,7 @@
                   </h2>
                 </div>
                 <div class="button">
-                  <a href="#form" class="btn">Comprar</a>
+                  <a id="clinicas" href="#form" class="btn">Comprar</a>
                 </div>
               </div>
               <!-- End Table Head -->
@@ -949,9 +947,68 @@
                     <option value="2">Plano para consultórios</option>
                     <option value="3">Plano para clínicas</option>
                   </select>
-                  <button href="javascript:void(0)" class="main-btn">
-                    Enviar
-                  </button>
+                  <!-- Trigger Button -->
+                  <button id="send-button" type="button">Enviar</button>
+
+                  <!-- Modal Structure -->
+                  <div id="modal" class="modal">
+                    <div class="modal-content">
+                      <!-- Modal Header -->
+                      <div class="modal-header" style="flex-direction: column">
+                        <img src="./assets/images/about/check.png" alt="check" style="
+                        width: 120px;
+                        margin-left: -20px;
+                    ">
+                        <h2>Gabriel, seu benefício foi resgatado com sucesso!</h2>
+                        <p>Em breve, nossa equipe entrará em contato.</p>
+                      </div>
+                      <!-- Modal Body -->
+                      <div class="modal-body">
+                        <ul>
+                          <li>
+                            <span>Plano cooperado DentalUni</span>
+                          </li>
+                          <li>
+                            <span>Solicitado 22/08/2024</span>
+                          </li>
+                          <li>
+                            <span>Valor do plano:</span>
+                            <span>Gratuito</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <!-- Modal CTA -->
+                      <div class="cta-buttons">
+                        <button
+                          class="cta-button secondary"
+                          onclick="closeModal()"
+                        >
+                          Voltar
+                        </button>
+                        <button class="cta-button primary">
+                          Entrar em contato
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Background Noise SVG -->
+                  <svg id="background-noise">
+                    <filter id="noise">
+                      <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency=".8"
+                        numOctaves="5"
+                        stitchTiles="stitch"
+                      ></feTurbulence>
+                      <feColorMatrix type="saturate" values="0"></feColorMatrix>
+                    </filter>
+                    <rect
+                      width="100%"
+                      height="100%"
+                      filter="url(#noise)"
+                    ></rect>
+                  </svg>
                 </form>
               </div>
             </div>
@@ -983,19 +1040,19 @@
                 <ul class="social">
                   <li>
                     <a href="https://www.facebook.com/oiana.io">
-                      <i class="lnr lnr-facebook-filled"> </i>
+                      <!-- <i class="lnr lnr-facebook-filled"> </i> -->
                     </a>
                   </li>
                   <li>
                     <a href="https://www.instagram.com/oiana.io/">
-                      <i class="lnr lnr-instagram-filled"> </i>
+                      <!-- <i class="lnr lnr-instagram-filled"> </i> -->
                     </a>
                   </li>
                   <li>
                     <a
                       href="https://www.linkedin.com/in/oiana-contato-b78a6a254/"
                     >
-                      <i class="lnr lnr-linkedin-original"> </i>
+                      <!-- <i class="lnr lnr-linkedin-original"> </i> -->
                     </a>
                   </li>
                 </ul>
