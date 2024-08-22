@@ -1148,7 +1148,7 @@ p {
 
 @media (max-width: 767px) {
   .counter-wrapper .single-counter .count {
-    font-size: 18px;
+    font-size: 14px;
   }
 }
 
@@ -1165,7 +1165,7 @@ p {
 
 @media (max-width: 767px) {
   .counter-wrapper .single-counter .text {
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 
