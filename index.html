@@ -102,8 +102,7 @@
                   <a
                     class="main-btn"
                     data-scroll-nav="0"
-                    href="https://uideck.com/templates/basic/"
-                    rel="nofollow"
+                    href="#prices"
                   >
                     Resgatar benefício
                   </a>
@@ -518,7 +517,7 @@
                 data-wow-duration="1s"
                 data-wow-delay="0.5s"
               >
-                <img src="assets/images/about/pc-4.png" alt="about" />
+                <img src="assets/images/services/cliente.png" alt="about" />
               </div>
               <!-- about image -->
             </div>
@@ -580,7 +579,7 @@
                   >
                     <div class="counter-items text-center">
                       <span class="count text-uppercase">+ DE 2K</span>
-                      <p class="text">Licenças OiAna vendida</p>
+                      <p class="text">Licenças OiAna vendidas</p>
                     </div>
                   </div>
                   <!-- single counter -->
@@ -660,7 +659,7 @@
           </div>
         </div>
         <div class="row" style="display: flex; justify-content: center">
-          <div class="col-lg-3 col-md-6 col-12">
+          <div class="col-lg-4 col-md-6 col-12">
             <!-- Single Table -->
             <div
               class="single-table wow fadeInUp"
@@ -682,7 +681,7 @@
                   <h2 class="amount">R$ 0<span class="duration"></span></h2>
                 </div>
                 <div class="button">
-                  <a href="javascript:void(0)" class="btn"
+                  <a href="#form" class="btn"
                     >Resgatar benefício</a
                   >
                 </div>
@@ -747,7 +746,7 @@
             </div>
             <!-- End Single Table-->
           </div>
-          <div class="col-lg-3 col-md-6 col-12">
+          <div class="col-lg-4 col-md-6 col-12">
             <!-- Single Table -->
             <div class="single-table wow fadeInUp" data-wow-delay=".2s">
               <!-- Table Head -->
@@ -756,11 +755,11 @@
                 <p>Plano Especial para Profissionais Liberais e Autônomos</p>
                 <div class="price">
                   <h2 class="amount">
-                    $ 59,99<span class="duration">/mês</span>
+                    R$ 45,80<span class="duration">/mês</span>
                   </h2>
                 </div>
                 <div class="button">
-                  <a href="javascript:void(0)" class="btn">Comprar</a>
+                  <a href="#form" class="btn">Comprar</a>
                 </div>
               </div>
               <!-- End Table Head -->
@@ -828,7 +827,7 @@
             <!-- End Single Table-->
           </div>
 
-          <div class="col-lg-3 col-md-6 col-12">
+          <div class="col-lg-4 col-md-6 col-12">
             <!-- Single Table -->
             <div class="single-table wow fadeInUp" data-wow-delay=".6s">
               <!-- Table Head -->
@@ -837,11 +836,11 @@
                 <p>Plano Exclusivo para Clínicas com Equipes de Dentistas</p>
                 <div class="price">
                   <h2 class="amount">
-                    R$ 239,90<span class="duration">/mês</span>
+                    R$ 119,90<span class="duration">/mês</span>
                   </h2>
                 </div>
                 <div class="button">
-                  <a href="javascript:void(0)" class="btn">Comprar</a>
+                  <a href="#form" class="btn">Comprar</a>
                 </div>
               </div>
               <!-- End Table Head -->
@@ -915,26 +914,44 @@
     <!--/ End Pricing Table Area -->
 
     <!--====== FOOTER PART START ======-->
-    <footer id="footer" class="footer-area pt-120">
+    <footer id="form" class="footer-area pt-120">
       <div class="container">
         <div
           class="subscribe-area wow fadeIn"
           data-wow-duration="1s"
           data-wow-delay="0.5s"
         >
-          <div class="row">
+          <div
+            class="row"
+            style="
+              flex-direction: column;
+              justify-content: center;
+              text-align: center;
+              align-items: center;
+            "
+          >
             <div class="col-lg-6">
               <div class="subscribe-content mt-45">
                 <h2 class="subscribe-title">
-                  Subscribe Our Newsletter <span>get reguler updates</span>
+                  Resgate seu benefício
+                  <span>preencha todos <br />os campos</span>
                 </h2>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="subscribe-form mt-50">
                 <form action="#">
-                  <input type="text" placeholder="Enter eamil" />
-                  <button class="main-btn">Subscribe</button>
+                  <input type="text" placeholder="Nome e sobrenome" />
+                  <input type="text" placeholder="E-mail" />
+                  <input type="text" placeholder="Telefone" />
+                  <select name="planos" id="">
+                    <option value="1">Plano cooperado DentalUni</option>
+                    <option value="2">Plano para consultórios</option>
+                    <option value="3">Plano para clínicas</option>
+                  </select>
+                  <button href="javascript:void(0)" class="main-btn">
+                    Enviar
+                  </button>
                 </form>
               </div>
             </div>

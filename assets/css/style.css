@@ -1224,6 +1224,16 @@ p {
   border-radius: 5px;
   width: 100%;
   color: #2e2e2e;
+  margin: 5px 0;
+}
+
+.subscribe-form select {
+  border: 2px solid #e1e1e1;
+  height: 65px;
+  padding: 0 30px;
+  border-radius: 5px;
+  width: 100%;
+  color: #2e2e2e;
 }
 
 .subscribe-form input::-webkit-input-placeholder {
@@ -1266,12 +1276,7 @@ p {
 }
 
 .subscribe-form button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  border-radius: 0;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  width: 100%;
   height: 65px;
   line-height: 65px;
   background: -webkit-gradient(
@@ -1284,6 +1289,7 @@ p {
   );
   background: linear-gradient(to right, #e08dad 0%, #fe6e9a 50%, #e08dad 100%);
   background-size: 200%;
+  margin-top: 5px;
 }
 
 @media (max-width: 767px) {
@@ -2292,6 +2298,23 @@ p {
   width: 100%;
   padding: 12px 30px;
   font-size: 16px;
+  display: inline-block;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 48px;
+  border-radius: 8px;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  z-index: 5;
+  -webkit-transition: all 0.4s ease-out 0s;
+  transition: all 0.4s ease-out 0s;
   background: -webkit-gradient(
     linear,
     left top,
@@ -2302,18 +2325,11 @@ p {
   );
   background: linear-gradient(to right, #33c8c1 0%, #119bd2 50%, #33c8c1 100%);
   background-size: 200%;
-  color: #ffffff;
-  font-weight: 700;
 }
 
 .pricing-table .single-table .table-head .button .btn:hover {
   color: #fff;
   background-position: right center;
-}
-
-.pricing-table .single-table .table-head .button .btn:hover {
-  background: #5a425a;
-  color: #fff;
 }
 
 .pricing-table .single-table .table-content {
