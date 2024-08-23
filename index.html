@@ -359,14 +359,14 @@
               </div>
               <div class="services-content mt-30">
                 <h4 class="services-title">
-                  <a href="#dental">Portal DentalUni</a>
+                  <a href="#demanda">Portal DentalUni</a>
                 </h4>
                 <p class="text">
                   Disponibilize sua agenda no portal
                   <strong>DentalUni</strong> e receba clientes via
                   autoagendamento.
                 </p>
-                <a class="more" href="#dental"
+                <a class="more" href="#demanda"
                   >Saiba Mais <i class="lnr lnr-chevron-right"> </i>
                 </a>
               </div>
@@ -476,10 +476,8 @@
         </div>
         <!-- container -->
       </div>
-      <!--====== ABOUT PART ENDS ======-->
 
-      <!--====== ABOUT PART START ======-->
-      <div class="about-area pt-70" id="dental">
+      <div class="about-area pt-70" id="demanda">
         <div class="container">
           <div class="row">
             <div class="col-lg-6">
@@ -678,10 +676,12 @@
                 <h4 class="title">Cooperado DentalUni</h4>
                 <p>Plano de Cortesia para Cooperados DentalUni</p>
                 <div class="price">
-                  <h2 class="amount">R$ 0<span class="duration"></span></h2>
+                  <h2 class="amount">GRATUITO<span class="duration"></span></h2>
                 </div>
                 <div class="button">
-                  <a href="#form" class="btn">Resgatar benefício</a>
+                  <a href="#form" class="btn" id="dental-2"
+                    >Resgatar benefício
+                  </a>
                 </div>
               </div>
               <!-- End Table Head -->
@@ -939,8 +939,9 @@
             <div class="col-lg-6">
               <div class="subscribe-form mt-50">
                 <form
-                  action="#"
                   id="subscribe-form"
+                  action="https://api.sheetmonkey.io/form/s1iusZgBY9n2D9E9qxXxcj"
+                  method="POST"
                   style="text-align: left; font-weight: 600"
                 >
                   <label for="nome">Nome e sobrenome</label>
@@ -986,34 +987,81 @@
                     readonly
                   />
 
-                  <button id="send-button" type="button">Enviar</button>
-
-                  <!-- Modal de Aviso -->
-                  <div id="warning-modal" class="modal" style="display: none">
-                    <div class="modal-content">
-                      <div class="modal-header" style="flex-direction: column">
-                        <h2 id="warning-title"></h2>
-                        <p id="warning-message"></p>
-                      </div>
-                      <div class="modal-body">
-                        <!-- Conteúdo do modal -->
-                      </div>
-                      <div class="cta-buttons">
-                        <button
-                          style="
-                            align-items: center;
-                            justify-content: center;
-                            display: flex;
-                          "
-                          class="cta-button secondary"
-                          onclick="closeWarningModal(event)"
-                        >
-                          Fechar
-                        </button>
-                      </div>
+                  <button
+                    id="send-button"
+                    type="button"
+                    style="
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                    "
+                  >
+                    Enviar
+                  </button>
+                </form>
+                <div id="warning-modal" class="modal" style="display: none">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h2 id="warning-title"></h2>
+                    </div>
+                    <div class="modal-body">
+                      <p id="warning-message"></p>
+                    </div>
+                    <div class="modal-footer">
+                      <button onclick="closeWarningModal()">Fechar</button>
                     </div>
                   </div>
-                </form>
+                </div>
+                <div id="modal" class="modal" style="display: none">
+                  <div class="modal-content">
+                    <div class="modal-header" style="flex-direction: column">
+                      <img
+                        src="./assets/images/about/check.png"
+                        alt="check"
+                        style="width: 120px; margin-left: -20px"
+                      />
+                      <h2 id="modal-title"></h2>
+                      <p>Em breve, nossa equipe entrará em contato.</p>
+                    </div>
+                    <div class="modal-body">
+                      <ul>
+                        <li><span id="selected-plan"></span></li>
+                        <li>
+                          <span
+                            >Data de solicitação: <span id="request-date"></span
+                          ></span>
+                        </li>
+                        <li>
+                          <span>Valor do plano: </span
+                          ><span id="selected-value"></span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="cta-buttons">
+                      <button
+                        class="cta-button secondary"
+                        style="
+                          align-items: center;
+                          display: flex;
+                          justify-content: center;
+                        "
+                        onclick="closeModal()"
+                      >
+                        Voltar
+                      </button>
+                      <button
+                        class="cta-button primary"
+                        style="
+                          align-items: center;
+                          display: flex;
+                          justify-content: center;
+                        "
+                      >
+                        Entrar em contato
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

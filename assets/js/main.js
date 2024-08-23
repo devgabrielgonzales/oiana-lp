@@ -337,23 +337,32 @@ function atualizarValorPlano() {
   let valorPlano;
   switch (selectedValue) {
     case "1":
-      valorPlano = "Gratuito";
+      valorPlano = "GRATUITO";
       break;
     case "2":
-      valorPlano = "R$ 45,80";
+      valorPlano = "R$ 45,80 /mês";
       break;
     case "3":
-      valorPlano = "R$ 119,90";
+      valorPlano = "R$ 119,90 /mês";
       break;
     default:
       valorPlano = "";
   }
 
+  console.log("Valor Plano Selecionado:", valorPlano); // Verificação de depuração
   valorInput.value = valorPlano;
 }
 
+// Executa a função quando a página carrega para garantir que o valor inicial esteja correto
+window.addEventListener("load", atualizarValorPlano);
+
+// Atualiza o valor quando o usuário muda a seleção manualmente
+document
+  .getElementById("planos")
+  .addEventListener("change", atualizarValorPlano);
+
 // Eventos para mudar o select quando os botões são clicados
-document.getElementById("dental").addEventListener("click", function () {
+document.getElementById("dental-2").addEventListener("click", function () {
   document.querySelector('select[name="planos"]').value = "1";
   atualizarValorPlano();
 });
@@ -367,41 +376,6 @@ document.getElementById("clinicas").addEventListener("click", function () {
   document.querySelector('select[name="planos"]').value = "3";
   atualizarValorPlano();
 });
-
-// Função para mostrar o modal
-function showModal() {
-  const nome = document.getElementById("nome").value;
-  const planos =
-    document.getElementById("planos").options[
-      document.getElementById("planos").selectedIndex
-    ].text;
-  const valor = document.getElementById("valor").value;
-
-  document.getElementById(
-    "modal-title"
-  ).textContent = `${nome}, seu benefício foi resgatado com sucesso!`;
-  document.getElementById("selected-plan").textContent = planos;
-  document.getElementById("selected-value").textContent = valor;
-
-  // Exibir o modal
-  document.getElementById("modal").style.display = "flex";
-}
-
-// Função para fechar o modal
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
-}
-
-// Adiciona o evento de clique ao botão de envio para mostrar o modal
-document.getElementById("send-button").addEventListener("click", showModal);
-
-// Atualiza o valor do plano ao carregar a página e ao mudar a seleção do plano
-window.addEventListener("load", atualizarValorPlano);
-document
-  .getElementById("planos")
-  .addEventListener("change", atualizarValorPlano);
-
-// JavaScript
 
 // Função para mostrar o modal
 function showModal() {
@@ -428,127 +402,186 @@ function closeModal() {
   document.getElementById("modal").style.display = "none";
 }
 
-// Atualiza o valor do plano ao carregar a página e ao mudar a seleção do plano
-function atualizarValorPlano() {
-  const valorInput = document.getElementById("valor");
-  const selectedValue = document.getElementById("planos").value;
+document.addEventListener("DOMContentLoaded", function () {
+  document
+    .getElementById("send-button")
+    .addEventListener("click", function (event) {
+      event.preventDefault(); // Impede o envio padrão do formulário
 
-  let valorPlano;
-  switch (selectedValue) {
-    case "1":
-      valorPlano = "Gratuito";
-      break;
-    case "2":
-      valorPlano = "R$ 45,80";
-      break;
-    case "3":
-      valorPlano = "R$ 119,90";
-      break;
-    default:
-      valorPlano = "";
+      const sendButton = document.getElementById("send-button");
+      const nome = document.getElementById("nome").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const telefone = document.getElementById("telefone").value.trim();
+      const valor = document.getElementById("valor").value.trim();
+      const selectedValue = document.getElementById("planos").value.trim();
+
+      // Determina o nome do plano com base no valor selecionado
+      let selectedPlan;
+      switch (selectedValue) {
+        case "1":
+          selectedPlan = "Plano DentalUni";
+          break;
+        case "2":
+          selectedPlan = "Plano para consultórios";
+          break;
+        case "3":
+          selectedPlan = "Plano para clínicas";
+          break;
+        default:
+          selectedPlan = "";
+      }
+
+      if (!validateName(nome)) {
+        showWarningModal("Aviso", "Por favor, insira um nome completo.");
+      } else if (!validateEmail(email)) {
+        showWarningModal("Aviso", "Por favor, insira um e-mail válido.");
+      } else if (!validatePhone(telefone)) {
+        showWarningModal(
+          "Aviso",
+          "Por favor, insira um número de telefone válido no formato (xx) xxxx-xxxx ou (xx) xxxxx-xxxx."
+        );
+      } else if (valor === "") {
+        showWarningModal("Aviso", "Por favor, selecione um plano.");
+      } else {
+        // Substitui o texto "Enviar" pelo loader
+        sendButton.innerHTML = '<div class="loader-btn"></div>';
+
+        // Envia os dados via fetch
+        fetch("https://api.sheetmonkey.io/form/s1iusZgBY9n2D9E9qxXxcj", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            nome: nome,
+            email: email,
+            telefone: telefone,
+            plano: selectedPlan,
+            valor: valor,
+          }),
+        })
+          .then((response) => response.text()) // Lê a resposta como texto
+          .then((text) => {
+            showConfirmationModal(nome, selectedPlan, valor); // Exibe o modal de confirmação
+            resetSendButton(); // Restaura o botão "Enviar"
+          })
+          .catch((error) => {
+            console.error("Erro ao enviar dados:", error);
+            showConfirmationModal(nome, selectedPlan, valor); // Exibe o modal de confirmação mesmo em caso de erro
+            resetSendButton(); // Restaura o botão "Enviar"
+          });
+      }
+    });
+
+  function showConfirmationModal(nome, selectedPlan, valor) {
+    const modalTitle = document.getElementById("modal-title");
+    const selectedPlanElement = document.getElementById("selected-plan");
+    const requestDateElement = document.getElementById("request-date");
+    const selectedValueElement = document.getElementById("selected-value");
+
+    if (
+      modalTitle &&
+      selectedPlanElement &&
+      requestDateElement &&
+      selectedValueElement
+    ) {
+      modalTitle.textContent = `${nome}, seu formulário foi enviado com sucesso!`;
+      selectedPlanElement.textContent = `Plano selecionado: ${selectedPlan}`;
+      requestDateElement.textContent = new Date().toLocaleDateString(); // Data atual
+      selectedValueElement.textContent = valor;
+      document.getElementById("modal").style.display = "flex";
+    } else {
+      console.error("Elementos do modal de confirmação não encontrados.");
+    }
   }
 
-  valorInput.value = valorPlano;
-}
-
-document
-  .getElementById("planos")
-  .addEventListener("change", atualizarValorPlano);
-window.addEventListener("load", atualizarValorPlano);
-
-document.getElementById("planos").addEventListener("change", function () {
-  const valorInput = document.getElementById("valor");
-  const selectedValue = this.value;
-  let valor;
-
-  switch (selectedValue) {
-    case "1":
-      valor = "Gratuito";
-      break;
-    case "2":
-      valor = "R$ 45,80";
-      break;
-    case "3":
-      valor = "R$ 119,90";
-      break;
-    default:
-      valor = "";
+  function resetSendButton() {
+    const sendButton = document.getElementById("send-button");
+    sendButton.innerHTML = "Enviar";
   }
 
-  valorInput.value = valor;
+  function showWarningModal(title, message) {
+    const warningTitle = document.getElementById("warning-title");
+    const warningMessage = document.getElementById("warning-message");
+
+    if (warningTitle && warningMessage) {
+      warningTitle.innerText = title;
+      warningMessage.innerText = message;
+      document.getElementById("warning-modal").style.display = "flex";
+    } else {
+      console.error("Elementos do modal de aviso não encontrados.");
+    }
+  }
+
+  function closeWarningModal(event) {
+    if (event) {
+      event.preventDefault();
+    }
+    document.getElementById("warning-modal").style.display = "none";
+  }
+
+  function closeModal(event) {
+    if (event) {
+      event.preventDefault();
+    }
+    document.getElementById("modal").style.display = "none";
+  }
+
+  function validateName(name) {
+    return name.split(" ").length >= 2;
+  }
+
+  function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  }
+
+  function validatePhone(phone) {
+    const re = /^\(\d{2}\) \d{4,5}-\d{4}$/;
+    return re.test(phone);
+  }
+
+  function formatPhoneNumber(value) {
+    const cleaned = value.replace(/\D/g, "");
+    if (cleaned.length <= 10) {
+      return cleaned.replace(/^(\d{2})(\d{4})(\d{4})$/, "($1) $2-$3");
+    } else {
+      return cleaned.replace(/^(\d{2})(\d{5})(\d{4})$/, "($1) $2-$3");
+    }
+  }
+
+  document
+    .getElementById("telefone")
+    .addEventListener("input", function (event) {
+      event.target.value = formatPhoneNumber(event.target.value);
+    });
+
+  document
+    .getElementById("telefone")
+    .addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+      }
+    });
+
+  document
+    .getElementById("subscribe-form")
+    .addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+      }
+    });
 });
 
-document.getElementById("send-button").addEventListener("click", function () {
+function showConfirmationModal() {
   const nome = document.getElementById("nome").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const telefone = document.getElementById("telefone").value.trim();
-  const valor = document.getElementById("valor").value.trim();
-
-  if (!validateName(nome)) {
-    showWarningModal("Aviso", "Por favor, insira um nome completo.");
-  } else if (!validateEmail(email)) {
-    showWarningModal("Aviso", "Por favor, insira um e-mail válido.");
-  } else if (!validatePhone(telefone)) {
-    showWarningModal(
-      "Aviso",
-      "Por favor, insira um número de telefone válido no formato (xx) xxxx-xxxx ou (xx) xxxxx-xxxx."
-    );
-  } else if (valor === "") {
-    showWarningModal("Aviso", "Por favor, selecione um plano.");
-  } else {
-    // Chama a função do modal de confirmação, se necessário
-    // showConfirmationModal(); // Exemplo, ajuste conforme sua implementação
-  }
-});
-
-function validateName(name) {
-  // O nome deve conter pelo menos duas palavras separadas por espaço
-  return name.split(" ").length >= 2;
+  document.getElementById("modal-title").textContent =
+    "Seu formulário foi enviado com sucesso!";
+  document.getElementById(
+    "modal-body"
+  ).textContent = `Obrigado, ${nome}. Seu formulário foi enviado com sucesso.`;
+  document.getElementById("modal").style.display = "flex";
 }
-
-function validateEmail(email) {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(email);
-}
-
-function validatePhone(phone) {
-  const re = /^\(\d{2}\) \d{4,5}-\d{4}$/;
-  return re.test(phone);
-}
-
-function formatPhoneNumber(value) {
-  // Remove tudo que não é dígito
-  const cleaned = value.replace(/\D/g, "");
-
-  // Adiciona a formatação
-  if (cleaned.length <= 10) {
-    return cleaned.replace(/^(\d{2})(\d{4})(\d{4})$/, "($1) $2-$3");
-  } else {
-    return cleaned.replace(/^(\d{2})(\d{5})(\d{4})$/, "($1) $2-$3");
-  }
-}
-
-document.getElementById("telefone").addEventListener("input", function (event) {
-  event.target.value = formatPhoneNumber(event.target.value);
-});
-
-// Prevenir o envio do formulário ao pressionar Enter no campo telefone
-document
-  .getElementById("telefone")
-  .addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-      event.preventDefault(); // Impede o comportamento padrão (submissão do formulário)
-    }
-  });
-
-// Prevenir o envio do formulário ao pressionar Enter em qualquer lugar do formulário
-document
-  .getElementById("subscribe-form")
-  .addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-      event.preventDefault(); // Impede o comportamento padrão (submissão do formulário)
-    }
-  });
 
 function showWarningModal(title, message) {
   document.getElementById("warning-title").innerText = title;
@@ -557,11 +590,15 @@ function showWarningModal(title, message) {
 }
 
 function closeWarningModal(event) {
-  event.preventDefault(); // Impede o comportamento padrão do clique
+  if (event) {
+    event.preventDefault();
+  }
   document.getElementById("warning-modal").style.display = "none";
 }
 
-// Adicionar evento de clique ao botão de fechar no modal de aviso
-document
-  .querySelector(".cta-button.secondary")
-  .addEventListener("click", closeWarningModal);
+function closeConfirmationModal(event) {
+  if (event) {
+    event.preventDefault();
+  }
+  document.getElementById("modal").style.display = "none";
+}
