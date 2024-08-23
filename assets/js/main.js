@@ -597,7 +597,7 @@ function showConfirmationModal(nome, selectedPlan, valor) {
 
 function contactViaWhatsApp() {
   const nome = document.getElementById("nome").value.trim();
-  const message = `Olá, sou ${nome} preenchi o formulário no site e resolvi entrar em contato!`;
+  const message = `Olá, sou ${nome}, preenchi o formulário no site e resolvi entrar em contato!`;
   const encodedMessage = encodeURIComponent(message);
   const whatsappURL = `https://wa.me/5541991917792?text=${encodedMessage}`;
   window.open(whatsappURL, "_blank");
