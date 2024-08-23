@@ -1310,16 +1310,6 @@ p {
   }
 }
 
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  .subscribe-form button {
-    position: absolute;
-    width: auto;
-    margin-top: 0;
-    border-radius: 0;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-  }
-}
 
 .subscribe-form button:hover {
   color: #fff;

@@ -573,14 +573,34 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-function showConfirmationModal() {
+function showConfirmationModal(nome, selectedPlan, valor) {
+  const modalTitle = document.getElementById("modal-title");
+  const selectedPlanElement = document.getElementById("selected-plan");
+  const requestDateElement = document.getElementById("request-date");
+  const selectedValueElement = document.getElementById("selected-value");
+
+  if (
+    modalTitle &&
+    selectedPlanElement &&
+    requestDateElement &&
+    selectedValueElement
+  ) {
+    modalTitle.textContent = `${nome}, seu formulário foi enviado com sucesso!`;
+    selectedPlanElement.textContent = `Plano selecionado: ${selectedPlan}`;
+    requestDateElement.textContent = new Date().toLocaleDateString(); // Data atual
+    selectedValueElement.textContent = valor;
+    document.getElementById("modal").style.display = "flex";
+  } else {
+    console.error("Elementos do modal de confirmação não encontrados.");
+  }
+}
+
+function contactViaWhatsApp() {
   const nome = document.getElementById("nome").value.trim();
-  document.getElementById("modal-title").textContent =
-    "Seu formulário foi enviado com sucesso!";
-  document.getElementById(
-    "modal-body"
-  ).textContent = `Obrigado, ${nome}. Seu formulário foi enviado com sucesso.`;
-  document.getElementById("modal").style.display = "flex";
+  const message = `Olá, sou ${nome} preenchi o formulário no site e resolvi entrar em contato!`;
+  const encodedMessage = encodeURIComponent(message);
+  const whatsappURL = `https://wa.me/5541991917792?text=${encodedMessage}`;
+  window.open(whatsappURL, "_blank");
 }
 
 function showWarningModal(title, message) {
