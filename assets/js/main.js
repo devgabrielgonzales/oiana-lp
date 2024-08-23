@@ -329,25 +329,239 @@
     });
 })();
 
+// Função para atualizar o valor do plano com base na seleção
+function atualizarValorPlano() {
+  const valorInput = document.getElementById("valor");
+  const selectedValue = document.getElementById("planos").value;
+
+  let valorPlano;
+  switch (selectedValue) {
+    case "1":
+      valorPlano = "Gratuito";
+      break;
+    case "2":
+      valorPlano = "R$ 45,80";
+      break;
+    case "3":
+      valorPlano = "R$ 119,90";
+      break;
+    default:
+      valorPlano = "";
+  }
+
+  valorInput.value = valorPlano;
+}
+
+// Eventos para mudar o select quando os botões são clicados
 document.getElementById("dental").addEventListener("click", function () {
-  document.querySelector('select[name="planos"]').value = "1"; // Plano cooperado DentalUni
+  document.querySelector('select[name="planos"]').value = "1";
+  atualizarValorPlano();
 });
 
 document.getElementById("consultorio").addEventListener("click", function () {
-  document.querySelector('select[name="planos"]').value = "2"; // Plano para consultórios
+  document.querySelector('select[name="planos"]').value = "2";
+  atualizarValorPlano();
 });
 
 document.getElementById("clinicas").addEventListener("click", function () {
-  document.querySelector('select[name="planos"]').value = "3"; // Plano para clínicas
+  document.querySelector('select[name="planos"]').value = "3";
+  atualizarValorPlano();
 });
 
+// Função para mostrar o modal
 function showModal() {
+  const nome = document.getElementById("nome").value;
+  const planos =
+    document.getElementById("planos").options[
+      document.getElementById("planos").selectedIndex
+    ].text;
+  const valor = document.getElementById("valor").value;
+
+  document.getElementById(
+    "modal-title"
+  ).textContent = `${nome}, seu benefício foi resgatado com sucesso!`;
+  document.getElementById("selected-plan").textContent = planos;
+  document.getElementById("selected-value").textContent = valor;
+
+  // Exibir o modal
   document.getElementById("modal").style.display = "flex";
 }
 
+// Função para fechar o modal
 function closeModal() {
   document.getElementById("modal").style.display = "none";
 }
 
 // Adiciona o evento de clique ao botão de envio para mostrar o modal
 document.getElementById("send-button").addEventListener("click", showModal);
+
+// Atualiza o valor do plano ao carregar a página e ao mudar a seleção do plano
+window.addEventListener("load", atualizarValorPlano);
+document
+  .getElementById("planos")
+  .addEventListener("change", atualizarValorPlano);
+
+// JavaScript
+
+// Função para mostrar o modal
+function showModal() {
+  const nome = document.getElementById("nome").value;
+  const planos =
+    document.getElementById("planos").options[
+      document.getElementById("planos").selectedIndex
+    ].text;
+  const valor = document.getElementById("valor").value;
+
+  // Atualiza o conteúdo do modal
+  document.getElementById(
+    "modal-title"
+  ).textContent = `${nome}, seu benefício foi resgatado com sucesso!`;
+  document.getElementById("selected-plan").textContent = planos;
+  document.getElementById("selected-value").textContent = valor;
+
+  // Exibe o modal
+  document.getElementById("modal").style.display = "flex";
+}
+
+// Função para fechar o modal
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+
+// Atualiza o valor do plano ao carregar a página e ao mudar a seleção do plano
+function atualizarValorPlano() {
+  const valorInput = document.getElementById("valor");
+  const selectedValue = document.getElementById("planos").value;
+
+  let valorPlano;
+  switch (selectedValue) {
+    case "1":
+      valorPlano = "Gratuito";
+      break;
+    case "2":
+      valorPlano = "R$ 45,80";
+      break;
+    case "3":
+      valorPlano = "R$ 119,90";
+      break;
+    default:
+      valorPlano = "";
+  }
+
+  valorInput.value = valorPlano;
+}
+
+document
+  .getElementById("planos")
+  .addEventListener("change", atualizarValorPlano);
+window.addEventListener("load", atualizarValorPlano);
+
+document.getElementById("planos").addEventListener("change", function () {
+  const valorInput = document.getElementById("valor");
+  const selectedValue = this.value;
+  let valor;
+
+  switch (selectedValue) {
+    case "1":
+      valor = "Gratuito";
+      break;
+    case "2":
+      valor = "R$ 45,80";
+      break;
+    case "3":
+      valor = "R$ 119,90";
+      break;
+    default:
+      valor = "";
+  }
+
+  valorInput.value = valor;
+});
+
+document.getElementById("send-button").addEventListener("click", function () {
+  const nome = document.getElementById("nome").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const telefone = document.getElementById("telefone").value.trim();
+  const valor = document.getElementById("valor").value.trim();
+
+  if (!validateName(nome)) {
+    showWarningModal("Aviso", "Por favor, insira um nome completo.");
+  } else if (!validateEmail(email)) {
+    showWarningModal("Aviso", "Por favor, insira um e-mail válido.");
+  } else if (!validatePhone(telefone)) {
+    showWarningModal(
+      "Aviso",
+      "Por favor, insira um número de telefone válido no formato (xx) xxxx-xxxx ou (xx) xxxxx-xxxx."
+    );
+  } else if (valor === "") {
+    showWarningModal("Aviso", "Por favor, selecione um plano.");
+  } else {
+    // Chama a função do modal de confirmação, se necessário
+    // showConfirmationModal(); // Exemplo, ajuste conforme sua implementação
+  }
+});
+
+function validateName(name) {
+  // O nome deve conter pelo menos duas palavras separadas por espaço
+  return name.split(" ").length >= 2;
+}
+
+function validateEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
+}
+
+function validatePhone(phone) {
+  const re = /^\(\d{2}\) \d{4,5}-\d{4}$/;
+  return re.test(phone);
+}
+
+function formatPhoneNumber(value) {
+  // Remove tudo que não é dígito
+  const cleaned = value.replace(/\D/g, "");
+
+  // Adiciona a formatação
+  if (cleaned.length <= 10) {
+    return cleaned.replace(/^(\d{2})(\d{4})(\d{4})$/, "($1) $2-$3");
+  } else {
+    return cleaned.replace(/^(\d{2})(\d{5})(\d{4})$/, "($1) $2-$3");
+  }
+}
+
+document.getElementById("telefone").addEventListener("input", function (event) {
+  event.target.value = formatPhoneNumber(event.target.value);
+});
+
+// Prevenir o envio do formulário ao pressionar Enter no campo telefone
+document
+  .getElementById("telefone")
+  .addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault(); // Impede o comportamento padrão (submissão do formulário)
+    }
+  });
+
+// Prevenir o envio do formulário ao pressionar Enter em qualquer lugar do formulário
+document
+  .getElementById("subscribe-form")
+  .addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault(); // Impede o comportamento padrão (submissão do formulário)
+    }
+  });
+
+function showWarningModal(title, message) {
+  document.getElementById("warning-title").innerText = title;
+  document.getElementById("warning-message").innerText = message;
+  document.getElementById("warning-modal").style.display = "flex";
+}
+
+function closeWarningModal(event) {
+  event.preventDefault(); // Impede o comportamento padrão do clique
+  document.getElementById("warning-modal").style.display = "none";
+}
+
+// Adicionar evento de clique ao botão de fechar no modal de aviso
+document
+  .querySelector(".cta-button.secondary")
+  .addEventListener("click", closeWarningModal);

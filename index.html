@@ -938,83 +938,88 @@
             </div>
             <div class="col-lg-6">
               <div class="subscribe-form mt-50">
-                <form action="#">
-                  <input type="text" placeholder="Nome e sobrenome" />
-                  <input type="text" placeholder="E-mail" />
-                  <input type="text" placeholder="Telefone" />
-                  <select name="planos" id="">
+                <form
+                  action="#"
+                  id="subscribe-form"
+                  style="text-align: left; font-weight: 600"
+                >
+                  <label for="nome">Nome e sobrenome</label>
+                  <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    placeholder="Nome e sobrenome"
+                    required
+                  />
+
+                  <label for="email">E-mail</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="E-mail"
+                    required
+                  />
+
+                  <label for="telefone">Telefone</label>
+                  <input
+                    type="tel"
+                    id="telefone"
+                    name="telefone"
+                    placeholder="Telefone"
+                    required
+                  />
+
+                  <label for="planos">Selecione o plano</label>
+                  <select name="planos" id="planos">
                     <option value="1">Plano cooperado DentalUni</option>
                     <option value="2">Plano para consultórios</option>
                     <option value="3">Plano para clínicas</option>
                   </select>
-                  <!-- Trigger Button -->
+
+                  <label for="valor">Valor do Plano</label>
+                  <input
+                    type="text"
+                    id="valor"
+                    name="valor"
+                    placeholder="Valor do Plano"
+                    readonly
+                  />
+
                   <button id="send-button" type="button">Enviar</button>
 
-                  <!-- Modal Structure -->
-                  <div id="modal" class="modal">
+                  <!-- Modal de Aviso -->
+                  <div id="warning-modal" class="modal" style="display: none">
                     <div class="modal-content">
-                      <!-- Modal Header -->
                       <div class="modal-header" style="flex-direction: column">
-                        <img src="./assets/images/about/check.png" alt="check" style="
-                        width: 120px;
-                        margin-left: -20px;
-                    ">
-                        <h2>Gabriel, seu benefício foi resgatado com sucesso!</h2>
-                        <p>Em breve, nossa equipe entrará em contato.</p>
+                        <h2 id="warning-title"></h2>
+                        <p id="warning-message"></p>
                       </div>
-                      <!-- Modal Body -->
                       <div class="modal-body">
-                        <ul>
-                          <li>
-                            <span>Plano cooperado DentalUni</span>
-                          </li>
-                          <li>
-                            <span>Solicitado 22/08/2024</span>
-                          </li>
-                          <li>
-                            <span>Valor do plano:</span>
-                            <span>Gratuito</span>
-                          </li>
-                        </ul>
+                        <!-- Conteúdo do modal -->
                       </div>
-                      <!-- Modal CTA -->
                       <div class="cta-buttons">
                         <button
+                          style="
+                            align-items: center;
+                            justify-content: center;
+                            display: flex;
+                          "
                           class="cta-button secondary"
-                          onclick="closeModal()"
+                          onclick="closeWarningModal(event)"
                         >
-                          Voltar
-                        </button>
-                        <button class="cta-button primary">
-                          Entrar em contato
+                          Fechar
                         </button>
                       </div>
                     </div>
                   </div>
-
-                  <!-- Background Noise SVG -->
-                  <svg id="background-noise">
-                    <filter id="noise">
-                      <feTurbulence
-                        type="fractalNoise"
-                        baseFrequency=".8"
-                        numOctaves="5"
-                        stitchTiles="stitch"
-                      ></feTurbulence>
-                      <feColorMatrix type="saturate" values="0"></feColorMatrix>
-                    </filter>
-                    <rect
-                      width="100%"
-                      height="100%"
-                      filter="url(#noise)"
-                    ></rect>
-                  </svg>
                 </form>
               </div>
             </div>
           </div>
           <!-- row -->
         </div>
+
         <!-- subscribe area -->
         <div class="footer-widget pb-100">
           <div class="row" style="justify-content: space-between">
