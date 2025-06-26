@@ -1,1168 +1,1275 @@
 <!DOCTYPE html>
-<html class="no-js" lang="pt-br">
+<html lang="pt-br" class="scroll-smooth">
   <head>
-    <meta charset="utf-8" />
-
-    <!--====== Title ======-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OiAna - Sua Assistente Digital</title>
+    <meta
+      name="description"
+      content="A parceria que transforma seu consultório com a OiAna e DentalUni."
+    />
 
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!--====== Favicon Icon ======-->
     <link
       rel="shortcut icon"
       href="assets/images/favicon.png"
       type="image/png"
     />
 
-    <!--====== CSS Files LinkUp ======-->
-    <link rel="stylesheet" href="assets/css/animate.css" />
-    <link rel="stylesheet" href="assets/css/glightbox.min.css" />
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
-      href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css"
     />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+            },
+            colors: {
+              "oiana-roxo": "#5a425a",
+              "oiana-rosa": "#d4799e",
+              "oiana-rosa-claro": "#e08dad",
+              "oiana-cinza-dark": "#374151",
+              "oiana-cinza": "#6b7280",
+              "oiana-cinza-light": "#d1d5db",
+            },
+          },
+        },
+      };
+    </script>
   </head>
 
-  <body>
-    <div class="preloader">
-      <div class="loader">
-        <div class="spinner">
-          <div class="spinner-container">
-            <div class="spinner-rotator">
-              <div class="spinner-left">
-                <div class="spinner-circle"></div>
-              </div>
-              <div class="spinner-right">
-                <div class="spinner-circle"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!--====== HEADER PART START ======-->
-    <header class="header-area">
-      <div class="navbar-area">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="index.html">
-                  <img
-                    src="assets/images/logo/logo.png"
-                    alt="Logo"
-                    style="width: 35%"
-                  />
-                </a>
-                <button
-                  class="navbar-toggler"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#navbarSupportedContent"
-                  aria-controls="navbarSupportedContent"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation"
-                >
-                  <span class="toggler-icon"> </span>
-                  <span class="toggler-icon"> </span>
-                  <span class="toggler-icon"> </span>
-                </button>
-
-                <div
-                  class="collapse navbar-collapse sub-menu-bar"
-                  id="navbarSupportedContent"
-                >
-                  <ul id="nav" class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                      <a class="page-scroll active" href="#home">Início</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="page-scroll" href="#features">Serviços</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="page-scroll" href="#about">Sobre</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="page-scroll" href="#facts">Parceria</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="page-scroll" href="#prices">Planos</a>
-                    </li>
-                  </ul>
-                </div>
-                <!-- navbar collapse -->
-
-                <div class="d-none d-sm-inline-block">
-                  <a
-                    class="main-btn"
-                    data-scroll-nav="0"
-                    href="#prices"
-                    id="dental"
-                  >
-                    Resgatar benefício
-                  </a>
-                </div>
-              </nav>
-              <!-- navbar -->
-            </div>
-          </div>
-          <!-- row -->
-        </div>
-        <!-- container -->
-      </div>
-      <!-- navbar area -->
-
-      <div
-        id="home"
-        class="header-hero bg_cover"
-        style="
-          background-image: url(assets/images/header/banner-bg-bordo-1.svg);
-        "
-      >
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-8">
-              <div class="header-hero-content text-center">
-                <h2
-                  class="header-title wow fadeInUp"
-                  data-wow-duration="1.3s"
-                  data-wow-delay="0.5s"
-                >
-                  Transforme seu consultório <br />e dê o próximo passo!
-                </h2>
-                <p
-                  class="text wow fadeInUp"
-                  data-wow-duration="1.3s"
-                  data-wow-delay="0.8s"
-                >
-                  O primeiro sistema com integração <strong>DentaUni</strong>!
-                  <br />
-                  Quer receber a demanda <strong>DentalUni</strong> e aumentar
-                  sua produção agora?
-                </p>
-                <a
-                  href="#features"
-                  class="main-btn wow fadeInUp"
-                  data-wow-duration="1.3s"
-                  data-wow-delay="1.1s"
-                >
-                  Conheça a OiAna
-                </a>
-              </div>
-              <!-- header hero content -->
-            </div>
-          </div>
-          <!-- row -->
-          <div class="row">
-            <div class="col-lg-12">
-              <div
-                class="header-hero-image text-center wow fadeIn"
-                data-wow-duration="1.3s"
-                data-wow-delay="1.4s"
-              >
-                <img src="assets/images/header/header-hero-1.png" alt="hero" />
-              </div>
-              <!-- header hero image -->
-            </div>
-          </div>
-          <!-- row -->
-        </div>
-        <!-- container -->
-        <div id="particles-1" class="particles"></div>
-      </div>
-      <!-- header hero -->
-    </header>
-    <!--====== HEADER PART ENDS ======-->
-
-    <!--====== BRAND PART START ======-->
-    <div class="brand-area pt-90">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div
-              class="brand-logo d-flex align-items-center justify-content-center justify-content-md-between"
-            >
-              <div
-                class="single-logo mt-30 wow fadeIn"
-                data-wow-duration="1s"
-                data-wow-delay="0.2s"
-              >
-                <img
-                  src="assets/images/brands/dental.png"
-                  alt="brand"
-                  style="width: 100%"
-                />
-              </div>
-              <!-- single logo -->
-              <div
-                class="single-logo mt-30 wow fadeIn"
-                data-wow-duration="1.5s"
-                data-wow-delay="0.2s"
-              >
-                <img src="assets/images/brands/odontic.png" alt="brand" />
-              </div>
-              <!-- single logo -->
-              <div
-                class="single-logo mt-30 wow fadeIn"
-                data-wow-duration="1.5s"
-                data-wow-delay="0.3s"
-              >
-                <img src="assets/images/brands/acerteaqui.png" alt="brand" />
-              </div>
-              <!-- single logo -->
-              <div
-                class="single-logo mt-30 wow fadeIn"
-                data-wow-duration="1.5s"
-                data-wow-delay="0.4s"
-              >
-                <img src="assets/images/brands/odonto.png" alt="brand" />
-              </div>
-              <!-- single logo -->
-
-              <!-- single logo -->
-            </div>
-            <!-- brand logo -->
-          </div>
-        </div>
-        <!-- row -->
-      </div>
-      <!-- container -->
-    </div>
-    <!--====== BRAND PART ENDS ======-->
-
-    <!--====== SERVICES PART START ======-->
-    <section id="features" class="services-area pt-120">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <div class="section-title text-center pb-40">
-              <div class="line m-auto"></div>
-              <h3 class="title">
-                Simples e objetivo,
-                <span
-                  >tudo que você precisa para <br />consolidar o seu
-                  consultório!</span
-                >
-              </h3>
-            </div>
-            <!-- section title -->
-          </div>
-        </div>
-        <!-- row -->
-        <div class="row justify-content-center">
-          <div class="col-lg-4 col-md-7 col-sm-8">
-            <div
-              class="single-services text-center mt-30 wow fadeIn"
-              data-wow-duration="1s"
-              data-wow-delay="0.2s"
-            >
-              <div class="services-icon">
-                <img
-                  class="shape"
-                  src="assets/images/services/services-shape.svg"
-                  alt="shape"
-                />
-                <img
-                  class="shape-1"
-                  src="assets/images/services/services-shape-1.svg"
-                  alt="shape"
-                />
-                <i
-                  ><img
-                    src="./assets/images/services/agenda.png"
-                    alt=""
-                    srcset=""
-                /></i>
-              </div>
-              <div class="services-content mt-30">
-                <h4 class="services-title">
-                  <a href="#agenda">Agenda Online</a>
-                </h4>
-                <p class="text">
-                  Tenha total controle dos seus agendamentos com uma agenda
-                  dinâmica e descomplicada.
-                </p>
-                <a class="more" href="#agenda"
-                  >Saiba Mais <i class="lnr lnr-chevron-right"> </i>
-                </a>
-              </div>
-            </div>
-            <!-- single services -->
-          </div>
-          <div class="col-lg-4 col-md-7 col-sm-8">
-            <div
-              class="single-services text-center mt-30 wow fadeIn"
-              data-wow-duration="1s"
-              data-wow-delay="0.5s"
-            >
-              <div class="services-icon">
-                <img
-                  class="shape"
-                  src="assets/images/services/services-shape.svg"
-                  alt="shape"
-                />
-                <img
-                  class="shape-1"
-                  src="assets/images/services/services-shape-1.svg"
-                  alt="shape"
-                />
-                <i
-                  ><img
-                    src="./assets/images/services/guia.png"
-                    alt=""
-                    srcset=""
-                /></i>
-              </div>
-              <div class="services-content mt-30">
-                <h4 class="services-title">
-                  <a href="#guias">Emissão de Guias</a>
-                </h4>
-                <p class="text">
-                  Primeiro sistema a emitir guias diretamente no sistema
-                  <strong>DentalUni</strong>.
-                </p>
-                <a class="more" href="#guias"
-                  >Saiba Mais <i class="lnr lnr-chevron-right"> </i>
-                </a>
-              </div>
-            </div>
-            <!-- single services -->
-          </div>
-          <div class="col-lg-4 col-md-7 col-sm-8">
-            <div
-              class="single-services text-center mt-30 wow fadeIn"
-              data-wow-duration="1s"
-              data-wow-delay="0.8s"
-            >
-              <div class="services-icon">
-                <img
-                  class="shape"
-                  src="assets/images/services/services-shape.svg"
-                  alt="shape"
-                />
-                <img
-                  class="shape-1"
-                  src="assets/images/services/services-shape-1.svg"
-                  alt="shape"
-                />
-                <i
-                  ><img
-                    src="./assets/images/services/portal.png"
-                    alt=""
-                    srcset=""
-                /></i>
-              </div>
-              <div class="services-content mt-30">
-                <h4 class="services-title">
-                  <a href="#demanda">Portal DentalUni</a>
-                </h4>
-                <p class="text">
-                  Disponibilize sua agenda no portal
-                  <strong>DentalUni</strong> e receba clientes via
-                  autoagendamento.
-                </p>
-                <a class="more" href="#demanda"
-                  >Saiba Mais <i class="lnr lnr-chevron-right"> </i>
-                </a>
-              </div>
-            </div>
-            <!-- single services -->
-          </div>
-        </div>
-        <!-- row -->
-      </div>
-      <!-- container -->
-    </section>
-    <!--====== SERVICES PART ENDS ======-->
-
-    <section id="about">
-      <!--====== ABOUT PART START ======-->
-      <div class="about-area pt-70" id="agenda">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-6">
-              <div
-                class="about-content mt-50 wow fadeInLeftBig"
-                data-wow-duration="1s"
-                data-wow-delay="0.5s"
-              >
-                <div class="section-title">
-                  <div class="line"></div>
-                  <h3 class="title">
-                    Agenda Online <span>descomplicada e funcional</span>
-                  </h3>
-                </div>
-                <!-- section title -->
-                <p class="text">
-                  Com a Agenda OiAna, você terá total controle de seus
-                  agendamentos, otimizando seu tempo para se concentrar nas
-                  tarefas que realmente importam. Além disso, você pode
-                  disponibilizar horários em que normalmente não estaria
-                  atendendo, permitindo que os beneficiários o encontrem e
-                  agendem suas consultas com facilidade.
-                </p>
-                <a href="#prices" class="main-btn">Gostei!</a>
-              </div>
-              <!-- about content -->
-            </div>
-            <div class="col-lg-6">
-              <div
-                class="about-image text-center mt-50 wow fadeInRightBig"
-                data-wow-duration="1s"
-                data-wow-delay="0.5s"
-              >
-                <img src="assets/images/header/header-hero.png" alt="about" />
-              </div>
-              <!-- about image -->
-            </div>
-          </div>
-          <!-- row -->
-        </div>
-        <!-- container -->
-        <div class="about-shape-1">
-          <img src="assets/images/about/wave-2.png" alt="shape" />
-        </div>
-      </div>
-      <!--====== ABOUT PART ENDS ======-->
-
-      <!--====== ABOUT PART START ======-->
-      <div class="about-area pt-70" id="guias">
-        <div class="about-shape-2">
-          <img src="assets/images/about/wave-1.png" alt="shape" />
-        </div>
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-lg-6 order-lg-last">
-              <div
-                class="about-content ms-lg-auto mt-50 wow fadeInLeftBig"
-                data-wow-duration="1s"
-                data-wow-delay="0.5s"
-              >
-                <div class="section-title">
-                  <div class="line"></div>
-                  <h3 class="title">
-                    Emissão de guias
-                    <span>diretamente no portal DentalUni</span>
-                  </h3>
-                </div>
-                <!-- section title -->
-                <p class="text">
-                  Devido à longa parceria e confiança com a DentalUni, a OiAna
-                  tornou-se o primeiro sistema a integrar-se ao SIO. Essa
-                  integração oferece mais praticidade, maior controle e
-                  tranquilidade no dia a dia do consultório!
-                </p>
-                <a href="#prices" class="main-btn">Emitir guias</a>
-              </div>
-              <!-- about content -->
-            </div>
-            <div class="col-lg-6 order-lg-first">
-              <div
-                class="about-image text-center mt-50 wow fadeInRightBig"
-                data-wow-duration="1s"
-                data-wow-delay="0.5s"
-              >
-                <img src="assets/images/about/pc-3.png" alt="about" />
-              </div>
-              <!-- about image -->
-            </div>
-          </div>
-          <!-- row -->
-        </div>
-        <!-- container -->
-      </div>
-
-      <div class="about-area pt-70" id="demanda">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-6">
-              <div
-                class="about-content mt-50 wow fadeInLeftBig"
-                data-wow-duration="1s"
-                data-wow-delay="0.5s"
-              >
-                <div class="section-title">
-                  <div class="line"></div>
-                  <h3 class="title">
-                    <span>Receba a demanda DentalUni</span> diretamente no seu
-                    consultório!
-                  </h3>
-                </div>
-                <!-- section title -->
-                <p class="text">
-                  A DentalUni sabe que muitos beneficiários enfrentam
-                  dificuldades para encontrar atendimento com dentistas
-                  conveniados. Para resolver esse problema, a DentalUni, em
-                  parceria com a OiAna, desenvolveu uma solução eficiente.
-                  Agora, o sistema OiAna oferece ferramentas que permitem aos
-                  dentistas disponibilizar seus horários preferenciais
-                  diretamente no portal. Dessa forma, os beneficiários podem
-                  agendar consultas de forma prática e rápida. Gostaria de
-                  receber essa demanda?
-                </p>
-                <a href="#prices" class="main-btn">Eu quero!</a>
-              </div>
-              <!-- about content -->
-            </div>
-            <div class="col-lg-6">
-              <div
-                class="about-image text-center mt-50 wow fadeInRightBig"
-                data-wow-duration="1s"
-                data-wow-delay="0.5s"
-              >
-                <img src="assets/images/services/cliente.png" alt="about" />
-              </div>
-              <!-- about image -->
-            </div>
-          </div>
-          <!-- row -->
-        </div>
-        <!-- container -->
-        <div class="about-shape-1">
-          <img src="assets/images/about/wave-2.png" alt="shape" />
-        </div>
-      </div>
-      <!--====== ABOUT PART ENDS ======-->
-    </section>
-
-    <!--====== VIDEO COUNTER PART START ======-->
-    <section id="facts" class="video-counter pt-70">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 order-lg-last">
-            <div
-              class="counter-wrapper mt-50 wow fadeIn"
-              data-wow-duration="1s"
-              data-wow-delay="0.8s"
-            >
-              <div class="counter-content">
-                <div class="section-title">
-                  <div class="line"></div>
-                  <h3 class="title">
-                    OiAna + DentalUni <span> uma parceria antiga!</span>
-                  </h3>
-                </div>
-                <!-- section title -->
-                <p class="text">
-                  Nós, da OiAna, temos o orgulho de ser parceiros da DentalUni
-                  há incríveis 6 anos, oferecendo soluções tecnológicas para os
-                  desafios do dia a dia enfrentados por nossos dentistas
-                  cooperados e credenciados. Para fortalecer ainda mais essa
-                  parceria, a OiAna disponibiliza planos e funcionalidades
-                  exclusivas para os conveniados da DentalUni. Ao todo, são:
-                </p>
-              </div>
-              <!-- counter content -->
-              <div class="row no-gutters">
-                <div class="col-4">
-                  <div
-                    class="single-counter counter-color-1 d-flex align-items-center justify-content-center"
-                  >
-                    <div class="counter-items text-center">
-                      <span class="count text-uppercase">6 Anos</span>
-
-                      <p class="text">de parceria</p>
-                    </div>
-                  </div>
-                  <!-- single counter -->
-                </div>
-                <div class="col-4">
-                  <div
-                    class="single-counter counter-color-2 d-flex align-items-center justify-content-center"
-                  >
-                    <div class="counter-items text-center">
-                      <span class="count text-uppercase">+ DE 2K</span>
-                      <p class="text">Licenças OiAna vendidas</p>
-                    </div>
-                  </div>
-                  <!-- single counter -->
-                </div>
-                <div class="col-4">
-                  <div
-                    class="single-counter counter-color-3 d-flex align-items-center justify-content-center"
-                  >
-                    <div class="counter-items text-center">
-                      <span class="count text-uppercase">+ DE 10K</span>
-                      <p class="text">Agendamentos mensais</p>
-                    </div>
-                  </div>
-                  <!-- single counter -->
-                </div>
-              </div>
-              <!-- row -->
-            </div>
-            <!-- counter wrapper -->
-          </div>
-          <div class="col-lg-6">
-            <div
-              class="video-content mt-50 wow fadeIn"
-              data-wow-duration="1s"
-              data-wow-delay="0.5s"
-            >
-              <img class="dots" src="assets/images/video/dots.svg" alt="dots" />
-              <div class="video-wrapper">
-                <div class="video-image">
-                  <img src="assets/images/video/video.png" alt="video" />
-                </div>
-                <div class="video-icon">
-                  <a
-                    href="https://www.youtube.com/watch?v=r44RKWyfcFw"
-                    class="video-popup glightbox"
-                  >
-                    <i class="lnr lnr-film-play"></i>
-                  </a>
-                </div>
-              </div>
-              <!-- video wrapper -->
-            </div>
-            <!-- video content -->
-          </div>
-        </div>
-        <!-- row -->
-      </div>
-      <!-- container -->
-    </section>
-    <!--====== VIDEO COUNTER PART ENDS ======-->
-
-    <!-- Start Pricing Table Area -->
-    <section
-      id="prices"
-      class="pricing-table section"
-      style="padding-top: 80px"
+  <body
+    class="font-poppins antialiased text-oiana-cinza-dark bg-[radial-gradient(ellipse_at_top,_#f7f5f7_30%,#fdeff5)]"
+  >
+    <header
+      class="bg-white shadow-sm sticky top-0 z-50 transition-opacity duration-1000 ease-out"
     >
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div
-              class="section-title"
-              style="
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-              "
-            >
-              <h2 class="wow fadeInUp" data-wow-delay=".4s">
-                Resgate seu benefício
-              </h2>
-              <p class="wow fadeInUp" data-wow-delay=".6s">
-                Planos que se adaptam à sua realidade.
-              </p>
-            </div>
-          </div>
+      <nav
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a href="#home" class="flex-shrink-0">
+          <img
+            class="h-8 w-auto sm:h-10"
+            src="assets/images/logo/logo-dark.png"
+            alt="Logo OiAna"
+          />
+        </a>
+        <div class="hidden lg:flex items-center space-x-8">
+          <a
+            href="#features"
+            class="text-sm font-semibold text-gray-700 hover:text-oiana-rosa transition"
+            >Serviços</a
+          >
+          <a
+            href="#about"
+            class="text-sm font-semibold text-gray-700 hover:text-oiana-rosa transition"
+            >Sobre</a
+          >
+          <a
+            href="#facts"
+            class="text-sm font-semibold text-gray-700 hover:text-oiana-rosa transition"
+            >Parceria</a
+          >
         </div>
-        <div class="row" style="display: flex; justify-content: center">
-          <div class="col-lg-4 col-md-6 col-12">
-            <!-- Single Table -->
-            <div
-              class="single-table wow fadeInUp"
-              data-wow-delay=".4s"
-              style="
-                visibility: visible;
-                animation-delay: 0.4s;
-                animation-name: fadeInUp;
-                box-shadow: 0px 10px 60px #00ff7f;
-                outline: 1px solid #2b9962;
-                border-radius: 10px;
-              "
+        <div class="hidden lg:flex items-center">
+          <a
+            href="#form"
+            class="bg-oiana-rosa text-white text-sm font-bold py-2 px-5 rounded-md hover:bg-oiana-rosa-claro transition shadow-sm"
+            >Resgatar Benefício</a
+          >
+        </div>
+        <div class="lg:hidden">
+          <button
+            id="mobile-menu-button"
+            class="text-gray-700 focus:outline-none"
+          >
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              <!-- Table Head -->
-              <div class="table-head">
-                <h4 class="title">Cooperado DentalUni</h4>
-                <p>Plano de Cortesia para Cooperados DentalUni</p>
-                <div class="price">
-                  <h2 class="amount">GRATUITO<span class="duration"></span></h2>
-                </div>
-                <div class="button">
-                  <a href="#form" class="btn" id="dental-2"
-                    >Resgatar benefício
-                  </a>
-                </div>
-              </div>
-              <!-- End Table Head -->
-              <!-- Start Table Content -->
-              <div class="table-content">
-                <h4 class="middle-title">Funcionalidades:</h4>
-                <!-- Table List -->
-                <ul class="table-list">
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> 1 Usuário
-                  </li>
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> 1 Agenda
-                  </li>
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> Assistente de
-                    Agendamento
-                  </li>
-                  <li>
-                    <i class="lnr lnr-cross-circle red"></i> SMS ilimitados
-                  </li>
-                  <li>
-                    <i class="lnr lnr-cross-circle red"></i> Pacientes
-                    ilimitados
-                  </li>
-                  <li>
-                    <i class="lnr lnr-cross-circle red"></i> Armazenamento
-                    Ilimitado
-                  </li>
-                  <li>
-                    <i class="lnr lnr-cross-circle red"></i> APP para Celular
-                  </li>
-                  <li>
-                    <i class="lnr lnr-cross-circle red"></i> Controle Financeiro
-                  </li>
-                  <li>
-                    <i class="lnr lnr-cross-circle red"></i> Pagamento do
-                    serviço no agendamento
-                  </li>
-                  <li>
-                    <i class="lnr lnr-cross-circle red"></i> Controle de
-                    produção/comissão de equipe
-                  </li>
-                  <li>
-                    <i class="lnr lnr-cross-circle red"></i> Prontuário
-                    eletrônico
-                  </li>
-                  <li>
-                    <i class="lnr lnr-cross-circle red"></i> Receituário
-                    eletrônico
-                  </li>
-                  <li>
-                    <i class="lnr lnr-cross-circle red"></i> Consultas e
-                    relatórios
-                  </li>
-                </ul>
-                <!-- End Table List -->
-              </div>
-              <!-- End Table Content -->
-            </div>
-            <!-- End Single Table-->
-          </div>
-          <div class="col-lg-4 col-md-6 col-12">
-            <!-- Single Table -->
-            <div class="single-table wow fadeInUp" data-wow-delay=".2s">
-              <!-- Table Head -->
-              <div class="table-head">
-                <h4 class="title">Plano para consultórios</h4>
-                <p>Plano Especial para Profissionais Liberais e Autônomos</p>
-                <div class="price">
-                  <h2 class="amount">
-                    R$ 45,80<span class="duration">/mês</span>
-                  </h2>
-                </div>
-                <div class="button">
-                  <a id="consultorio" href="#form" class="btn">Comprar</a>
-                </div>
-              </div>
-              <!-- End Table Head -->
-              <!-- Start Table Content -->
-              <div class="table-content">
-                <h4 class="middle-title">Funcionalidades:</h4>
-                <!-- Table List -->
-                <ul class="table-list">
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> 1 Usuário
-                  </li>
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> 1 Agenda
-                  </li>
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> Assistente de
-                    Agendamento
-                  </li>
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> SMS
-                    ilimitados
-                  </li>
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> Pacientes
-                    ilimitados
-                  </li>
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> Armazenamento
-                    Ilimitado
-                  </li>
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> APP para
-                    Celular
-                  </li>
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> Controle
-                    Financeiro
-                  </li>
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> Pagamento do
-                    serviço no agendamento
-                  </li>
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> Controle de
-                    produção/comissão de equipe
-                  </li>
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> Prontuário
-                    eletrônico
-                  </li>
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> Receituário
-                    eletrônico
-                  </li>
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> Consultas e
-                    relatórios
-                  </li>
-                </ul>
-
-                <!-- End Table List -->
-              </div>
-              <!-- End Table Content -->
-            </div>
-            <!-- End Single Table-->
-          </div>
-
-          <div class="col-lg-4 col-md-6 col-12">
-            <!-- Single Table -->
-            <div class="single-table wow fadeInUp" data-wow-delay=".6s">
-              <!-- Table Head -->
-              <div class="table-head">
-                <h4 class="title">Plano para clínicas</h4>
-                <p>Plano Exclusivo para Clínicas com Equipes de Dentistas</p>
-                <div class="price">
-                  <h2 class="amount">
-                    R$ 119,90<span class="duration">/mês</span>
-                  </h2>
-                </div>
-                <div class="button">
-                  <a id="clinicas" href="#form" class="btn">Comprar</a>
-                </div>
-              </div>
-              <!-- End Table Head -->
-              <!-- Start Table Content -->
-              <div class="table-content">
-                <h4 class="middle-title">Funcionalidades:</h4>
-                <!-- Table List -->
-                <ul class="table-list">
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> Usuários
-                    ilimitados
-                  </li>
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> Agendas
-                    ilimitadas
-                  </li>
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> Assistente de
-                    Agendamento
-                  </li>
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> SMS
-                    ilimitados
-                  </li>
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> Pacientes
-                    ilimitados
-                  </li>
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> Armazenamento
-                    Ilimitado
-                  </li>
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> APP para
-                    Celular
-                  </li>
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> Controle
-                    Financeiro
-                  </li>
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> Pagamento do
-                    serviço no agendamento
-                  </li>
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> Controle de
-                    produção/comissão de equipe
-                  </li>
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> Prontuário
-                    eletrônico
-                  </li>
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> Receituário
-                    eletrônico
-                  </li>
-                  <li>
-                    <i class="lnr lnr-checkmark-circle green"></i> Consultas e
-                    relatórios
-                  </li>
-                </ul>
-                <!-- End Table List -->
-              </div>
-              <!-- End Table Content -->
-            </div>
-            <!-- End Single Table-->
-          </div>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+      <div id="mobile-menu" class="hidden lg:hidden">
+        <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
+          <a
+            href="#features"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-oiana-rosa hover:bg-gray-50"
+            >Serviços</a
+          >
+          <a
+            href="#about"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-oiana-rosa hover:bg-gray-50"
+            >Sobre</a
+          >
+          <a
+            href="#facts"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-oiana-rosa hover:bg-gray-50"
+            >Parceria</a
+          >
+          <a
+            href="#form"
+            class="block mt-4 mx-2 bg-oiana-rosa text-white text-center font-bold py-2 px-6 rounded-md hover:bg-oiana-rosa-claro transition"
+            >Resgatar Benefício</a
+          >
         </div>
       </div>
-    </section>
-    <!--/ End Pricing Table Area -->
+    </header>
 
-    <!--====== FOOTER PART START ======-->
-    <footer id="form" class="footer-area pt-120">
-      <div class="container">
+    <main>
+      <div class="relative isolate overflow-hidden">
         <div
-          class="subscribe-area wow fadeIn"
-          data-wow-duration="1s"
-          data-wow-delay="0.5s"
+          class="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl"
+          aria-hidden="true"
         >
           <div
-            class="row"
+            class="mx-auto aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-20"
             style="
-              flex-direction: column;
-              justify-content: center;
-              text-align: center;
-              align-items: center;
+              clip-path: polygon(
+                74.1% 44.1%,
+                100% 61.6%,
+                97.5% 26.9%,
+                85.5% 0.1%,
+                80.7% 2%,
+                72.5% 32.5%,
+                60.2% 62.4%,
+                52.4% 68.1%,
+                47.5% 58.3%,
+                45.2% 34.5%,
+                27.5% 76.7%,
+                0.1% 64.9%,
+                17.9% 100%,
+                27.6% 76.8%,
+                76.1% 97.7%,
+                74.1% 44.1%
+              );
             "
+          ></div>
+        </div>
+        <div
+          class="mx-auto max-w-7xl px-6 pt-10 pb-24 sm:pb-32 lg:flex lg:px-8 lg:py-20"
+        >
+          <div
+            class="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8 anim-fade-in-left"
           >
-            <div class="col-lg-6">
-              <div class="subscribe-content mt-45">
-                <h2 class="subscribe-title">
-                  Resgate seu benefício
-                  <span>preencha todos <br />os campos</span>
-                </h2>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="subscribe-form mt-50">
-                <form
-                  id="subscribe-form"
-                  action="https://api.sheetmonkey.io/form/s1iusZgBY9n2D9E9qxXxcj"
-                  method="POST"
-                  style="text-align: left; font-weight: 600"
+            <div>
+              <a href="#planos" class="inline-flex space-x-6">
+                <span
+                  class="rounded-full bg-oiana-rosa/10 px-3 py-1 text-sm/6 font-semibold text-oiana-rosa ring-1 ring-oiana-rosa/10 ring-inset"
                 >
-                  <label for="nome">Nome e sobrenome</label>
-                  <input
-                    type="text"
-                    id="nome"
-                    name="nome"
-                    placeholder="Nome e sobrenome"
-                    required
-                  />
-
-                  <label for="email">E-mail</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="E-mail"
-                    required
-                  />
-
-                  <label for="telefone">Telefone</label>
-                  <input
-                    type="tel"
-                    id="telefone"
-                    name="telefone"
-                    placeholder="Telefone"
-                    required
-                  />
-
-                  <label for="planos">Selecione o plano</label>
-                  <select name="planos" id="planos">
-                    <option value="1">Plano cooperado DentalUni</option>
-                    <option value="2">Plano para consultórios</option>
-                    <option value="3">Plano para clínicas</option>
-                  </select>
-
-                  <label for="valor">Valor do Plano</label>
-                  <input
-                    type="text"
-                    id="valor"
-                    name="valor"
-                    placeholder="Valor do Plano"
-                    readonly
-                  />
-
-                  <button
-                    id="send-button"
-                    type="button"
-                    style="
-                      display: flex;
-                      justify-content: center;
-                      align-items: center;
-                    "
+                  OiAna + DentalUni</span
+                >
+                <span
+                  class="inline-flex items-center space-x-2 text-sm/6 font-medium text-gray-600"
+                >
+                  <span>Parceria Exclusiva</span>
+                  <svg
+                    class="size-5 text-gray-400"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
                   >
-                    Enviar
-                  </button>
-                </form>
-                <div id="warning-modal" class="modal" style="display: none">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h2 id="warning-title"></h2>
-                    </div>
-                    <div class="modal-body">
-                      <p id="warning-message"></p>
-                    </div>
-                    <div class="modal-footer">
-                      <button onclick="closeWarningModal()">Fechar</button>
-                    </div>
-                  </div>
-                </div>
-                <div id="modal" class="modal" style="display: none">
-                  <div class="modal-content">
-                    <div class="modal-header" style="flex-direction: column">
-                      <img
-                        src="./assets/images/about/check.png"
-                        alt="check"
-                        style="width: 120px; margin-left: -20px"
-                      />
-                      <h2 id="modal-title"></h2>
-                      <p>Em breve, nossa equipe entrará em contato.</p>
-                    </div>
-                    <div class="modal-body">
-                      <ul>
-                        <li><span id="selected-plan"></span></li>
-                        <li>
-                          <span
-                            >Data de solicitação: <span id="request-date"></span
-                          ></span>
-                        </li>
-                        <li>
-                          <span>Valor do plano: </span
-                          ><span id="selected-value"></span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="cta-buttons">
-                      <button
-                        class="cta-button secondary"
-                        style="
-                          align-items: center;
-                          display: flex;
-                          justify-content: center;
-                        "
-                        onclick="closeModal()"
-                      >
-                        Voltar
-                      </button>
-                      <button
-                        id="contact-button"
-                        onclick="contactViaWhatsApp()"
-                      >
-                        Entrar em contato
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                    <path
+                      fill-rule="evenodd"
+                      d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </a>
             </div>
-          </div>
-          <!-- row -->
-        </div>
-
-        <!-- subscribe area -->
-        <div class="footer-widget pb-100">
-          <div class="row" style="justify-content: space-between">
-            <div class="col-lg-4 col-md-6 col-sm-8">
-              <div
-                class="footer-about mt-50 wow fadeIn"
-                data-wow-duration="1s"
-                data-wow-delay="0.2s"
+            <h1
+              class="mt-10 text-5xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-7xl"
+            >
+              Transforme a Gestão do seu Consultório
+            </h1>
+            <p
+              class="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8"
+            >
+              Fortaleça a gestão do seu consultório com a plataforma OiAna,
+              agora com um benefício exclusivo para cooperados e credenciados
+              DentalUni. Modernize seus processos e dedique mais tempo ao que
+              realmente importa: o cuidado com seus pacientes.
+            </p>
+            <div class="mt-10 flex items-center gap-x-6">
+              <a
+                href="#form"
+                class="rounded-md bg-oiana-rosa px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-oiana-rosa-claro focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-oiana-rosa transition-colors"
+                >Resgatar Benefício</a
               >
-                <a class="logo" href="javascript:void(0)">
-                  <img
-                    src="assets/images/logo/logo.png"
-                    alt="logo"
-                    style="width: 35%"
-                  />
-                </a>
-                <p class="text">
-                  A OiAna é uma assistente virtual que te ajuda no dia a dia.
-                  Você pode gerenciar seus contatos com os clientes, organizar
-                  sua agenda e até melhorar sua gestão financeira. Tudo isso e
-                  muito mais em um único lugar.
-                </p>
-                <ul class="social">
-                  <li>
-                    <a href="https://www.facebook.com/oiana.io">
-                      <!-- <i class="lnr lnr-facebook-filled"> </i> -->
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.instagram.com/oiana.io/">
-                      <!-- <i class="lnr lnr-instagram-filled"> </i> -->
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.linkedin.com/in/oiana-contato-b78a6a254/"
-                    >
-                      <!-- <i class="lnr lnr-linkedin-original"> </i> -->
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <!-- footer about -->
-            </div>
-
-            <div class="col-lg-3 col-md-5 col-sm-12">
-              <div
-                class="footer-contact mt-50 wow fadeIn"
-                data-wow-duration="1s"
-                data-wow-delay="0.8s"
+              <a href="#planos" class="text-sm/6 font-semibold text-gray-900"
+                >Conhecer Planos <span aria-hidden="true">→</span></a
               >
-                <div class="footer-title">
-                  <h4 class="title">Contatos</h4>
-                </div>
-                <ul class="contact">
-                  <li>(41) 3411-5202</li>
-                  <li>contato@oiana.com.br</li>
-                  <li>http://oiana.com.br</li>
-                  <li>
-                    Endereço: Rua 24 de maio, 76 - Sala 10 <br />Curitiba-PR |
-                    CEP: 80250-000
-                  </li>
-                </ul>
-              </div>
-              <!-- footer contact -->
             </div>
           </div>
-          <!-- row -->
-        </div>
-        <!-- footer widget -->
-        <div class="footer-copyright">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="copyright d-sm-flex justify-content-between">
-                <div class="copyright-content"></div>
-                <!-- copyright content -->
+          <div
+            class="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:mt-0 lg:mr-0 lg:ml-10 lg:max-w-none lg:flex-none xl:ml-32 anim-fade-in-right"
+          >
+            <div class="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
+              <div
+                class="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-gray-900/10 ring-inset lg:-m-4 lg:rounded-[50px] lg:p-4"
+              >
+                <img
+                  src="assets/images/about/agenda.png"
+                  alt="Plataforma de gestão para consultórios OiAna"
+                  width="2432"
+                  height="1442"
+                  class="w-[76rem] rounded-[50px] ring-1 shadow-2xl ring-gray-900/10"
+                />
               </div>
-              <!-- copyright -->
             </div>
           </div>
-          <!-- row -->
         </div>
-        <!-- footer copyright -->
       </div>
-      <!-- container -->
-      <div id="particles-2"></div>
+
+      <section id="features" class="bg-gray-50 py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div class="mx-auto max-w-2xl lg:mx-0 opacity-0 js-scroll-animation">
+            <h2
+              class="text-3xl font-semibold tracking-tight text-gray-900 lg:text-4xl"
+            >
+              Simples e objetivo, <br />
+              <span class="text-oiana-rosa">tudo que você precisa!</span>
+            </h2>
+            <p class="mt-6 text-lg/8 text-gray-600">
+              Unimos as ferramentas essenciais para a gestão do seu consultório
+              em uma plataforma inteligente, bonita e fácil de usar.
+            </p>
+          </div>
+          <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+            <dl
+              class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3"
+            >
+              <div
+                class="flex flex-col opacity-0 js-scroll-animation"
+                style="transition-delay: 100ms"
+              >
+                <dt class="text-base/7 font-semibold text-gray-900">
+                  <div
+                    class="mb-6 flex size-10 items-center justify-center rounded-lg bg-oiana-rosa"
+                  >
+                    <svg
+                      class="w-8 h-8 size-6 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </div>
+                  Agenda Online
+                </dt>
+                <dd
+                  class="mt-1 flex flex-auto flex-col text-base/7 text-gray-600"
+                >
+                  <p class="flex-auto">
+                    Tenha total controle dos seus agendamentos com uma agenda
+                    dinâmica e descomplicada.
+                  </p>
+                  <p class="mt-6">
+                    <a
+                      href="#about"
+                      class="text-sm/6 font-semibold text-oiana-rosa"
+                      >Saiba Mais <span aria-hidden="true">→</span></a
+                    >
+                  </p>
+                </dd>
+              </div>
+              <div
+                class="flex flex-col opacity-0 js-scroll-animation"
+                style="transition-delay: 200ms"
+              >
+                <dt class="text-base/7 font-semibold text-gray-900">
+                  <div
+                    class="mb-6 flex size-10 items-center justify-center rounded-lg bg-oiana-rosa"
+                  >
+                    <svg
+                      class="w-8 h-8 size-6 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      />
+                    </svg>
+                  </div>
+                  Emissão de Guias
+                </dt>
+                <dd
+                  class="mt-1 flex flex-auto flex-col text-base/7 text-gray-600"
+                >
+                  <p class="flex-auto">
+                    O primeiro sistema a emitir guias diretamente no portal da
+                    <strong>DentalUni</strong>, sem redigitação.
+                  </p>
+                  <p class="mt-6">
+                    <a
+                      href="#about"
+                      class="text-sm/6 font-semibold text-oiana-rosa"
+                      >Saiba Mais <span aria-hidden="true">→</span></a
+                    >
+                  </p>
+                </dd>
+              </div>
+              <div
+                class="flex flex-col opacity-0 js-scroll-animation"
+                style="transition-delay: 300ms"
+              >
+                <dt class="text-base/7 font-semibold text-gray-900">
+                  <div
+                    class="mb-6 flex size-10 items-center justify-center rounded-lg bg-oiana-rosa"
+                  >
+                    <svg
+                      class="w-8 h-8 size-6 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100 4m0-4a2 2 0 110 4m0-4v2m0 4v2m6-12v2m0 4v2m0 4v2M6 20.995V18m0 .005v.005m0 .004v.005m12-6.005v.005m0 .004v.005"
+                      />
+                    </svg>
+                  </div>
+                  Controle Total
+                </dt>
+                <dd
+                  class="mt-1 flex flex-auto flex-col text-base/7 text-gray-600"
+                >
+                  <p class="flex-auto">
+                    Centralize a gestão financeira, prontuários, equipe e
+                    relatórios em um só lugar.
+                  </p>
+                  <p class="mt-6">
+                    <a
+                      href="#about"
+                      class="text-sm/6 font-semibold text-oiana-rosa"
+                      >Saiba Mais <span aria-hidden="true">→</span></a
+                    >
+                  </p>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <div id="about" class="overflow-hidden py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div
+            class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2"
+          >
+            <div
+              class="lg:ml-auto lg:pt-4 lg:pl-4 opacity-0 js-scroll-animation"
+              style="transition-delay: 200ms"
+            >
+              <div class="lg:max-w-lg">
+                <h2 class="text-base/7 font-semibold text-oiana-rosa">
+                  Sua rotina, mais simples.
+                </h2>
+                <p
+                  class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl"
+                >
+                  Agenda Online Descomplicada e funcional.
+                </p>
+                <p class="mt-6 text-lg/8 text-gray-600">
+                  Com a Agenda OiAna, você otimiza seu tempo para se concentrar
+                  nas tarefas que realmente importam. Disponibilize horários e
+                  permita que os beneficiários o encontrem e agendem suas
+                  consultas com facilidade.
+                </p>
+                <div class="mt-10">
+                  <a
+                    href="#form"
+                    class="rounded-md bg-oiana-rosa px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-oiana-rosa-claro focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-oiana-rosa transition-colors"
+                    >Resgatar Benefício</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex items-start justify-end lg:order-first opacity-0 js-scroll-animation"
+            >
+              <img
+                src="assets/images/about/agenda.png"
+                alt="Product screenshot"
+                class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="overflow-hidden py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div
+            class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2"
+          >
+            <div
+              class="lg:pt-4 lg:pr-4 opacity-0 js-scroll-animation"
+              style="transition-delay: 200ms"
+            >
+              <div class="lg:max-w-lg">
+                <h2 class="text-base/7 font-semibold text-oiana-rosa">
+                  Processos Simplificados
+                </h2>
+                <p
+                  class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl"
+                >
+                  Emissão de Guias DentalUni
+                </p>
+                <p class="mt-6 text-lg/8 text-gray-600">
+                  Diga adeus à redigitação e aos processos manuais. Com a
+                  integração total da OiAna com o portal da DentalUni, você
+                  emite guias de tratamento de forma rápida, segura e direta na
+                  plataforma.
+                </p>
+                <div class="mt-10">
+                  <a
+                    href="#form"
+                    class="rounded-md bg-oiana-rosa px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-oiana-rosa-claro focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-oiana-rosa transition-colors"
+                    >Resgatar Benefício</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex items-start justify-start opacity-0 js-scroll-animation"
+              style="transition-delay: 300ms"
+            >
+              <img
+                src="assets/images/about/agenda.png"
+                alt="Tela de emissão de guias no sistema OiAna"
+                class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="overflow-hidden py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div
+            class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2"
+          >
+            <div
+              class="lg:ml-auto lg:pt-4 lg:pl-4 opacity-0 js-scroll-animation"
+              style="transition-delay: 300ms"
+            >
+              <div class="lg:max-w-lg">
+                <h2 class="text-base/7 font-semibold text-oiana-rosa">
+                  Visão 360º do seu Negócio
+                </h2>
+                <p
+                  class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl"
+                >
+                  Controle Total<br />da sua Clínica
+                </p>
+                <p class="mt-6 text-lg/8 text-gray-600">
+                  Vá além do agendamento e tenha uma visão 360º do seu negócio
+                  com ferramentas de gestão completas e integradas.
+                </p>
+                <dl
+                  class="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none"
+                >
+                  <div class="relative pl-9">
+                    <dt class="inline font-semibold text-gray-900">
+                      <svg
+                        class="absolute top-1 left-1 size-5 text-oiana-rosa"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                      Gestão Financeira:
+                    </dt>
+                    <dd class="inline">
+                      Acompanhe o fluxo de caixa, pagamentos e faturamento de
+                      forma simples e visual.
+                    </dd>
+                  </div>
+                  <div class="relative pl-9">
+                    <dt class="inline font-semibold text-gray-900">
+                      <svg
+                        class="absolute top-1 left-1 size-5 text-oiana-rosa"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                      Prontuário Eletrônico:
+                    </dt>
+                    <dd class="inline">
+                      Acesse o histórico completo dos seus pacientes de forma
+                      segura e organizada.
+                    </dd>
+                  </div>
+                  <div class="relative pl-9">
+                    <dt class="inline font-semibold text-gray-900">
+                      <svg
+                        class="absolute top-1 left-1 size-5 text-oiana-rosa"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                      Relatórios e Métricas:
+                    </dt>
+                    <dd class="inline">
+                      Tome decisões baseadas em dados com relatórios de
+                      produtividade, comissões e muito mais.
+                    </dd>
+                  </div>
+                </dl>
+                <div class="mt-10">
+                  <a
+                    href="#form"
+                    class="rounded-md bg-oiana-rosa px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-oiana-rosa-claro focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-oiana-rosa transition-colors"
+                    >Ver todos os recursos</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex items-start justify-end lg:order-first opacity-0 js-scroll-animation"
+              style="transition-delay: 200ms"
+            >
+              <img
+                src="assets/images/about/agenda.png"
+                alt="Painel de controle do sistema OiAna"
+                class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="facts" class="overflow-hidden bg-white py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div
+            class="max-w-4xl anim-fade-in-up"
+            style="transition-delay: 100ms"
+          >
+            <p class="text-base/7 font-semibold text-oiana-rosa">
+              Nossa Parceria
+            </p>
+            <h1
+              class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl"
+            >
+              OiAna + DentalUni: uma parceria de sucesso!
+            </h1>
+            <p class="mt-6 text-xl/8 text-balance text-gray-700">
+              Há 6 anos, oferecemos soluções tecnológicas para os desafios do
+              dia a dia dos dentistas. Para fortalecer essa parceria, a OiAna
+              disponibiliza planos e funcionalidades exclusivas.
+            </p>
+          </div>
+          <section
+            class="mt-20 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16"
+          >
+            <div
+              class="lg:pr-8 anim-fade-in-up"
+              style="transition-delay: 300ms"
+            >
+              <div class="max-lg:mt-16 lg:col-span-1">
+                <p class="text-base/7 font-semibold text-gray-500">
+                  Nossos Números
+                </p>
+                <hr class="mt-6 border-t border-gray-200" />
+                <dl
+                  class="mt-6 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2"
+                >
+                  <div
+                    class="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4"
+                  >
+                    <dt class="text-sm/6 text-gray-600">de parceria</dt>
+                    <dd
+                      class="order-first text-5xl sm:text-6xl font-semibold tracking-tight"
+                    >
+                      <span class="count-up" data-value="6">0</span>
+                      <span class="text-3xl sm:text-4xl font-semibold"
+                        >Anos</span
+                      >
+                    </dd>
+                  </div>
+                  <div
+                    class="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4"
+                  >
+                    <dt class="text-sm/6 text-gray-600">Licenças vendidas</dt>
+                    <dd
+                      class="order-first text-5xl sm:text-6xl font-semibold tracking-tight"
+                    >
+                      +<span class="count-up" data-value="2000">0</span>
+                    </dd>
+                  </div>
+                  <div
+                    class="flex flex-col gap-y-2 max-sm:border-b max-sm:border-dotted max-sm:border-gray-200 max-sm:pb-4"
+                  >
+                    <dt class="text-sm/6 text-gray-600">Agendamentos/mês</dt>
+                    <dd
+                      class="order-first text-5xl sm:text-6xl font-semibold tracking-tight"
+                    >
+                      +<span class="count-up" data-value="10000">0</span>
+                    </dd>
+                  </div>
+                  <div class="flex flex-col gap-y-2">
+                    <dt class="text-sm/6 text-gray-600">de Satisfação</dt>
+                    <dd
+                      class="order-first text-5xl sm:text-6xl font-semibold tracking-tight"
+                    >
+                      <span class="count-up" data-value="98">0</span>%
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+            <div
+              class="pt-16 lg:row-span-2 lg:-mr-16 xl:mr-auto anim-fade-in-right"
+              style="transition-delay: 400ms"
+            >
+              <div
+                class="-mx-8 grid grid-cols-2 gap-4 sm:-mx-16 sm:grid-cols-4 lg:mx-0 lg:grid-cols-2 lg:gap-4 xl:gap-8"
+              >
+                <div
+                  class="aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10"
+                >
+                  <img
+                    alt="Profissionais da saúde em uma reunião"
+                    src="https://images.unsplash.com/photo-1590650516494-0c8e4a4dd67e?&auto=format&fit=crop&crop=center&w=560&h=560&q=90"
+                    class="block size-full object-cover"
+                  />
+                </div>
+                <div
+                  class="-mt-8 aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10 lg:-mt-40"
+                >
+                  <img
+                    alt="Equipe de dentistas colaborando"
+                    src="https://images.unsplash.com/photo-1557804506-669a67965ba0?&auto=format&fit=crop&crop=left&w=560&h=560&q=90"
+                    class="block size-full object-cover"
+                  />
+                </div>
+                <div
+                  class="aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10"
+                >
+                  <img
+                    alt="Dentista sorrindo em seu consultório"
+                    src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?&auto=format&fit=crop&crop=left&w=560&h=560&q=90"
+                    class="block size-full object-cover"
+                  />
+                </div>
+                <div
+                  class="-mt-8 aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10 lg:-mt-40"
+                >
+                  <img
+                    alt="Reunião de planejamento da equipe da clínica"
+                    src="https://images.unsplash.com/photo-1598257006458-087169a1f08d?&auto=format&fit=crop&crop=center&w=560&h=560&q=90"
+                    class="block size-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <section
+        id="home"
+        class="relative isolate bg-transparent px-6 py-24 sm:py-32 lg:px-8"
+      >
+        <div
+          class="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl"
+          aria-hidden="true"
+        >
+          <div
+            class="mx-auto aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-20"
+            style="
+              clip-path: polygon(
+                74.1% 44.1%,
+                100% 61.6%,
+                97.5% 26.9%,
+                85.5% 0.1%,
+                80.7% 2%,
+                72.5% 32.5%,
+                60.2% 62.4%,
+                52.4% 68.1%,
+                47.5% 58.3%,
+                45.2% 34.5%,
+                27.5% 76.7%,
+                0.1% 64.9%,
+                17.9% 100%,
+                27.6% 76.8%,
+                76.1% 97.7%,
+                74.1% 44.1%
+              );
+            "
+          ></div>
+        </div>
+        <div
+          class="mx-auto max-w-4xl text-center opacity-0 js-scroll-animation"
+        >
+          <h2 class="text-base font-semibold leading-7 text-oiana-rosa">
+            OiAna + DentalUni
+          </h2>
+          <p
+            class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
+          >
+            A parceria que transforma seu consultório
+          </p>
+        </div>
+        <p
+          class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-oiana-cinza opacity-0 js-scroll-animation"
+        >
+          Escolha o plano ideal para você e modernize sua gestão hoje mesmo,
+          aproveitando benefícios exclusivos.
+        </p>
+
+        <div
+          id="planos"
+          class="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2"
+        >
+          <div
+            class="rounded-3xl bg-white/60 p-8 ring-1 ring-gray-900/10 sm:p-10 lg:rounded-r-none opacity-0 js-scroll-animation"
+          >
+            <h3
+              id="tier-consultorios"
+              class="text-base font-semibold leading-7 text-oiana-rosa"
+            >
+              Plano Consultórios
+            </h3>
+            <p class="mt-4 flex items-baseline gap-x-2">
+              <span class="text-5xl font-bold tracking-tight text-gray-900"
+                >R$45</span
+              >
+              <span class="text-base text-gray-500">/mês</span>
+            </p>
+            <p class="mt-6 text-base leading-7 text-oiana-cinza">
+              O plano perfeito para profissionais liberais e consultórios
+              individuais.
+            </p>
+            <ul
+              role="list"
+              class="mt-8 space-y-3 text-sm leading-6 text-oiana-cinza sm:mt-10"
+            >
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-oiana-rosa"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                    clip-rule="evenodd"
+                  /></svg
+                >1 Usuário e 1 Agenda
+              </li>
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-oiana-rosa"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                    clip-rule="evenodd"
+                  /></svg
+                >Controle Financeiro Completo
+              </li>
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-oiana-rosa"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                    clip-rule="evenodd"
+                  /></svg
+                >APP para Celular
+              </li>
+            </ul>
+            <a
+              href="#form"
+              class="mt-8 block rounded-md px-3.5 py-2.5 text-center text-sm font-semibold text-oiana-rosa ring-1 ring-inset ring-oiana-rosa/20 hover:bg-oiana-rosa/5 sm:mt-10 transition"
+              >Contratar Agora</a
+            >
+          </div>
+          <div
+            class="relative rounded-3xl bg-oiana-roxo p-8 shadow-2xl ring-1 ring-gray-900/10 sm:p-10 opacity-0 js-scroll-animation"
+          >
+            <h3
+              id="tier-dentaluni"
+              class="text-base font-semibold leading-7 text-oiana-rosa-claro"
+            >
+              Plano DentalUni
+            </h3>
+            <p class="mt-4 flex items-baseline gap-x-2">
+              <span class="text-5xl font-bold tracking-tight text-white"
+                >Gratuito</span
+              >
+            </p>
+            <p class="mt-6 text-base leading-7 text-oiana-cinza-light">
+              Benefício exclusivo para cooperados e credenciados DentalUni.
+            </p>
+            <ul
+              role="list"
+              class="mt-8 space-y-3 text-sm leading-6 text-oiana-cinza-light sm:mt-10"
+            >
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-oiana-rosa-claro"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                    clip-rule="evenodd"
+                  /></svg
+                >Emissão de Guias DentalUni
+              </li>
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-oiana-rosa-claro"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                    clip-rule="evenodd"
+                  /></svg
+                >Confirmação de Elegibilidade Online
+              </li>
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-oiana-rosa-claro"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                    clip-rule="evenodd"
+                  /></svg
+                >Agenda Inteligente com 1 Usuário
+              </li>
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-oiana-rosa-claro"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                    clip-rule="evenodd"
+                  /></svg
+                >Cadastro de Pacientes
+              </li>
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-oiana-rosa-claro"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                    clip-rule="evenodd"
+                  /></svg
+                >Suporte Prioritário via Chat
+              </li>
+            </ul>
+            <a
+              href="#form"
+              class="mt-8 block rounded-md bg-oiana-rosa px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-oiana-rosa-claro transition"
+              >Resgatar Benefício</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="form" class="bg-oiana-roxo text-oiana-cinza-light pt-32 pb-12">
+      <div class="container mx-auto px-6">
+        <div
+          class="bg-white rounded-2xl p-8 lg:p-12 max-w-4xl mx-auto -mt-48 shadow-2xl opacity-0 js-scroll-animation"
+        >
+          <div class="text-center">
+            <h2 class="text-3xl font-bold text-oiana-roxo">
+              Resgate seu benefício
+            </h2>
+            <p class="mt-2 text-oiana-cinza">
+              Preencha todos os campos para começar.
+            </p>
+          </div>
+          <form
+            action="https://api.sheetmonkey.io/form/s1iusZgBY9n2D9E9qxXxcj"
+            method="POST"
+            class="mt-8 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
+          >
+            <div class="sm:col-span-2">
+              <label for="nome" class="form-label">Nome e sobrenome</label>
+              <div class="mt-2.5">
+                <input
+                  type="text"
+                  name="nome"
+                  id="nome"
+                  required
+                  class="form-input"
+                />
+              </div>
+            </div>
+            <div>
+              <label for="email" class="form-label">E-mail</label>
+              <div class="mt-2.5">
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  required
+                  class="form-input"
+                />
+              </div>
+            </div>
+            <div>
+              <label for="telefone" class="form-label">Telefone</label>
+              <div class="mt-2.5">
+                <input
+                  type="tel"
+                  name="telefone"
+                  id="telefone"
+                  required
+                  class="form-input"
+                />
+              </div>
+            </div>
+            <div class="sm:col-span-2">
+              <label for="planos" class="form-label">Selecione o plano</label>
+              <div class="mt-2.5">
+                <select id="planos" name="planos" class="form-input">
+                  <option value="Plano DentalUni">
+                    Plano DentalUni (Gratuito)
+                  </option>
+                  <option value="Plano Consultórios">
+                    Plano para Consultórios
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="sm:col-span-2">
+              <button
+                type="submit"
+                class="w-full rounded-md bg-oiana-rosa px-3.5 py-3 text-center text-sm font-semibold text-white shadow-sm hover:bg-oiana-rosa-claro transition"
+              >
+                Enviar Solicitação
+              </button>
+            </div>
+          </form>
+        </div>
+        <div
+          class="py-12 mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8 text-center lg:text-left"
+        >
+          <div class="lg:col-span-1">
+            <img
+              class="h-10 w-auto mx-auto lg:mx-0 logo-white-filter"
+              src="assets/images/logo/logo.png"
+              alt="Logo OiAna Branca"
+            />
+            <p class="mt-4 text-sm max-w-xs mx-auto lg:mx-0">
+              Sua assistente virtual para gestão de clínicas e consultórios.
+            </p>
+          </div>
+          <div class="text-sm">
+            <h4 class="font-bold text-white mb-4 uppercase tracking-wider">
+              Links
+            </h4>
+            <a href="#features" class="block mb-2 hover:text-white">Serviços</a
+            ><a href="#about" class="block mb-2 hover:text-white">Sobre</a
+            ><a href="#home" class="block hover:text-white">Planos</a>
+          </div>
+          <div class="text-sm">
+            <h4 class="font-bold text-white mb-4 uppercase tracking-wider">
+              Contato
+            </h4>
+            <p>(41) 3411-5202</p>
+            <p>contato@oiana.com.br</p>
+            <p class="mt-2">
+              Rua 24 de maio, 76 - Sala 10 <br />Curitiba-PR | CEP: 80250-000
+            </p>
+          </div>
+        </div>
+        <div class="mt-8 border-t border-white/10 pt-8 text-center text-xs">
+          <p>© 2025 OiAna. Todos os direitos reservados.</p>
+        </div>
+      </div>
     </footer>
-    <!--====== FOOTER PART ENDS ======-->
 
-    <!--====== BACK TOP TOP PART START ======-->
-    <a href="#" class="back-to-top"> <i class="lnr lnr-chevron-up"> </i> </a>
-    <!--====== BACK TOP TOP PART ENDS ======-->
+    <a
+      href="#"
+      id="back-to-top"
+      class="hidden fixed bottom-5 right-5 bg-oiana-rosa text-white h-10 w-10 rounded-full flex items-center justify-center shadow-lg hover:bg-oiana-rosa-claro transition z-40"
+    >
+      <svg
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 15l7-7 7 7"
+        ></path>
+      </svg>
+    </a>
 
-    <!--====== Javascript Files ======-->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/glightbox.min.js"></script>
-    <script src="assets/js/count-up.min.js"></script>
-    <script src="assets/js/particles.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <div id="plans-modal-overlay" class="modal-overlay hidden">
+      <div class="modal-content">
+        <button
+          id="modal-close-button"
+          class="modal-close-button"
+          aria-label="Fechar modal"
+        >
+          &times;
+        </button>
+        <div class="mx-auto max-w-4xl text-center">
+          <h2
+            class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+          >
+            Resgate seu Benefício Exclusivo
+          </h2>
+          <p
+            class="mx-auto mt-4 max-w-2xl text-center text-lg leading-8 text-oiana-cinza"
+          >
+            Como parceiro DentalUni, você tem acesso a condições especiais na
+            plataforma de gestão mais completa para o seu consultório.
+          </p>
+        </div>
+        <div
+          class="mx-auto mt-12 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-16 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2"
+        >
+          <div
+            class="rounded-3xl bg-gray-100/60 p-8 ring-1 ring-gray-900/10 sm:p-10 lg:rounded-r-none"
+          >
+            <h3 class="text-base font-semibold leading-7 text-oiana-rosa">
+              Plano Consultórios
+            </h3>
+            <p class="mt-4 flex items-baseline gap-x-2">
+              <span class="text-5xl font-bold tracking-tight text-gray-900"
+                >R$45</span
+              >
+              <span class="text-base text-gray-500">/mês</span>
+            </p>
+            <p class="mt-6 text-base leading-7 text-oiana-cinza">
+              O plano perfeito para profissionais liberais e consultórios
+              individuais.
+            </p>
+            <ul
+              role="list"
+              class="mt-8 space-y-3 text-sm leading-6 text-oiana-cinza sm:mt-10"
+            >
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-oiana-rosa"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                1 Usuário e 1 Agenda
+              </li>
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-oiana-rosa"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Controle Financeiro Completo
+              </li>
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-oiana-rosa"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                APP para Celular
+              </li>
+            </ul>
+            <a
+              href="#form"
+              class="mt-8 block rounded-md px-3.5 py-2.5 text-center text-sm font-semibold text-oiana-rosa ring-1 ring-inset ring-oiana-rosa/20 hover:bg-oiana-rosa/5 sm:mt-10 transition"
+              >Contratar Agora</a
+            >
+          </div>
+          <div
+            class="relative rounded-3xl bg-oiana-roxo p-8 shadow-2xl ring-1 ring-gray-900/10 sm:p-10"
+          >
+            <h3 class="text-base font-semibold leading-7 text-oiana-rosa-claro">
+              Plano DentalUni
+            </h3>
+            <p class="mt-4 flex items-baseline gap-x-2">
+              <span class="text-5xl font-bold tracking-tight text-white"
+                >Gratuito</span
+              >
+            </p>
+            <p class="mt-6 text-base leading-7 text-oiana-cinza-light">
+              Benefício exclusivo para cooperados e credenciados DentalUni.
+            </p>
+            <ul
+              role="list"
+              class="mt-8 space-y-3 text-sm leading-6 text-oiana-cinza-light sm:mt-10"
+            >
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-oiana-rosa-claro"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Emissão de Guias DentalUni
+              </li>
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-oiana-rosa-claro"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Confirmação de Elegibilidade Online
+              </li>
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-oiana-rosa-claro"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Agenda Inteligente com 1 Usuário
+              </li>
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-oiana-rosa-claro"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Cadastro de Pacientes
+              </li>
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-oiana-rosa-claro"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                Suporte Prioritário via Chat
+              </li>
+            </ul>
+            <a
+              href="#form"
+              class="mt-8 block rounded-md bg-oiana-rosa px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-oiana-rosa-claro transition"
+              >Resgatar Benefício</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+    <script src="./assets/js/main.js"></script>
   </body>
 </html>
