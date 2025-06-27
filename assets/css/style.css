@@ -158,3 +158,30 @@ select.form-input {
   filter: brightness(0) invert(1);
 }
 
+#hero-img {
+  transition: opacity 0.7s, transform 0.7s;
+  opacity: 1;
+  transform: translateX(0);
+}
+#hero-img.fade-out {
+  opacity: 0;
+  transform: translateX(80px);
+}
+#hero-img.fade-in {
+  opacity: 1;
+  transform: translateX(-80px);
+}
+
+#hero-anim {
+  transition: opacity 0.7s, transform 0.7s;
+  opacity: 1;
+  transform: translateX(0);
+}
+#hero-anim.fade-out {
+  opacity: 0;
+  transform: translateX(80px);
+}
+#hero-anim.fade-in {
+  opacity: 1;
+  transform: translateX(0);
+}

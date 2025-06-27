@@ -141,3 +141,38 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+
+// --- HERO IMAGE CAROUSEL COM SLIDE-IN CORRIGIDO ---
+const heroImg = document.getElementById("hero-img");
+const heroAnim = document.getElementById("hero-anim");
+if (heroImg && heroAnim) {
+  const images = [
+    "assets/images/about/agenda.png",
+    "assets/images/about/guias.png",
+    "assets/images/about/performance.png"
+  ];
+  let current = 0;
+  setInterval(() => {
+    // Sai para a direita (fade + slide)
+    heroAnim.classList.add("fade-out");
+    heroAnim.classList.remove("fade-in");
+    setTimeout(() => {
+      // Troca a imagem quando estiver fora
+      current = (current + 1) % images.length;
+      heroImg.src = images[current];
+      // Coloca a div fora do centro, à direita, antes de animar a entrada
+      heroAnim.style.transform = "translateX(80px)";
+      // Força reflow para garantir a transição
+      void heroAnim.offsetWidth;
+      // Volta com efeito de entrada da direita para o centro
+      heroAnim.classList.add("fade-in");
+      heroAnim.classList.remove("fade-out");
+      heroAnim.style.transform = ""; // Deixa o CSS controlar o transform
+      // Remove a classe fade-in após a animação para não acumular classes
+      setTimeout(() => {
+        heroAnim.classList.remove("fade-in");
+      }, 700);
+    }, 700); // Tempo igual ao transition do CSS
+  }, 3500);
+}

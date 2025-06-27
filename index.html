@@ -17,12 +17,6 @@
     <meta property="og:image" content="https://SEU_DOMINIO/assets/images/logo/logo.png" />
     <meta property="og:url" content="https://SEU_DOMINIO/" />
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="OiAna - Assistente Digital para Consultórios | Parceria DentalUni" />
-    <meta name="twitter:description" content="A OiAna é a assistente digital que transforma a gestão do seu consultório. Parceria exclusiva com a DentalUni." />
-    <meta name="twitter:image" content="https://SEU_DOMINIO/assets/images/logo/logo.png" />
-
     <link
       rel="shortcut icon"
       href="assets/images/favicon.png"
@@ -241,9 +235,11 @@
           >
             <div class="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
               <div
+                id="hero-anim"
                 class="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-gray-900/10 ring-inset lg:-m-4 lg:rounded-[50px] lg:p-4"
               >
                 <img
+                  id="hero-img"
                   src="assets/images/about/agenda.png"
                   alt="Plataforma de gestão para consultórios OiAna"
                   width="2432"
@@ -255,6 +251,23 @@
           </div>
         </div>
       </div>
+
+      <!-- NOVO COMPONENTE: Receba agendamentos direto da DentalUni -->
+      <div class="overflow-hidden py-24 sm:py-32 js-scroll-animation">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8 text-center">
+          <h2 class="inline-block rounded-2xl bg-oiana-rosa/10 px-3 py-1 text-sm/6 font-semibold text-oiana-rosa ring-1 ring-oiana-rosa/10 ring-inset mb-4">OiAna + DentalUni</h2>
+          <p class="max-w-2xl mx-auto text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl sm:text-balance">
+            Receba agendamentos direto da DentalUni.
+          </p>
+          <p class="mt-6 max-w-2xl mx-auto text-lg text-oiana-cinza pb-10">
+            Agora, o dentista terá uma página exclusiva dentro do portal da DentalUni, onde os beneficiários poderão encontrar e agendar consultas diretamente com você. Mais visibilidade, mais praticidade e mais pacientes para o seu consultório!
+          </p>
+          <div class="relative mx-auto mt-20 aspect-[2432/1442] h-[36rem] sm:h-auto sm:w-[calc(var(--container-7xl)-calc(var(--spacing)*16))] bg-gray-900/5 p-2 ring-1 ring-gray-900/10 ring-inset rounded-lg">
+            <img alt="Página de agendamento na DentalUni" src="assets/images/about/dental.png" class="h-full rounded-lg ring-1 shadow-2xl ring-black/10">
+          </div>
+        </div>
+      </div>
+      <!-- FIM NOVO COMPONENTE -->
 
       <section id="features" class="bg-gray-50 py-24 sm:py-32">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -486,7 +499,7 @@
               style="transition-delay: 300ms"
             >
               <img
-                src="assets/images/about/agenda.png"
+                src="assets/images/about/guias.png"
                 alt="Tela de emissão de guias no sistema OiAna"
                 class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
               />
@@ -598,7 +611,7 @@
               style="transition-delay: 200ms"
             >
               <img
-                src="assets/images/about/agenda.png"
+                src="assets/images/about/performance.png"
                 alt="Painel de controle do sistema OiAna"
                 class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
               />
@@ -698,7 +711,7 @@
                 >
                   <img
                     alt="Profissionais da saúde em uma reunião"
-                    src="https://images.unsplash.com/photo-1590650516494-0c8e4a4dd67e?&auto=format&fit=crop&crop=center&w=560&h=560&q=90"
+                    src="./assets/images/about/1.png"
                     class="block size-full object-cover"
                   />
                 </div>
@@ -707,7 +720,7 @@
                 >
                   <img
                     alt="Equipe de dentistas colaborando"
-                    src="https://images.unsplash.com/photo-1557804506-669a67965ba0?&auto=format&fit=crop&crop=left&w=560&h=560&q=90"
+                    src="./assets/images/about/2.png"
                     class="block size-full object-cover"
                   />
                 </div>
@@ -716,7 +729,7 @@
                 >
                   <img
                     alt="Dentista sorrindo em seu consultório"
-                    src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?&auto=format&fit=crop&crop=left&w=560&h=560&q=90"
+                    src="./assets/images/about/4.png"
                     class="block size-full object-cover"
                   />
                 </div>
@@ -725,7 +738,7 @@
                 >
                   <img
                     alt="Reunião de planejamento da equipe da clínica"
-                    src="https://images.unsplash.com/photo-1598257006458-087169a1f08d?&auto=format&fit=crop&crop=center&w=560&h=560&q=90"
+                    src="./assets/images/about/3.png"
                     class="block size-full object-cover"
                   />
                 </div>
@@ -791,7 +804,7 @@
           class="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2"
         >
           <div
-            class="rounded-3xl bg-gray-100/60 p-8 ring-1 ring-gray-900/10 sm:p-10 lg:rounded-r-none order-2 lg:order-2"
+            class="rounded-3xl bg-gray-100/60 p-8 ring-1 ring-gray-900/10 sm:p-10 lg:rounded-r-none order-2 lg:order-1"
           >
             <h3
               id="tier-consultorios"
@@ -860,7 +873,7 @@
             >
           </div>
           <div
-            class="relative rounded-3xl bg-oiana-roxo p-8 shadow-2xl ring-1 ring-gray-900/10 sm:p-10 order-1 lg:order-1"
+            class="relative rounded-3xl bg-oiana-roxo p-8 shadow-2xl ring-1 ring-gray-900/10 sm:p-10 order-1 lg:order-2"
           >
             <h3
               id="tier-dentaluni"
@@ -890,8 +903,9 @@
                     fill-rule="evenodd"
                     d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
                     clip-rule="evenodd"
-                  /></svg
-                >Emissão de Guias <strong>DentalUni</strong>
+                  ></path>
+                </svg>
+                Emissão de Guias <strong>DentalUni</strong>
               </li>
               <li class="flex gap-x-3">
                 <svg
@@ -903,8 +917,9 @@
                     fill-rule="evenodd"
                     d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
                     clip-rule="evenodd"
-                  /></svg
-                >Confirmação de Elegibilidade Online
+                  ></path>
+                </svg>
+                Confirmação de Elegibilidade Online
               </li>
               <li class="flex gap-x-3">
                 <svg
@@ -916,8 +931,9 @@
                     fill-rule="evenodd"
                     d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
                     clip-rule="evenodd"
-                  /></svg
-                >Agenda Inteligente com 1 Usuário
+                  ></path>
+                </svg>
+                Agenda Inteligente com 1 Usuário
               </li>
               <li class="flex gap-x-3">
                 <svg
@@ -929,8 +945,9 @@
                     fill-rule="evenodd"
                     d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
                     clip-rule="evenodd"
-                  /></svg
-                >Cadastro de Pacientes
+                  ></path>
+                </svg>
+                Cadastro de Pacientes
               </li>
               <li class="flex gap-x-3">
                 <svg
@@ -942,8 +959,9 @@
                     fill-rule="evenodd"
                     d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
                     clip-rule="evenodd"
-                  /></svg
-                >Suporte Prioritário via Chat
+                  ></path>
+                </svg>
+                Suporte Prioritário via Chat
               </li>
             </ul>
             <a
@@ -1117,7 +1135,7 @@
           class="mx-auto mt-12 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-16 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2"
         >
           <div
-            class="rounded-3xl bg-gray-100/60 p-8 ring-1 ring-gray-900/10 sm:p-10 lg:rounded-r-none order-2 lg:order-2"
+            class="rounded-3xl bg-gray-100/60 p-8 ring-1 ring-gray-900/10 sm:p-10 lg:rounded-r-none order-2 lg:order-1"
           >
             <h3 class="text-base font-semibold leading-7 text-oiana-rosa">
               Plano Consultórios
@@ -1183,7 +1201,7 @@
             >
           </div>
           <div
-            class="relative rounded-3xl bg-oiana-roxo p-8 shadow-2xl ring-1 ring-gray-900/10 sm:p-10 order-1 lg:order-1"
+            class="relative rounded-3xl bg-oiana-roxo p-8 shadow-2xl ring-1 ring-gray-900/10 sm:p-10 order-1 lg:order-2"
           >
             <h3 class="text-base font-semibold leading-7 text-oiana-rosa-claro">
               Plano <strong>DentalUni</strong>
