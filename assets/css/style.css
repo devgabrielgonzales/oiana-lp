@@ -116,7 +116,45 @@ select.form-input {
   background-color: #e5e7eb;
 }
 
+/* Responsividade do modal para mobile */
+@media (max-width: 640px) {
+  .modal-content {
+    width: 95vw;
+    max-width: 100vw;
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+  }
+  .modal-close-button {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .modal-content {
+    width: 95vw;
+    max-width: 100vw;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  .modal-close-button {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.25rem;
+  }
+}
+
 /* UTILITY to invert logo color */
 .logo-white-filter {
   filter: brightness(0) invert(1);
 }
+
