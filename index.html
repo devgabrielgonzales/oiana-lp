@@ -14,8 +14,6 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="OiAna - Assistente Digital para Consultórios | Parceria DentalUni" />
     <meta property="og:description" content="A OiAna é a assistente digital que transforma a gestão do seu consultório. Parceria exclusiva com a DentalUni." />
-    <meta property="og:image" content="https://SEU_DOMINIO/assets/images/logo/logo.png" />
-    <meta property="og:url" content="https://SEU_DOMINIO/" />
 
     <link
       rel="shortcut icon"
@@ -58,14 +56,14 @@
   <body
     class="font-poppins antialiased text-oiana-cinza-dark bg-[radial-gradient(ellipse_at_top,_#f7f5f7_30%,#fdeff5)]"
   >
-    <header
+    <header id="header"
       class="bg-white shadow-sm sticky top-0 z-50 transition-opacity duration-1000 ease-out"
     >
       <nav
         class="container mx-auto px-6 py-4 flex justify-between items-center"
         aria-label="Navegação principal"
       >
-        <a href="#home" class="flex-shrink-0">
+        <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="flex-shrink-0">
           <img
             class="h-8 w-auto sm:h-10"
             src="assets/images/logo/logo-dark.png"
@@ -73,6 +71,11 @@
           />
         </a>
         <div class="hidden lg:flex items-center space-x-8">
+          <a
+            href="#dentaluni-agenda"
+            class="text-sm font-semibold text-gray-700 hover:text-oiana-rosa transition"
+            >DentalUni</a
+          >
           <a
             href="#features"
             class="text-sm font-semibold text-gray-700 hover:text-oiana-rosa transition"
@@ -87,6 +90,11 @@
             href="#facts"
             class="text-sm font-semibold text-gray-700 hover:text-oiana-rosa transition"
             >Parceria</a
+          >
+          <a
+            href="#home"
+            class="text-sm font-semibold text-gray-700 hover:text-oiana-rosa transition"
+            >Planos</a
           >
         </div>
         <div class="hidden lg:flex items-center">
@@ -121,6 +129,11 @@
       <div id="mobile-menu" class="hidden lg:hidden" aria-label="Menu mobile">
         <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
           <a
+            href="#dentaluni-agenda"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-oiana-rosa hover:bg-gray-50"
+            >DentalUni</a
+          >
+          <a
             href="#features"
             class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-oiana-rosa hover:bg-gray-50"
             >Serviços</a
@@ -134,6 +147,11 @@
             href="#facts"
             class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-oiana-rosa hover:bg-gray-50"
             >Parceria</a
+          >
+          <a
+            href="#home"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-oiana-rosa hover:bg-gray-50"
+            >Planos</a
           >
           <a
             href="#form"
@@ -181,11 +199,11 @@
             class="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8 anim-fade-in-left"
           >
             <div>
-              <a href="#planos" class="inline-flex space-x-6">
+              <a href="#" class="inline-flex space-x-6">
                 <span
                   class="rounded-full bg-oiana-rosa/10 px-3 py-1 text-sm/6 font-semibold text-oiana-rosa ring-1 ring-oiana-rosa/10 ring-inset"
                 >
-                  <strong>OiAna</strong> + <strong>DentalUni</strong></span
+                  OiAna + DentalUni</span
                 >
                 <span
                   class="inline-flex items-center space-x-2 text-sm/6 font-medium text-gray-600"
@@ -253,7 +271,7 @@
       </div>
 
       <!-- NOVO COMPONENTE: Receba agendamentos direto da DentalUni -->
-      <div class="overflow-hidden py-24 sm:py-32 js-scroll-animation">
+      <div id="dentaluni-agenda" class="overflow-hidden py-24 sm:py-32 js-scroll-animation" style="scroll-margin-top:120px">
         <div class="mx-auto max-w-7xl px-6 lg:px-8 text-center">
           <h2 class="inline-block rounded-2xl bg-oiana-rosa/10 px-3 py-1 text-sm/6 font-semibold text-oiana-rosa ring-1 ring-oiana-rosa/10 ring-inset mb-4">OiAna + DentalUni</h2>
           <p class="max-w-2xl mx-auto text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl sm:text-balance">
@@ -269,7 +287,7 @@
       </div>
       <!-- FIM NOVO COMPONENTE -->
 
-      <section id="features" class="bg-gray-50 py-24 sm:py-32">
+      <section id="features" class="bg-gray-50 py-24 sm:py-32" style="scroll-margin-top:120px">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div class="mx-auto max-w-2xl lg:mx-0 opacity-0 js-scroll-animation">
             <h2
@@ -362,7 +380,7 @@
                   </p>
                   <p class="mt-6">
                     <a
-                      href="#about"
+                      href="#guias"
                       class="text-sm/6 font-semibold text-oiana-rosa"
                       >Saiba Mais <span aria-hidden="true">→</span></a
                     >
@@ -403,7 +421,7 @@
                   </p>
                   <p class="mt-6">
                     <a
-                      href="#about"
+                      href="#controle"
                       class="text-sm/6 font-semibold text-oiana-rosa"
                       >Saiba Mais <span aria-hidden="true">→</span></a
                     >
@@ -415,7 +433,7 @@
         </div>
       </section>
 
-      <div id="about" class="overflow-hidden py-24 sm:py-32">
+      <div id="about" class="overflow-hidden py-24 sm:py-32" style="scroll-margin-top:120px">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div
             class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2"
@@ -461,7 +479,7 @@
         </div>
       </div>
 
-      <div class="overflow-hidden py-24 sm:py-32">
+      <div id="guias" class="overflow-hidden py-24 sm:py-32" style="scroll-margin-top:120px">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div
             class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2"
@@ -508,7 +526,7 @@
         </div>
       </div>
 
-      <div class="overflow-hidden py-24 sm:py-32">
+      <div id="controle" class="overflow-hidden py-24 sm:py-32" style="scroll-margin-top:120px">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div
             class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2"
@@ -620,7 +638,7 @@
         </div>
       </div>
 
-      <div id="facts" class="overflow-hidden bg-white py-24 sm:py-32">
+      <div id="facts" class="overflow-hidden bg-white py-24 sm:py-32" style="scroll-margin-top:120px">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div
             class="max-w-4xl anim-fade-in-up"
@@ -751,6 +769,7 @@
       <section
         id="home"
         class="relative isolate bg-transparent px-6 py-24 sm:py-32 lg:px-8"
+        style="scroll-margin-top:120px"
       >
         <div
           class="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl"
@@ -810,7 +829,7 @@
               id="tier-consultorios"
               class="text-base font-semibold leading-7 text-oiana-rosa"
             >
-              Plano Consultórios
+              Gestão de Consultórios
             </h3>
             <p class="mt-4 flex items-baseline gap-x-2">
               <span class="text-5xl font-bold tracking-tight text-gray-900"
@@ -865,6 +884,19 @@
                   /></svg
                 >APP para Celular
               </li>
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-oiana-rosa"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                    clip-rule="evenodd"
+                  /></svg
+                >E Muito Mais
+              </li>
             </ul>
             <a
               href="#form"
@@ -879,7 +911,7 @@
               id="tier-dentaluni"
               class="text-base font-semibold leading-7 text-oiana-rosa-claro"
             >
-              Plano <strong>DentalUni</strong>
+              DentalUni
             </h3>
             <p class="mt-4 flex items-baseline gap-x-2">
               <span class="text-5xl font-bold tracking-tight text-white"
@@ -894,74 +926,28 @@
               class="mt-8 space-y-3 text-sm leading-6 text-oiana-cinza-light sm:mt-10"
             >
               <li class="flex gap-x-3">
-                <svg
-                  class="h-6 w-5 flex-none text-oiana-rosa-claro"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                Emissão de Guias <strong>DentalUni</strong>
+                <svg class="h-6 w-5 flex-none text-oiana-rosa-claro" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path></svg>
+                1 Usuário
               </li>
               <li class="flex gap-x-3">
-                <svg
-                  class="h-6 w-5 flex-none text-oiana-rosa-claro"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                Confirmação de Elegibilidade Online
+                <svg class="h-6 w-5 flex-none text-oiana-rosa-claro" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path></svg>
+                1 Agenda
               </li>
               <li class="flex gap-x-3">
-                <svg
-                  class="h-6 w-5 flex-none text-oiana-rosa-claro"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                Agenda Inteligente com 1 Usuário
+                <svg class="h-6 w-5 flex-none text-oiana-rosa-claro" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path></svg>
+                Assistente de Agendamento
               </li>
               <li class="flex gap-x-3">
-                <svg
-                  class="h-6 w-5 flex-none text-oiana-rosa-claro"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                Cadastro de Pacientes
+                <svg class="h-6 w-5 flex-none text-oiana-rosa-claro" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path></svg>
+                Confirmação de Agendamento
               </li>
               <li class="flex gap-x-3">
-                <svg
-                  class="h-6 w-5 flex-none text-oiana-rosa-claro"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                Suporte Prioritário via Chat
+                <svg class="h-6 w-5 flex-none text-oiana-rosa-claro" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path></svg>
+                Emissão de guia DentalUni
+              </li>
+              <li class="flex gap-x-3">
+                <svg class="h-6 w-5 flex-none text-oiana-rosa-claro" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path></svg>
+                SMS ilimitados
               </li>
             </ul>
             <a
@@ -1005,6 +991,54 @@
               </div>
             </div>
             <div>
+              <label for="cro" class="form-label">CRO</label>
+              <div class="mt-2.5">
+                <input
+                  type="text"
+                  name="cro"
+                  id="cro"
+                  required
+                  class="form-input"
+                  placeholder="Ex: 12345"
+                />
+              </div>
+            </div>
+            <div>
+              <label for="estado" class="form-label">Estado</label>
+              <div class="mt-2.5">
+                <select id="estado" name="estado" required class="form-input">
+                  <option value="">Selecione um estado</option>
+                  <option value="AC">Acre</option>
+                  <option value="AL">Alagoas</option>
+                  <option value="AP">Amapá</option>
+                  <option value="AM">Amazonas</option>
+                  <option value="BA">Bahia</option>
+                  <option value="CE">Ceará</option>
+                  <option value="DF">Distrito Federal</option>
+                  <option value="ES">Espírito Santo</option>
+                  <option value="GO">Goiás</option>
+                  <option value="MA">Maranhão</option>
+                  <option value="MT">Mato Grosso</option>
+                  <option value="MS">Mato Grosso do Sul</option>
+                  <option value="MG">Minas Gerais</option>
+                  <option value="PA">Pará</option>
+                  <option value="PB">Paraíba</option>
+                  <option value="PR">Paraná</option>
+                  <option value="PE">Pernambuco</option>
+                  <option value="PI">Piauí</option>
+                  <option value="RJ">Rio de Janeiro</option>
+                  <option value="RN">Rio Grande do Norte</option>
+                  <option value="RS">Rio Grande do Sul</option>
+                  <option value="RO">Rondônia</option>
+                  <option value="RR">Roraima</option>
+                  <option value="SC">Santa Catarina</option>
+                  <option value="SP">São Paulo</option>
+                  <option value="SE">Sergipe</option>
+                  <option value="TO">Tocantins</option>
+                </select>
+              </div>
+            </div>
+            <div>
               <label for="email" class="form-label">E-mail</label>
               <div class="mt-2.5">
                 <input
@@ -1032,12 +1066,8 @@
               <label for="planos" class="form-label">Selecione o plano</label>
               <div class="mt-2.5">
                 <select id="planos" name="planos" class="form-input">
-                  <option value="Plano DentalUni">
-                    Plano DentalUni (Gratuito)
-                  </option>
-                  <option value="Plano Consultórios">
-                    Plano para Consultórios
-                  </option>
+                  <option value="Plano DentalUni (Gratuito)">Plano DentalUni (Gratuito)</option>
+                  <option value="Plano para Consultórios">Plano para Consultórios</option>
                 </select>
               </div>
             </div>
@@ -1068,19 +1098,15 @@
             <h4 class="font-bold text-white mb-4 uppercase tracking-wider">
               Links
             </h4>
-            <a href="#features" class="block mb-2 hover:text-white">Serviços</a
-            ><a href="#about" class="block mb-2 hover:text-white">Sobre</a
-            ><a href="#home" class="block hover:text-white">Planos</a>
+            <a href="#features" class="block mb-2 text-white hover:text-white">Serviços</a>
+            <a href="#about" class="block mb-2 text-white hover:text-white">Sobre</a>
+            <a href="#home" class="block text-white hover:text-white">Planos</a>
           </div>
           <div class="text-sm">
             <h4 class="font-bold text-white mb-4 uppercase tracking-wider">
               Contato
             </h4>
-            <p>(41) 3411-5202</p>
-            <p>contato@oiana.com.br</p>
-            <p class="mt-2">
-              Rua 24 de maio, 76 - Sala 10 <br />Curitiba-PR | CEP: 80250-000
-            </p>
+            <p>(41) 3371-1901</p>
           </div>
         </div>
         <div class="mt-8 border-t border-white/10 pt-8 text-center text-xs">
@@ -1138,7 +1164,7 @@
             class="rounded-3xl bg-gray-100/60 p-8 ring-1 ring-gray-900/10 sm:p-10 lg:rounded-r-none order-2 lg:order-1"
           >
             <h3 class="text-base font-semibold leading-7 text-oiana-rosa">
-              Plano Consultórios
+              Gestão de Consultórios
             </h3>
             <p class="mt-4 flex items-baseline gap-x-2">
               <span class="text-5xl font-bold tracking-tight text-gray-900"
@@ -1193,6 +1219,19 @@
                   /></svg
                 >APP para Celular
               </li>
+              <li class="flex gap-x-3">
+                <svg
+                  class="h-6 w-5 flex-none text-oiana-rosa"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                    clip-rule="evenodd"
+                  /></svg
+                >E Muito Mais
+              </li>
             </ul>
             <a
               href="#form"
@@ -1204,7 +1243,7 @@
             class="relative rounded-3xl bg-oiana-roxo p-8 shadow-2xl ring-1 ring-gray-900/10 sm:p-10 order-1 lg:order-2"
           >
             <h3 class="text-base font-semibold leading-7 text-oiana-rosa-claro">
-              Plano <strong>DentalUni</strong>
+              DentalUni
             </h3>
             <p class="mt-4 flex items-baseline gap-x-2">
               <span class="text-5xl font-bold tracking-tight text-white"
@@ -1219,74 +1258,28 @@
               class="mt-8 space-y-3 text-sm leading-6 text-oiana-cinza-light sm:mt-10"
             >
               <li class="flex gap-x-3">
-                <svg
-                  class="h-6 w-5 flex-none text-oiana-rosa-claro"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                Emissão de Guias <strong>DentalUni</strong>
+                <svg class="h-6 w-5 flex-none text-oiana-rosa-claro" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path></svg>
+                1 Usuário
               </li>
               <li class="flex gap-x-3">
-                <svg
-                  class="h-6 w-5 flex-none text-oiana-rosa-claro"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                Confirmação de Elegibilidade Online
+                <svg class="h-6 w-5 flex-none text-oiana-rosa-claro" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path></svg>
+                1 Agenda
               </li>
               <li class="flex gap-x-3">
-                <svg
-                  class="h-6 w-5 flex-none text-oiana-rosa-claro"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                Agenda Inteligente com 1 Usuário
+                <svg class="h-6 w-5 flex-none text-oiana-rosa-claro" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path></svg>
+                Assistente de Agendamento
               </li>
               <li class="flex gap-x-3">
-                <svg
-                  class="h-6 w-5 flex-none text-oiana-rosa-claro"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                Cadastro de Pacientes
+                <svg class="h-6 w-5 flex-none text-oiana-rosa-claro" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path></svg>
+                Confirmação de Agendamento
               </li>
               <li class="flex gap-x-3">
-                <svg
-                  class="h-6 w-5 flex-none text-oiana-rosa-claro"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                Suporte Prioritário via Chat
+                <svg class="h-6 w-5 flex-none text-oiana-rosa-claro" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path></svg>
+                Emissão de guia DentalUni
+              </li>
+              <li class="flex gap-x-3">
+                <svg class="h-6 w-5 flex-none text-oiana-rosa-claro" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"></path></svg>
+                SMS ilimitados
               </li>
             </ul>
             <a
