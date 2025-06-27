@@ -97,15 +97,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalOverlay = document.getElementById("plans-modal-overlay");
   const closeModalButton = document.getElementById("modal-close-button");
 
-  if (modalOverlay && closeModalButton && typeof confetti === "function") {
+  console.log('Modal overlay encontrado:', !!modalOverlay);
+  console.log('Botão fechar encontrado:', !!closeModalButton);
+
+  if (modalOverlay && closeModalButton) {
     const runConfetti = () => {
-      confetti({
-        particleCount: 150,
-        spread: 90,
-        origin: { y: 0.6 },
-        zIndex: 1001,
-        colors: ["#5a425a", "#d4799e", "#ffffff", "#e08dad"],
-      });
+      if (typeof confetti === "function") {
+        confetti({
+          particleCount: 150,
+          spread: 90,
+          origin: { y: 0.6 },
+          zIndex: 1001,
+          colors: ["#5a425a", "#d4799e", "#ffffff", "#e08dad"],
+        });
+      }
     };
 
     const openModal = () => {
@@ -139,7 +144,116 @@ document.addEventListener("DOMContentLoaded", () => {
         closeModal();
       }
     });
+
+    // --- FUNÇÕES PARA SELECIONAR PLANO E DIRECIONAR PARA FORMULÁRIO ---
+    function selecionarPlano(plano) {
+      const selectPlano = document.getElementById('planos');
+      if (selectPlano) {
+        selectPlano.value = plano;
+        selectPlano.dispatchEvent(new Event('change', { bubbles: true }));
+        console.log('Plano selecionado:', plano);
+      }
+    }
+
+    function selecionarPlanoEFecharModal(plano) {
+      console.log('Fechando modal e selecionando plano:', plano);
+      selecionarPlano(plano);
+      closeModal();
+      setTimeout(() => {
+        const form = document.getElementById('form');
+        if (form) {
+          form.scrollIntoView({behavior: 'smooth'});
+          console.log('Direcionando para formulário');
+        }
+      }, 500);
+    }
+
+    // Adicionar eventos aos botões do modal
+    function adicionarEventosModal() {
+      // Eventos para os botões "Contratar Agora" e "Resgatar Benefício"
+      const botoesModal = modalOverlay.querySelectorAll('a[href="#form"]');
+      botoesModal.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          if (btn.textContent.includes('Consultórios') || btn.textContent.includes('Contratar')) {
+            selecionarPlanoEFecharModal('Plano para Consultórios');
+          } else {
+            selecionarPlanoEFecharModal('Plano DentalUni (Gratuito)');
+          }
+        });
+      });
+
+      // Eventos para clicar nos cards (seleciona plano sem fechar modal)
+      const consultoriosCard = document.getElementById('tier-consultorios-modal')?.closest('.rounded-3xl');
+      const dentaluniCard = document.getElementById('tier-dentaluni-modal')?.closest('.rounded-3xl');
+
+      if (consultoriosCard) {
+        consultoriosCard.addEventListener('click', function(e) {
+          if (!e.target.closest('a[href="#form"]')) {
+            selecionarPlano('Plano para Consultórios');
+          }
+        });
+      }
+
+      if (dentaluniCard) {
+        dentaluniCard.addEventListener('click', function(e) {
+          if (!e.target.closest('a[href="#form"]')) {
+            selecionarPlano('Plano DentalUni (Gratuito)');
+          }
+        });
+      }
+    }
+
+    // Adicionar eventos quando o modal abrir
+    const observerModal = new MutationObserver(() => {
+      if (!modalOverlay.classList.contains('hidden')) {
+        setTimeout(adicionarEventosModal, 100);
+      }
+    });
+    observerModal.observe(modalOverlay, { attributes: true, attributeFilter: ['class'] });
   }
+
+  // --- DESTAQUE DE LINK ATIVO NA NAV ---
+  const header = document.getElementById('header');
+  const navLinks = [
+    {id: 'dentaluni-agenda', selector: 'a[href="#dentaluni-agenda"]'},
+    {id: 'features', selector: 'a[href="#features"]'},
+    {id: 'about', selector: 'a[href="#about"]'},
+    {id: 'facts', selector: 'a[href="#facts"]'},
+    {id: 'home', selector: 'a[href="#home"]'}
+  ];
+  const sections = navLinks.map(l => document.getElementById(l.id));
+
+  function checkSectionInView() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    let activeIndex = -1;
+    for (let i = 0; i < sections.length; i++) {
+      const section = sections[i];
+      if (!section) continue;
+      const rect = section.getBoundingClientRect();
+      const top = rect.top + scrollY;
+      const bottom = top + section.offsetHeight;
+      if (scrollY + 80 >= top && scrollY + 80 < bottom) {
+        activeIndex = i;
+        break;
+      }
+    }
+    // Destacar link ativo
+    navLinks.forEach((link, idx) => {
+      document.querySelectorAll(link.selector).forEach(el => {
+        if (idx === activeIndex) {
+          el.classList.add('text-oiana-rosa');
+          el.classList.remove('text-gray-700');
+        } else {
+          el.classList.remove('text-oiana-rosa');
+          el.classList.add('text-gray-700');
+        }
+      });
+    });
+  }
+  window.addEventListener('scroll', checkSectionInView);
+  window.addEventListener('resize', checkSectionInView);
+  checkSectionInView();
 });
 
 
