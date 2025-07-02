@@ -6,16 +6,14 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       
       const btnEnviar = document.getElementById('btn-enviar');
-      const formMessage = document.getElementById('form-message');
-      const messageDiv = formMessage.querySelector('div');
       
       const cro = document.getElementById('cro').value.trim();
       const uf = document.getElementById('estado').value;
       const plano = document.getElementById('planos').value;
-      const mensagem = document.getElementById('mensagem').value.trim() || `Solicitação de benefício para o ${plano}`;
+      const mensagem = `Solicitação de benefício para o ${plano}`;
       
       if (!cro || !uf) {
-        mostrarMensagem('Por favor, preencha todos os campos obrigatórios.', 'erro');
+        mostrarModal('Por favor, preencha todos os campos obrigatórios.', 'erro', 'Campos Obrigatórios');
         return;
       }
       
@@ -39,23 +37,26 @@ document.addEventListener("DOMContentLoaded", () => {
         const data = await response.json();
         
         if (data.error === false && data.status === true) {
-          mostrarMensagem(
-            `Sucesso! Seu protocolo é: ${data.atendimento.cod_ans}. ${data.retorno_app}`,
-            'sucesso'
+          mostrarModal(
+            `Seu protocolo é: ${data.atendimento.cod_ans}. ${data.retorno_app}`,
+            'sucesso',
+            'Solicitação Enviada!'
           );
           formularioBeneficio.reset();
         } else {
           const erros = data.erros ? Object.values(data.erros).flat().join(' ') : '';
-          mostrarMensagem(
-            `Erro: ${data.msg || 'Não foi possível processar sua solicitação.'} ${erros}`,
-            'erro'
+          mostrarModal(
+            `${data.msg || 'Não foi possível processar sua solicitação.'} ${erros}`,
+            'erro',
+            'Erro na Solicitação'
           );
         }
       } catch (error) {
         console.error('Erro ao enviar formulário:', error);
-        mostrarMensagem(
+        mostrarModal(
           'Erro de conexão. Verifique sua internet e tente novamente.',
-          'erro'
+          'erro',
+          'Erro de Conexão'
         );
       }
       
@@ -63,24 +64,62 @@ document.addEventListener("DOMContentLoaded", () => {
       btnEnviar.textContent = 'Enviar Solicitação';
     });
     
-    function mostrarMensagem(texto, tipo) {
-      const formMessage = document.getElementById('form-message');
-      const messageDiv = formMessage.querySelector('div');
+    function mostrarModal(mensagem, tipo, titulo) {
+      const modalOverlay = document.getElementById('response-modal-overlay');
+      const modalTitle = document.getElementById('response-modal-title');
+      const modalMessage = document.getElementById('response-modal-message');
+      const modalIcon = document.getElementById('response-modal-icon');
+      const successIcon = document.getElementById('success-icon');
+      const errorIcon = document.getElementById('error-icon');
+      const okButton = document.getElementById('response-modal-ok-button');
       
-      formMessage.classList.remove('hidden');
+      modalTitle.textContent = titulo;
+      modalMessage.textContent = mensagem;
+      
+      successIcon.classList.add('hidden');
+      errorIcon.classList.add('hidden');
       
       if (tipo === 'sucesso') {
-        messageDiv.className = 'rounded-md p-4 text-sm bg-green-50 text-green-800 border border-green-200';
+        modalIcon.className = 'mx-auto flex h-12 w-12 items-center justify-center rounded-full mb-4 bg-green-100';
+        successIcon.classList.remove('hidden');
+        successIcon.className = 'h-6 w-6 text-green-600';
+        okButton.className = 'inline-flex justify-center rounded-md border border-transparent bg-green-600 hover:bg-green-700 focus:ring-green-500 px-4 py-2 text-sm font-medium text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 transition';
       } else {
-        messageDiv.className = 'rounded-md p-4 text-sm bg-red-50 text-red-800 border border-red-200';
+        modalIcon.className = 'mx-auto flex h-12 w-12 items-center justify-center rounded-full mb-4 bg-red-100';
+        errorIcon.classList.remove('hidden');
+        errorIcon.className = 'h-6 w-6 text-red-600';
+        okButton.className = 'inline-flex justify-center rounded-md border border-transparent bg-red-600 hover:bg-red-700 focus:ring-red-500 px-4 py-2 text-sm font-medium text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 transition';
       }
       
-      messageDiv.textContent = texto;
-      
+      modalOverlay.classList.remove('hidden');
       setTimeout(() => {
-        formMessage.classList.add('hidden');
-      }, 8000);
+        modalOverlay.classList.add('visible');
+      }, 20);
     }
+  }
+  
+  const responseModalOverlay = document.getElementById('response-modal-overlay');
+  const responseModalCloseButton = document.getElementById('response-modal-close-button');
+  const responseModalOkButton = document.getElementById('response-modal-ok-button');
+  
+  if (responseModalOverlay && responseModalCloseButton && responseModalOkButton) {
+    const fecharModalResposta = () => {
+      responseModalOverlay.classList.remove('visible');
+      setTimeout(() => {
+        responseModalOverlay.classList.add('hidden');
+      }, 400);
+    };
+    
+    responseModalCloseButton.addEventListener('click', fecharModalResposta);
+    responseModalOkButton.addEventListener('click', fecharModalResposta);
+    responseModalOverlay.addEventListener('click', (event) => {
+      if (event.target === responseModalOverlay) fecharModalResposta();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && responseModalOverlay.classList.contains('visible')) {
+        fecharModalResposta();
+      }
+    });
   }
   
 
