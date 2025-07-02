@@ -19,6 +19,7 @@
   appearance: none;
   background-image: none;
   transition: border-color 0.2s, box-shadow 0.2s;
+  resize: vertical;
 }
 .form-input:focus {
   outline: 2px solid transparent;
@@ -33,6 +34,10 @@ select.form-input {
   background-repeat: no-repeat;
   background-size: 1.5em 1.5em;
   padding-right: 2.5rem;
+}
+textarea.form-input {
+  resize: vertical;
+  min-height: 80px;
 }
 select:focus {
   color: #111 !important;

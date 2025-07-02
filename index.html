@@ -1087,22 +1087,9 @@
             </p>
           </div>
           <form
-            action="https://api.sheetmonkey.io/form/s1iusZgBY9n2D9E9qxXxcj"
-            method="POST"
+            id="formulario-beneficio"
             class="mt-8 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
           >
-            <div class="sm:col-span-2">
-              <label for="nome" class="form-label">Nome e sobrenome</label>
-              <div class="mt-2.5">
-                <input
-                  type="text"
-                  name="nome"
-                  id="nome"
-                  required
-                  class="form-input"
-                />
-              </div>
-            </div>
             <div>
               <label for="cro" class="form-label">CRO</label>
               <div class="mt-2.5">
@@ -1151,30 +1138,6 @@
                 </select>
               </div>
             </div>
-            <div>
-              <label for="email" class="form-label">E-mail</label>
-              <div class="mt-2.5">
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  required
-                  class="form-input"
-                />
-              </div>
-            </div>
-            <div>
-              <label for="telefone" class="form-label">Telefone</label>
-              <div class="mt-2.5">
-                <input
-                  type="tel"
-                  name="telefone"
-                  id="telefone"
-                  required
-                  class="form-input"
-                />
-              </div>
-            </div>
             <div class="sm:col-span-2">
               <label for="planos" class="form-label">Selecione o plano</label>
               <div class="mt-2.5">
@@ -1189,12 +1152,28 @@
               </div>
             </div>
             <div class="sm:col-span-2">
+              <label for="mensagem" class="form-label">Mensagem (opcional)</label>
+              <div class="mt-2.5">
+                <textarea
+                  name="mensagem"
+                  id="mensagem"
+                  rows="3"
+                  class="form-input"
+                  placeholder="Descreva suas necessidades ou deixe uma mensagem..."
+                ></textarea>
+              </div>
+            </div>
+            <div class="sm:col-span-2">
               <button
                 type="submit"
-                class="w-full rounded-md bg-oiana-rosa px-3.5 py-3 text-center text-sm font-semibold text-white shadow-sm hover:bg-oiana-rosa-claro transition"
+                id="btn-enviar"
+                class="w-full rounded-md bg-oiana-rosa px-3.5 py-3 text-center text-sm font-semibold text-white shadow-sm hover:bg-oiana-rosa-claro transition disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Enviar Solicitação
               </button>
+            </div>
+            <div id="form-message" class="sm:col-span-2 hidden">
+              <div class="rounded-md p-4 text-sm"></div>
             </div>
           </form>
         </div>

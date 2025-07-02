@@ -1,4 +1,88 @@
 document.addEventListener("DOMContentLoaded", () => {
+  
+  const formularioBeneficio = document.getElementById('formulario-beneficio');
+  if (formularioBeneficio) {
+    formularioBeneficio.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const btnEnviar = document.getElementById('btn-enviar');
+      const formMessage = document.getElementById('form-message');
+      const messageDiv = formMessage.querySelector('div');
+      
+      const cro = document.getElementById('cro').value.trim();
+      const uf = document.getElementById('estado').value;
+      const plano = document.getElementById('planos').value;
+      const mensagem = document.getElementById('mensagem').value.trim() || `Solicitação de benefício para o ${plano}`;
+      
+      if (!cro || !uf) {
+        mostrarMensagem('Por favor, preencha todos os campos obrigatórios.', 'erro');
+        return;
+      }
+      
+      btnEnviar.disabled = true;
+      btnEnviar.textContent = 'Enviando...';
+      
+      try {
+        const response = await fetch('https://api.dentaluni.com.br/solicitacao-beneficio-oiana', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            cro: cro,
+            uf: uf,
+            abertura: 26,
+            msg: mensagem
+          })
+        });
+        
+        const data = await response.json();
+        
+        if (data.error === false && data.status === true) {
+          mostrarMensagem(
+            `Sucesso! Seu protocolo é: ${data.atendimento.cod_ans}. ${data.retorno_app}`,
+            'sucesso'
+          );
+          formularioBeneficio.reset();
+        } else {
+          const erros = data.erros ? Object.values(data.erros).flat().join(' ') : '';
+          mostrarMensagem(
+            `Erro: ${data.msg || 'Não foi possível processar sua solicitação.'} ${erros}`,
+            'erro'
+          );
+        }
+      } catch (error) {
+        console.error('Erro ao enviar formulário:', error);
+        mostrarMensagem(
+          'Erro de conexão. Verifique sua internet e tente novamente.',
+          'erro'
+        );
+      }
+      
+      btnEnviar.disabled = false;
+      btnEnviar.textContent = 'Enviar Solicitação';
+    });
+    
+    function mostrarMensagem(texto, tipo) {
+      const formMessage = document.getElementById('form-message');
+      const messageDiv = formMessage.querySelector('div');
+      
+      formMessage.classList.remove('hidden');
+      
+      if (tipo === 'sucesso') {
+        messageDiv.className = 'rounded-md p-4 text-sm bg-green-50 text-green-800 border border-green-200';
+      } else {
+        messageDiv.className = 'rounded-md p-4 text-sm bg-red-50 text-red-800 border border-red-200';
+      }
+      
+      messageDiv.textContent = texto;
+      
+      setTimeout(() => {
+        formMessage.classList.add('hidden');
+      }, 8000);
+    }
+  }
+  
 
   const mobileMenuButton = document.getElementById("mobile-menu-button");
   const mobileMenu = document.getElementById("mobile-menu");
