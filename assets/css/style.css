@@ -1,4 +1,4 @@
-/* FORM STYLES */
+
 .form-label {
   display: block;
   font-size: 0.875rem;
@@ -38,7 +38,7 @@ select:focus {
   color: #111 !important;
 }
 
-/* SCROLL ANIMATION STYLES */
+
 .js-scroll-animation {
   opacity: 0;
   transition: opacity 0.7s ease-out, transform 0.7s ease-out;
@@ -65,7 +65,7 @@ select:focus {
   transform: translateX(0);
 }
 
-/* MODAL STYLES */
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -122,7 +122,7 @@ select:focus {
   background-color: #e5e7eb;
 }
 
-/* Responsividade do modal para mobile */
+
 @media (max-width: 640px) {
   .modal-content {
     width: 95vw;
@@ -171,7 +171,7 @@ select:focus {
     font-size: 0.8rem;
   }
   
-  /* Reduzir fonte do hero para notebooks 1366x768 */
+
   .hero-title {
     font-size: 3rem !important;
     line-height: 1.1 !important;
@@ -182,7 +182,7 @@ select:focus {
     line-height: 1.5 !important;
   }
   
-  /* Ajustes específicos do modal para notebooks */
+
   .modal-title {
     font-size: 1.5rem !important;
     margin-bottom: 0.5rem !important;
@@ -229,7 +229,7 @@ select:focus {
   }
 }
 
-/* UTILITY to invert logo color */
+
 .logo-white-filter {
   filter: brightness(0) invert(1);
 }
@@ -262,7 +262,7 @@ select:focus {
   transform: translateX(0);
 }
 
-/* NAVBAR ROSA ATIVA */
+
 .navbar-rosa {
   background-color: #d4799e !important;
   box-shadow: 0 2px 8px 0 rgba(212, 121, 158, 0.10);

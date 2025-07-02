@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // --- MOBILE MENU ---
+
   const mobileMenuButton = document.getElementById("mobile-menu-button");
   const mobileMenu = document.getElementById("mobile-menu");
 
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- BACK TO TOP BUTTON ---
+
   const backToTopButton = document.getElementById("back-to-top");
   if (backToTopButton) {
     window.addEventListener("scroll", () => {
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- UNIFIED SCROLL & COUNTER ANIMATIONS ---
+
   const animatedElements = document.querySelectorAll(
     ".js-scroll-animation, .anim-fade-in-left, .anim-fade-in-right, .count-up"
   );
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // General scroll animations
+
           if (entry.target.classList.contains("js-scroll-animation")) {
             entry.target.classList.add("animate");
           }
@@ -50,23 +50,23 @@ document.addEventListener("DOMContentLoaded", () => {
             entry.target.classList.add("is-visible");
           }
 
-          // Counter animation
+
           if (entry.target.classList.contains("count-up")) {
             animateCounter(entry.target);
           }
 
-          observer.unobserve(entry.target); // Animate only once
+          observer.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.15 } // Start animation when 15% of the element is visible
+    { threshold: 0.15 }
   );
 
   animatedElements.forEach((el) => {
     observer.observe(el);
   });
 
-  // Counter animation function
+
   const animateCounter = (element) => {
     const target = +element.getAttribute("data-value");
     const duration = 2000;
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.requestAnimationFrame(step);
   };
 
-  // --- POP-UP MODAL & CONFETTI ---
+
   const modalOverlay = document.getElementById("plans-modal-overlay");
   const closeModalButton = document.getElementById("modal-close-button");
 
@@ -128,10 +128,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 400);
     };
 
-    // Open modal after a delay
+
     setTimeout(openModal, 1500);
 
-    // Event listeners to close the modal
+
     closeModalButton.addEventListener("click", closeModal);
     modalOverlay.addEventListener("click", (event) => {
       if (event.target === modalOverlay) closeModal();
@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // --- FUNÇÕES PARA SELECIONAR PLANO E DIRECIONAR PARA FORMULÁRIO ---
+
     function selecionarPlano(plano) {
       const selectPlano = document.getElementById('planos');
       if (selectPlano) {
@@ -168,9 +168,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 500);
     }
 
-    // Adicionar eventos aos botões do modal
+
     function adicionarEventosModal() {
-      // Eventos para os botões "Contratar Agora" e "Resgatar Benefício"
+      
       const botoesModal = modalOverlay.querySelectorAll('a[href="#form"]');
       botoesModal.forEach(btn => {
         btn.addEventListener('click', function(e) {
@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
 
-      // Eventos para clicar nos cards (seleciona plano sem fechar modal)
+      
       const consultoriosCard = document.getElementById('tier-consultorios-modal')?.closest('.rounded-3xl');
       const dentaluniCard = document.getElementById('tier-dentaluni-modal')?.closest('.rounded-3xl');
 
@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // Adicionar eventos quando o modal abrir
+
     const observerModal = new MutationObserver(() => {
       if (!modalOverlay.classList.contains('hidden')) {
         setTimeout(adicionarEventosModal, 100);
@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
     observerModal.observe(modalOverlay, { attributes: true, attributeFilter: ['class'] });
   }
 
-  // --- DESTAQUE DE LINK ATIVO NA NAV ---
+
   const header = document.getElementById('header');
   const navLinks = [
     {id: 'dentaluni-agenda', selector: 'a[href="#dentaluni-agenda"]'},
@@ -238,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
         break;
       }
     }
-    // Destacar link ativo
+
     navLinks.forEach((link, idx) => {
       document.querySelectorAll(link.selector).forEach(el => {
         if (idx === activeIndex) {
@@ -257,7 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// --- HERO IMAGE CAROUSEL COM SLIDE-IN CORRIGIDO ---
+
 const heroImg = document.getElementById("hero-img");
 const heroAnim = document.getElementById("hero-anim");
 if (heroImg && heroAnim) {
@@ -268,25 +268,25 @@ if (heroImg && heroAnim) {
   ];
   let current = 0;
   setInterval(() => {
-    // Sai para a direita (fade + slide)
+
     heroAnim.classList.add("fade-out");
     heroAnim.classList.remove("fade-in");
     setTimeout(() => {
-      // Troca a imagem quando estiver fora
+
       current = (current + 1) % images.length;
       heroImg.src = images[current];
-      // Coloca a div fora do centro, à direita, antes de animar a entrada
+      
       heroAnim.style.transform = "translateX(80px)";
-      // Força reflow para garantir a transição
+      
       void heroAnim.offsetWidth;
-      // Volta com efeito de entrada da direita para o centro
+      
       heroAnim.classList.add("fade-in");
       heroAnim.classList.remove("fade-out");
-      heroAnim.style.transform = ""; // Deixa o CSS controlar o transform
-      // Remove a classe fade-in após a animação para não acumular classes
+              heroAnim.style.transform = "";
+      
       setTimeout(() => {
         heroAnim.classList.remove("fade-in");
       }, 700);
-    }, 700); // Tempo igual ao transition do CSS
+          }, 700);
   }, 3500);
 }
