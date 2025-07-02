@@ -1090,19 +1090,21 @@
             id="formulario-beneficio"
             class="mt-8 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
           >
-            <div>
-              <label for="cro" class="form-label">CRO</label>
-              <div class="mt-2.5">
-                <input
-                  type="text"
-                  name="cro"
-                  id="cro"
-                  required
-                  class="form-input"
-                  placeholder="Ex: 12345"
-                />
+                          <div>
+                <label for="cro" class="form-label">CRO</label>
+                <div class="mt-2.5">
+                  <input
+                    type="number"
+                    name="cro"
+                    id="cro"
+                    required
+                    class="form-input"
+                    placeholder="Ex: 12345"
+                    min="1"
+                    max="999999"
+                  />
+                </div>
               </div>
-            </div>
             <div>
               <label for="estado" class="form-label">Estado</label>
               <div class="mt-2.5">

@@ -1,5 +1,27 @@
 document.addEventListener("DOMContentLoaded", () => {
   
+  const croInput = document.getElementById('cro');
+  if (croInput) {
+    croInput.addEventListener('input', (e) => {
+      e.target.value = e.target.value.replace(/[^0-9]/g, '');
+    });
+    
+    croInput.addEventListener('keypress', (e) => {
+      if (!/[0-9]/.test(e.key) && !['Backspace', 'Delete', 'Tab', 'Enter', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+        e.preventDefault();
+      }
+    });
+    
+    croInput.addEventListener('paste', (e) => {
+      e.preventDefault();
+      const paste = (e.clipboardData || window.clipboardData).getData('text');
+      const numbersOnly = paste.replace(/[^0-9]/g, '');
+      if (numbersOnly) {
+        e.target.value = numbersOnly;
+      }
+    });
+  }
+
   const formularioBeneficio = document.getElementById('formulario-beneficio');
   if (formularioBeneficio) {
     formularioBeneficio.addEventListener('submit', async (e) => {
@@ -38,9 +60,10 @@ document.addEventListener("DOMContentLoaded", () => {
         
         if (data.error === false && data.status === true) {
           mostrarModal(
-            `Seu protocolo é: ${data.atendimento.cod_ans}. ${data.retorno_app}`,
+            data.retorno_app,
             'sucesso',
-            'Solicitação Enviada!'
+            'Solicitação Enviada!',
+            data.atendimento.cod_ans
           );
           formularioBeneficio.reset();
         } else {
@@ -64,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
       btnEnviar.textContent = 'Enviar Solicitação';
     });
     
-    function mostrarModal(mensagem, tipo, titulo) {
+    function mostrarModal(mensagem, tipo, titulo, protocolo = null) {
       const modalOverlay = document.getElementById('response-modal-overlay');
       const modalTitle = document.getElementById('response-modal-title');
       const modalMessage = document.getElementById('response-modal-message');
@@ -74,7 +97,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const okButton = document.getElementById('response-modal-ok-button');
       
       modalTitle.textContent = titulo;
-      modalMessage.textContent = mensagem;
+      
+      if (protocolo && tipo === 'sucesso') {
+        modalMessage.innerHTML = mensagem.replace(protocolo, `<strong>${protocolo}</strong>.`);
+      } else {
+        modalMessage.textContent = mensagem;
+      }
       
       successIcon.classList.add('hidden');
       errorIcon.classList.add('hidden');
@@ -94,6 +122,15 @@ document.addEventListener("DOMContentLoaded", () => {
       modalOverlay.classList.remove('hidden');
       setTimeout(() => {
         modalOverlay.classList.add('visible');
+        if (tipo === 'sucesso' && typeof confetti === 'function') {
+          confetti({
+            particleCount: 200,
+            spread: 70,
+            origin: { y: 0.6 },
+            zIndex: 1001,
+            colors: ["#5a425a", "#d4799e", "#ffffff", "#e08dad", "#16a34a"],
+          });
+        }
       }, 20);
     }
   }
