@@ -18,8 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- BACK TO TOP BUTTON ---
   const backToTopButton = document.getElementById("back-to-top");
   if (backToTopButton) {
-    let ticking = false;
-    const updateBackToTop = () => {
+    window.addEventListener("scroll", () => {
       if (
         document.body.scrollTop > 200 ||
         document.documentElement.scrollTop > 200
@@ -28,15 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         backToTopButton.classList.add("hidden");
       }
-      ticking = false;
-    };
-
-    window.addEventListener("scroll", () => {
-      if (!ticking) {
-        requestAnimationFrame(updateBackToTop);
-        ticking = true;
-      }
-    }, { passive: true });
+    });
   }
 
   // --- UNIFIED SCROLL & COUNTER ANIMATIONS ---
@@ -45,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   const observer = new IntersectionObserver(
-    (entries) => {
+    (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           // General scroll animations
@@ -68,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
+    { threshold: 0.15 } // Start animation when 15% of the element is visible
   );
 
   animatedElements.forEach((el) => {
@@ -94,17 +85,20 @@ document.addEventListener("DOMContentLoaded", () => {
       element.innerText = currentValue.toLocaleString("pt-BR");
 
       if (progress < 1) {
-        requestAnimationFrame(step);
+        window.requestAnimationFrame(step);
       } else {
         element.innerText = formatNumber(target);
       }
     };
-    requestAnimationFrame(step);
+    window.requestAnimationFrame(step);
   };
 
   // --- POP-UP MODAL & CONFETTI ---
   const modalOverlay = document.getElementById("plans-modal-overlay");
   const closeModalButton = document.getElementById("modal-close-button");
+
+  console.log('Modal overlay encontrado:', !!modalOverlay);
+  console.log('Botão fechar encontrado:', !!closeModalButton);
 
   if (modalOverlay && closeModalButton) {
     const runConfetti = () => {
@@ -157,16 +151,19 @@ document.addEventListener("DOMContentLoaded", () => {
       if (selectPlano) {
         selectPlano.value = plano;
         selectPlano.dispatchEvent(new Event('change', { bubbles: true }));
+        console.log('Plano selecionado:', plano);
       }
     }
 
     function selecionarPlanoEFecharModal(plano) {
+      console.log('Fechando modal e selecionando plano:', plano);
       selecionarPlano(plano);
       closeModal();
       setTimeout(() => {
         const form = document.getElementById('form');
         if (form) {
           form.scrollIntoView({behavior: 'smooth'});
+          console.log('Direcionando para formulário');
         }
       }, 500);
     }
@@ -227,7 +224,6 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
   const sections = navLinks.map(l => document.getElementById(l.id));
 
-  let activeNavTicking = false;
   function checkSectionInView() {
     const scrollY = window.scrollY || window.pageYOffset;
     let activeIndex = -1;
@@ -254,18 +250,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     });
-    activeNavTicking = false;
   }
-
-  const throttledNavCheck = () => {
-    if (!activeNavTicking) {
-      requestAnimationFrame(checkSectionInView);
-      activeNavTicking = true;
-    }
-  };
-
-  window.addEventListener('scroll', throttledNavCheck, { passive: true });
-  window.addEventListener('resize', throttledNavCheck, { passive: true });
+  window.addEventListener('scroll', checkSectionInView);
+  window.addEventListener('resize', checkSectionInView);
   checkSectionInView();
 });
 

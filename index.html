@@ -12,6 +12,7 @@
     />
     <meta name="robots" content="index, follow" />
 
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
@@ -33,21 +34,11 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
     />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
 
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="prefetch" href="assets/images/about/guias.png" />
-    <link rel="prefetch" href="assets/images/about/performance.png" />
 
     <script>
       tailwind.config = {
@@ -293,6 +284,7 @@
         </div>
       </div>
 
+      <!-- NOVO COMPONENTE: Receba agendamentos direto da DentalUni -->
       <div
         id="dentaluni-agenda"
         class="overflow-hidden py-24 sm:py-32 js-scroll-animation"
@@ -322,11 +314,11 @@
               alt="Página de agendamento na DentalUni"
               src="assets/images/about/dental.png"
               class="h-full rounded-lg ring-1 shadow-2xl ring-black/10"
-              loading="lazy"
             />
           </div>
         </div>
       </div>
+      <!-- FIM NOVO COMPONENTE -->
 
       <section
         id="features"
@@ -503,7 +495,7 @@
                 <p class="mt-6 text-lg/8 text-gray-600">
                   Com a Agenda <strong>OiAna</strong>, você otimiza seu tempo
                   para se concentrar nas tarefas que realmente importam.
-                  Disponibilize horários e permita que os beneficiários o encontre e agendem suas consultas com facilidade.
+                  Disponibilize horários e permita que os beneficiários o encontre e agende suas consultas com facilidade.
                 </p>
                 <div class="mt-10">
                   <a
@@ -521,7 +513,6 @@
                 src="assets/images/about/agenda.png"
                 alt="Product screenshot"
                 class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
-                loading="lazy"
               />
             </div>
           </div>
@@ -573,7 +564,6 @@
                 src="assets/images/about/guias.png"
                 alt="Tela de emissão de guias no sistema OiAna"
                 class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
-                loading="lazy"
               />
             </div>
           </div>
@@ -690,7 +680,6 @@
                 src="assets/images/about/performance.png"
                 alt="Painel de controle do sistema OiAna"
                 class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
-                loading="lazy"
               />
             </div>
           </div>
@@ -795,7 +784,6 @@
                     alt="Profissionais da saúde em uma reunião"
                     src="./assets/images/about/1.png"
                     class="block size-full object-cover"
-                    loading="lazy"
                   />
                 </div>
                 <div
@@ -805,7 +793,6 @@
                     alt="Equipe de dentistas colaborando"
                     src="./assets/images/about/2.png"
                     class="block size-full object-cover"
-                    loading="lazy"
                   />
                 </div>
                 <div
@@ -815,7 +802,6 @@
                     alt="Dentista sorrindo em seu consultório"
                     src="./assets/images/about/4.png"
                     class="block size-full object-cover"
-                    loading="lazy"
                   />
                 </div>
                 <div
@@ -825,7 +811,6 @@
                     alt="Reunião de planejamento da equipe da clínica"
                     src="./assets/images/about/3.png"
                     class="block size-full object-cover"
-                    loading="lazy"
                   />
                 </div>
               </div>
@@ -1220,8 +1205,7 @@
             <img
               class="h-10 w-auto mx-auto lg:mx-0 logo-white-filter"
               src="assets/images/logo/logo.png"
-              alt="Logo OiAna Branca"
-              loading="lazy"
+              alt="Logo <strong>OiAna</strong> Branca"
             />
             <p class="mt-4 text-sm max-w-xs mx-auto lg:mx-0">
               Sua assistente virtual para gestão de clínicas e consultórios.
