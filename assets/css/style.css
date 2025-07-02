@@ -43,6 +43,7 @@ select:focus {
   opacity: 0;
   transition: opacity 0.7s ease-out, transform 0.7s ease-out;
   transform: translateY(2rem);
+  will-change: transform, opacity;
 }
 .js-scroll-animation.animate {
   opacity: 1;
@@ -53,11 +54,13 @@ select:focus {
   opacity: 0;
   transform: translateX(-2rem);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: transform, opacity;
 }
 .anim-fade-in-right {
   opacity: 0;
   transform: translateX(2rem);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: transform, opacity;
 }
 .anim-fade-in-left.is-visible,
 .anim-fade-in-right.is-visible {
@@ -96,6 +99,7 @@ select:focus {
   overflow-y: auto;
   transform: scale(0.95);
   transition: transform 0.4s ease-in-out;
+  will-change: transform;
 }
 .modal-overlay.visible .modal-content {
   transform: scale(1);
@@ -117,6 +121,7 @@ select:focus {
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  transition: background-color 0.2s ease;
 }
 .modal-close-button:hover {
   background-color: #e5e7eb;
@@ -235,9 +240,10 @@ select:focus {
 }
 
 #hero-img {
-  transition: opacity 0.7s, transform 0.7s;
+  transition: opacity 0.7s ease, transform 0.7s ease;
   opacity: 1;
   transform: translateX(0);
+  will-change: transform, opacity;
 }
 #hero-img.fade-out {
   opacity: 0;
@@ -249,9 +255,10 @@ select:focus {
 }
 
 #hero-anim {
-  transition: opacity 0.7s, transform 0.7s;
+  transition: opacity 0.7s ease, transform 0.7s ease;
   opacity: 1;
   transform: translateX(0);
+  will-change: transform, opacity;
 }
 #hero-anim.fade-out {
   opacity: 0;
@@ -266,7 +273,7 @@ select:focus {
 .navbar-rosa {
   background-color: #d4799e !important;
   box-shadow: 0 2px 8px 0 rgba(212, 121, 158, 0.10);
-  transition: background 0.3s, box-shadow 0.3s;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 #form {
@@ -276,18 +283,14 @@ select:focus {
 input.form-input:-webkit-autofill,
 input.form-input:-webkit-autofill:focus,
 input.form-input:-webkit-autofill:hover,
-input.form-input:-webkit-autofill:active {
-  -webkit-text-fill-color: #111 !important;
-  box-shadow: 0 0 0 1000px #fff inset !important;
-  background-color: #fff !important;
-  color: #111 !important;
-}
+input.form-input:-webkit-autofill:active,
 select.form-input:-webkit-autofill {
   -webkit-text-fill-color: #111 !important;
   box-shadow: 0 0 0 1000px #fff inset !important;
   background-color: #fff !important;
   color: #111 !important;
 }
+
 input.form-input,
 select.form-input {
   background-color: #fff !important;
