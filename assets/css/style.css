@@ -88,10 +88,12 @@ select:focus {
 .modal-content {
   position: relative;
   background-color: #ffffff;
-  padding: 2.5rem;
+  padding: 1.5rem;
   border-radius: 1rem;
   max-width: 90%;
-  width: 64rem;
+  width: 56rem;
+  max-height: 85vh;
+  overflow-y: auto;
   transform: scale(0.95);
   transition: transform 0.4s ease-in-out;
 }
@@ -125,35 +127,105 @@ select:focus {
   .modal-content {
     width: 95vw;
     max-width: 100vw;
-    padding: 1.25rem;
+    padding: 0.75rem;
     border-radius: 0.75rem;
+    max-height: 90vh;
+    overflow-y: auto;
+    font-size: 0.875rem;
   }
   .modal-close-button {
     top: 0.5rem;
     right: 0.5rem;
-    width: 2rem;
-    height: 2rem;
-    font-size: 1.25rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 1rem;
   }
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 641px) and (max-width: 1024px) {
   .modal-content {
-    width: 95vw;
+    width: 90vw;
     max-width: 100vw;
-    padding: 1rem;
+    padding: 0.75rem;
     border-radius: 0.75rem;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     box-sizing: border-box;
-    max-height: 90vh;
+    max-height: 85vh;
     overflow-y: auto;
   }
   .modal-close-button {
     top: 0.5rem;
     right: 0.5rem;
-    width: 2rem;
-    height: 2rem;
-    font-size: 1.25rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1366px) and (max-height: 768px) {
+  .modal-content {
+    width: 85vw;
+    padding: 0.75rem;
+    max-height: 95vh;
+    overflow: visible;
+    font-size: 0.8rem;
+  }
+  
+  /* Reduzir fonte do hero para notebooks 1366x768 */
+  .hero-title {
+    font-size: 3rem !important;
+    line-height: 1.1 !important;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+  }
+  
+  /* Ajustes específicos do modal para notebooks */
+  .modal-title {
+    font-size: 1.5rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .modal-subtitle {
+    font-size: 0.875rem !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .modal-plans-container {
+    margin-top: 1rem !important;
+    gap: 0.75rem !important;
+  }
+  
+  .modal-plan-card {
+    padding: 0.75rem !important;
+  }
+  
+  .modal-plan-title {
+    font-size: 0.875rem !important;
+  }
+  
+  .modal-plan-price {
+    font-size: 2rem !important;
+  }
+  
+  .modal-plan-description {
+    font-size: 0.75rem !important;
+    margin: 0.5rem 0 !important;
+  }
+  
+  .modal-plan-list {
+    margin-top: 0.75rem !important;
+    margin-bottom: 0.75rem !important;
+    gap: 0.25rem !important;
+  }
+  
+  .modal-plan-button {
+    margin-top: 0.75rem !important;
+    padding: 0.5rem 1rem !important;
+    font-size: 0.75rem !important;
   }
 }
 
