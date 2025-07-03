@@ -61,10 +61,16 @@ select:focus {
   transform: translateX(2rem);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
+.anim-fade-in-up {
+  opacity: 0;
+  transform: translateY(3rem);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
 .anim-fade-in-left.is-visible,
-.anim-fade-in-right.is-visible {
+.anim-fade-in-right.is-visible,
+.anim-fade-in-up.is-visible {
   opacity: 1;
-  transform: translateX(0);
+  transform: translate(0);
 }
 
 

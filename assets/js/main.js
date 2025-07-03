@@ -22,6 +22,148 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Função para converter nome para camelCase
+  function toCamelCase(str) {
+    return str.toLowerCase().replace(/(?:^|\s)\w/g, function(match) {
+      return match.toUpperCase();
+    });
+  }
+
+  // Função para consultar CRO na API da DentalUni
+  async function validarCRO(cro, uf) {
+    try {
+      const response = await fetch(`https://api.dentaluni.com.br/grc/dentista?cro=${cro}&uf=${uf}`);
+      const data = await response.json();
+      
+      if (data.error === 1) {
+        throw new Error(data.msg || 'CRO não encontrado');
+      }
+      
+      if (Array.isArray(data) && data.length > 0) {
+        return data[0];
+      } else {
+        throw new Error('CRO não encontrado');
+      }
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  // Evento para validar CRO quando CRO e UF estiverem preenchidos
+  const estadoSelect = document.getElementById('estado');
+  const nomeCompletoInput = document.getElementById('nome-completo');
+
+      async function verificarCRO() {
+      const cro = croInput.value.trim();
+      const uf = estadoSelect.value;
+      
+      if (cro && uf && cro.length >= 3) {
+        try {
+          // Limpar campo
+          nomeCompletoInput.value = '';
+          
+          // Buscar dados na API
+          const dadosDentista = await validarCRO(cro, uf);
+          
+          // Processar nome completo
+          const nomeCompleto = toCamelCase(dadosDentista.nome);
+          
+          // Preencher campo
+          nomeCompletoInput.value = nomeCompleto;
+          
+          // Remover estilo de erro se existir
+          croInput.classList.remove('border-red-500');
+          estadoSelect.classList.remove('border-red-500');
+          
+        } catch (error) {
+          // Limpar campo em caso de erro
+          nomeCompletoInput.value = '';
+          
+          // Adicionar estilo de erro
+          croInput.classList.add('border-red-500');
+          estadoSelect.classList.add('border-red-500');
+          
+          // Erro silencioso - campo será limpo automaticamente
+        }
+      } else {
+        // Limpar campo se não tiver dados suficientes
+        nomeCompletoInput.value = '';
+      }
+    }
+
+  if (croInput && estadoSelect) {
+    croInput.addEventListener('blur', verificarCRO);
+    estadoSelect.addEventListener('change', verificarCRO);
+  }
+
+  // Função para selecionar plano no formulário
+  function selecionarPlanoFormulario(nomePlano) {
+    const selectPlanos = document.getElementById('select-planos');
+    if (selectPlanos) {
+      selectPlanos.value = nomePlano;
+      
+      // Scroll para o formulário
+      const formulario = document.getElementById('form');
+      if (formulario) {
+        formulario.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }
+
+  // Event listeners para os botões dos planos na seção principal
+  const planoGratuitoBtn = document.querySelector('#tier-dentaluni + p + p + ul + a');
+  const planoConsultoriosBtn = document.querySelector('#tier-consultorios + p + p + ul + a');
+
+  if (planoGratuitoBtn) {
+    planoGratuitoBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      selecionarPlanoFormulario('Plano DentalUni (Gratuito)');
+    });
+  }
+
+  if (planoConsultoriosBtn) {
+    planoConsultoriosBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      selecionarPlanoFormulario('Plano para Consultórios');
+    });
+  }
+
+  // Event listeners para os botões dos planos no modal
+  const planoGratuitoBtnModal = document.querySelector('#tier-dentaluni-modal + p + p + ul + a');
+  const planoConsultoriosBtnModal = document.querySelector('#tier-consultorios-modal + p + p + ul + a');
+
+  if (planoGratuitoBtnModal) {
+    planoGratuitoBtnModal.addEventListener('click', (e) => {
+      e.preventDefault();
+      selecionarPlanoFormulario('Plano DentalUni (Gratuito)');
+      
+      // Fechar modal
+      const modalOverlay = document.getElementById('plans-modal-overlay');
+      if (modalOverlay) {
+        modalOverlay.classList.remove('visible');
+        setTimeout(() => {
+          modalOverlay.classList.add('hidden');
+        }, 400);
+      }
+    });
+  }
+
+  if (planoConsultoriosBtnModal) {
+    planoConsultoriosBtnModal.addEventListener('click', (e) => {
+      e.preventDefault();
+      selecionarPlanoFormulario('Plano para Consultórios');
+      
+      // Fechar modal
+      const modalOverlay = document.getElementById('plans-modal-overlay');
+      if (modalOverlay) {
+        modalOverlay.classList.remove('visible');
+        setTimeout(() => {
+          modalOverlay.classList.add('hidden');
+        }, 400);
+      }
+    });
+  }
+
   const formularioBeneficio = document.getElementById('formulario-beneficio');
   if (formularioBeneficio) {
     formularioBeneficio.addEventListener('submit', async (e) => {
@@ -31,11 +173,19 @@ document.addEventListener("DOMContentLoaded", () => {
       
       const cro = document.getElementById('cro').value.trim();
       const uf = document.getElementById('estado').value;
-      const plano = document.getElementById('planos').value;
-      const mensagem = `Solicitação de benefício para o ${plano}`;
+      const nomeCompleto = document.getElementById('nome-completo').value.trim();
+      const planoElement = document.getElementById('select-planos');
+      const plano = planoElement ? planoElement.value : '';
+      const mensagem = `Solicitação de benefício OiAna - ${plano} - Nome: ${nomeCompleto} - CRO: ${cro}/${uf}`;
       
-      if (!cro || !uf) {
+      if (!cro || !uf || !nomeCompleto || !plano) {
         mostrarModal('Por favor, preencha todos os campos obrigatórios.', 'erro', 'Campos Obrigatórios');
+        return;
+      }
+      
+      // Verificar se o CRO foi validado (se o campo nome completo está preenchido)
+      if (!nomeCompleto) {
+        mostrarModal('Por favor, verifique se o CRO e UF estão corretos. O nome deve ser preenchido automaticamente.', 'erro', 'Validação de CRO');
         return;
       }
       
@@ -51,6 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
           body: JSON.stringify({
             cro: cro,
             uf: uf,
+            nome_completo: nomeCompleto,
             abertura: 26,
             msg: mensagem
           })
@@ -192,7 +343,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   const animatedElements = document.querySelectorAll(
-    ".js-scroll-animation, .anim-fade-in-left, .anim-fade-in-right, .count-up"
+    ".js-scroll-animation, .anim-fade-in-left, .anim-fade-in-right, .anim-fade-in-up, .count-up"
   );
 
   const observer = new IntersectionObserver(
@@ -205,7 +356,8 @@ document.addEventListener("DOMContentLoaded", () => {
           }
           if (
             entry.target.classList.contains("anim-fade-in-left") ||
-            entry.target.classList.contains("anim-fade-in-right")
+            entry.target.classList.contains("anim-fade-in-right") ||
+            entry.target.classList.contains("anim-fade-in-up")
           ) {
             entry.target.classList.add("is-visible");
           }
@@ -257,8 +409,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalOverlay = document.getElementById("plans-modal-overlay");
   const closeModalButton = document.getElementById("modal-close-button");
 
-  console.log('Modal overlay encontrado:', !!modalOverlay);
-  console.log('Botão fechar encontrado:', !!closeModalButton);
+  
 
   if (modalOverlay && closeModalButton) {
     const runConfetti = () => {
@@ -311,19 +462,19 @@ document.addEventListener("DOMContentLoaded", () => {
       if (selectPlano) {
         selectPlano.value = plano;
         selectPlano.dispatchEvent(new Event('change', { bubbles: true }));
-        console.log('Plano selecionado:', plano);
+  
       }
     }
 
     function selecionarPlanoEFecharModal(plano) {
-      console.log('Fechando modal e selecionando plano:', plano);
+      
       selecionarPlano(plano);
       closeModal();
       setTimeout(() => {
         const form = document.getElementById('form');
         if (form) {
           form.scrollIntoView({behavior: 'smooth'});
-          console.log('Direcionando para formulário');
+  
         }
       }, 500);
     }
