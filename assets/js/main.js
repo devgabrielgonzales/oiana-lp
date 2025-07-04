@@ -52,6 +52,99 @@ document.addEventListener("DOMContentLoaded", () => {
   // Evento para validar CRO quando CRO e UF estiverem preenchidos
   const estadoSelect = document.getElementById('estado');
   const nomeCompletoInput = document.getElementById('nome-completo');
+  const enderecoContainer = document.getElementById('endereco-container');
+  const enderecoUnico = document.getElementById('endereco-unico');
+  const enderecosMultiplos = document.getElementById('enderecos-multiplos');
+  const listaEnderecos = document.getElementById('lista-enderecos');
+
+  // Variável para armazenar os dados completos do dentista
+  let dadosCompletosDentista = null;
+
+  // Função para formatar endereço
+  function formatarEndereco(endereco) {
+    const partes = [];
+    if (endereco.logradouro) partes.push(endereco.logradouro);
+    if (endereco.numero) partes.push(endereco.numero);
+    if (endereco.complemento) partes.push(endereco.complemento);
+    if (endereco.bairro) partes.push(endereco.bairro);
+    if (endereco.cidade) partes.push(endereco.cidade);
+    if (endereco.uf) partes.push(endereco.uf);
+    if (endereco.cep) partes.push(`CEP: ${endereco.cep}`);
+    
+    return partes.join(', ');
+  }
+
+  // Função para atualizar visual de seleção de endereço
+  function updateEnderecoSelection(container, isSelected) {
+    if (isSelected) {
+      container.classList.add('selected');
+    } else {
+      container.classList.remove('selected');
+    }
+  }
+
+  // Função para processar endereços
+  function processarEnderecos(enderecos) {
+    if (!enderecos || enderecos.length === 0) {
+      enderecoContainer.style.display = 'none';
+      return;
+    }
+
+    enderecoContainer.style.display = 'block';
+
+    if (enderecos.length === 1) {
+      // Mostrar campo único
+      enderecoUnico.classList.remove('hidden');
+      enderecosMultiplos.classList.add('hidden');
+      enderecoUnico.value = formatarEndereco(enderecos[0]);
+    } else {
+      // Mostrar checkboxes múltiplos
+      enderecoUnico.classList.add('hidden');
+      enderecosMultiplos.classList.remove('hidden');
+      
+      // Limpar lista anterior
+      listaEnderecos.innerHTML = '';
+      
+              // Criar checkboxes para cada endereço
+        enderecos.forEach((endereco, index) => {
+          const enderecoFormatado = formatarEndereco(endereco);
+          
+          const checkboxContainer = document.createElement('div');
+          checkboxContainer.className = 'endereco-item flex items-start space-x-3 p-3 rounded-md';
+          checkboxContainer.setAttribute('data-endereco-index', index);
+          
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.id = `endereco-${index}`;
+          checkbox.name = 'enderecos-selecionados';
+          checkbox.value = index;
+          checkbox.className = 'endereco-checkbox mt-1';
+          
+          const label = document.createElement('label');
+          label.htmlFor = `endereco-${index}`;
+          label.className = 'text-sm text-gray-700 cursor-pointer flex-1';
+          label.textContent = enderecoFormatado;
+          
+          // Adicionar evento de clique no container
+          checkboxContainer.addEventListener('click', (e) => {
+            // Evitar duplo clique se clicou diretamente no checkbox
+            if (e.target === checkbox) return;
+            
+            checkbox.checked = !checkbox.checked;
+            updateEnderecoSelection(checkboxContainer, checkbox.checked);
+          });
+          
+          // Adicionar evento de mudança no checkbox
+          checkbox.addEventListener('change', (e) => {
+            updateEnderecoSelection(checkboxContainer, e.target.checked);
+          });
+          
+          checkboxContainer.appendChild(checkbox);
+          checkboxContainer.appendChild(label);
+          listaEnderecos.appendChild(checkboxContainer);
+        });
+    }
+  }
 
       async function verificarCRO() {
       const cro = croInput.value.trim();
@@ -59,25 +152,35 @@ document.addEventListener("DOMContentLoaded", () => {
       
       if (cro && uf && cro.length >= 3) {
         try {
-          // Limpar campo
+          // Limpar campos
           nomeCompletoInput.value = '';
+          enderecoContainer.style.display = 'none';
+          dadosCompletosDentista = null;
           
           // Buscar dados na API
           const dadosDentista = await validarCRO(cro, uf);
           
+          // Armazenar dados completos
+          dadosCompletosDentista = dadosDentista;
+          
           // Processar nome completo
           const nomeCompleto = toCamelCase(dadosDentista.nome);
           
-          // Preencher campo
+          // Preencher campo nome
           nomeCompletoInput.value = nomeCompleto;
+          
+          // Processar endereços
+          processarEnderecos(dadosDentista.enderecos);
           
           // Remover estilo de erro se existir
           croInput.classList.remove('border-red-500');
           estadoSelect.classList.remove('border-red-500');
           
         } catch (error) {
-          // Limpar campo em caso de erro
+          // Limpar campos em caso de erro
           nomeCompletoInput.value = '';
+          enderecoContainer.style.display = 'none';
+          dadosCompletosDentista = null;
           
           // Adicionar estilo de erro
           croInput.classList.add('border-red-500');
@@ -86,8 +189,10 @@ document.addEventListener("DOMContentLoaded", () => {
           // Erro silencioso - campo será limpo automaticamente
         }
       } else {
-        // Limpar campo se não tiver dados suficientes
+        // Limpar campos se não tiver dados suficientes
         nomeCompletoInput.value = '';
+        enderecoContainer.style.display = 'none';
+        dadosCompletosDentista = null;
       }
     }
 
@@ -102,67 +207,39 @@ document.addEventListener("DOMContentLoaded", () => {
     if (selectPlanos) {
       selectPlanos.value = nomePlano;
       
-      // Scroll para o formulário
-      const formulario = document.getElementById('form');
-      if (formulario) {
-        formulario.scrollIntoView({ behavior: 'smooth' });
-      }
+      // Scroll para o formulário com um pequeno delay para garantir que a página carregou
+      setTimeout(() => {
+        const formulario = document.getElementById('form');
+        if (formulario) {
+          formulario.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
     }
   }
 
-  // Event listeners para os botões dos planos na seção principal
-  const planoGratuitoBtn = document.querySelector('#tier-dentaluni + p + p + ul + a');
-  const planoConsultoriosBtn = document.querySelector('#tier-consultorios + p + p + ul + a');
-
-  if (planoGratuitoBtn) {
-    planoGratuitoBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      selecionarPlanoFormulario('Plano DentalUni (Gratuito)');
-    });
-  }
-
-  if (planoConsultoriosBtn) {
-    planoConsultoriosBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      selecionarPlanoFormulario('Plano para Consultórios');
-    });
-  }
-
-  // Event listeners para os botões dos planos no modal
-  const planoGratuitoBtnModal = document.querySelector('#tier-dentaluni-modal + p + p + ul + a');
-  const planoConsultoriosBtnModal = document.querySelector('#tier-consultorios-modal + p + p + ul + a');
-
-  if (planoGratuitoBtnModal) {
-    planoGratuitoBtnModal.addEventListener('click', (e) => {
-      e.preventDefault();
-      selecionarPlanoFormulario('Plano DentalUni (Gratuito)');
+  // Event listeners para todos os botões com classe plan-select-button
+  document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('plan-select-button') || e.target.closest('.plan-select-button')) {
+      const button = e.target.classList.contains('plan-select-button') ? e.target : e.target.closest('.plan-select-button');
+      const planName = button.getAttribute('data-plan');
       
-      // Fechar modal
-      const modalOverlay = document.getElementById('plans-modal-overlay');
-      if (modalOverlay) {
-        modalOverlay.classList.remove('visible');
-        setTimeout(() => {
-          modalOverlay.classList.add('hidden');
-        }, 400);
+      if (planName) {
+        e.preventDefault();
+        selecionarPlanoFormulario(planName);
+        
+        // Se for um botão do modal, fechar o modal
+        if (button.closest('#plans-modal-overlay')) {
+          const modalOverlay = document.getElementById('plans-modal-overlay');
+          if (modalOverlay) {
+            modalOverlay.classList.remove('visible');
+            setTimeout(() => {
+              modalOverlay.classList.add('hidden');
+            }, 400);
+          }
+        }
       }
-    });
-  }
-
-  if (planoConsultoriosBtnModal) {
-    planoConsultoriosBtnModal.addEventListener('click', (e) => {
-      e.preventDefault();
-      selecionarPlanoFormulario('Plano para Consultórios');
-      
-      // Fechar modal
-      const modalOverlay = document.getElementById('plans-modal-overlay');
-      if (modalOverlay) {
-        modalOverlay.classList.remove('visible');
-        setTimeout(() => {
-          modalOverlay.classList.add('hidden');
-        }, 400);
-      }
-    });
-  }
+    }
+  });
 
   const formularioBeneficio = document.getElementById('formulario-beneficio');
   if (formularioBeneficio) {
@@ -176,10 +253,37 @@ document.addEventListener("DOMContentLoaded", () => {
       const nomeCompleto = document.getElementById('nome-completo').value.trim();
       const planoElement = document.getElementById('select-planos');
       const plano = planoElement ? planoElement.value : '';
-      const mensagem = `Solicitação de benefício OiAna - ${plano} - Nome: ${nomeCompleto} - CRO: ${cro}/${uf}`;
+      
+      // Obter endereços selecionados
+      let enderecosSelecionados = [];
+      if (dadosCompletosDentista && dadosCompletosDentista.enderecos) {
+        if (dadosCompletosDentista.enderecos.length === 1) {
+          // Endereço único - incluir automaticamente
+          enderecosSelecionados.push(formatarEndereco(dadosCompletosDentista.enderecos[0]));
+        } else {
+          // Múltiplos endereços - obter selecionados
+          const checkboxesSelecionados = document.querySelectorAll('input[name="enderecos-selecionados"]:checked');
+          checkboxesSelecionados.forEach(checkbox => {
+            const index = parseInt(checkbox.value);
+            enderecosSelecionados.push(formatarEndereco(dadosCompletosDentista.enderecos[index]));
+          });
+        }
+      }
+      
+      // Montar mensagem com endereços
+      let mensagem = `Solicitação de benefício OiAna - ${plano} - Nome: ${nomeCompleto} - CRO: ${cro}/${uf}`;
+      if (enderecosSelecionados.length > 0) {
+        mensagem += `\n\nEndereços das clínicas:\n${enderecosSelecionados.map((endereco, index) => `${index + 1}. ${endereco}`).join('\n')}`;
+      }
       
       if (!cro || !uf || !nomeCompleto || !plano) {
         mostrarModal('Por favor, preencha todos os campos obrigatórios.', 'erro', 'Campos Obrigatórios');
+        return;
+      }
+      
+      // Validar seleção de endereços para múltiplos endereços
+      if (dadosCompletosDentista && dadosCompletosDentista.enderecos && dadosCompletosDentista.enderecos.length > 1 && enderecosSelecionados.length === 0) {
+        mostrarModal('Por favor, selecione pelo menos um endereço de clínica.', 'erro', 'Endereço Obrigatório');
         return;
       }
       
@@ -216,7 +320,17 @@ document.addEventListener("DOMContentLoaded", () => {
             'Solicitação Enviada!',
             data.atendimento.cod_ans
           );
+          // Limpar formulário
           formularioBeneficio.reset();
+          // Limpar dados do dentista
+          dadosCompletosDentista = null;
+          // Limpar campo nome completo
+          nomeCompletoInput.value = '';
+          // Esconder container de endereços
+          enderecoContainer.style.display = 'none';
+          // Remover estilos de erro se existirem
+          croInput.classList.remove('border-red-500');
+          estadoSelect.classList.remove('border-red-500');
         } else {
           const erros = data.erros ? Object.values(data.erros).flat().join(' ') : '';
           mostrarModal(
@@ -295,6 +409,15 @@ document.addEventListener("DOMContentLoaded", () => {
       responseModalOverlay.classList.remove('visible');
       setTimeout(() => {
         responseModalOverlay.classList.add('hidden');
+        // Verificar se foi modal de sucesso pela presença de ícone de sucesso visível
+        const successIcon = document.getElementById('success-icon');
+        if (successIcon && !successIcon.classList.contains('hidden')) {
+          // Rolar suavemente para o topo da página
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        }
       }, 400);
     };
     

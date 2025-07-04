@@ -301,3 +301,62 @@ select.form-input {
   background-color: #fff !important;
   color: #111 !important;
 }
+
+/* Estilos customizados para checkboxes redondos */
+.endereco-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid #d1d5db;
+  border-radius: 50%;
+  background-color: white;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  flex-shrink: 0;
+}
+
+.endereco-checkbox:hover {
+  border-color: #d4799e;
+}
+
+.endereco-checkbox:checked {
+  background-color: #d4799e;
+  border-color: #d4799e;
+}
+
+.endereco-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.endereco-checkbox:focus {
+  outline: 2px solid #d4799e;
+  outline-offset: 2px;
+}
+
+/* Container clicável dos endereços */
+.endereco-item {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: 2px solid #e5e7eb;
+}
+
+.endereco-item:hover {
+  border-color: #d4799e;
+  background-color: #fdf2f8;
+}
+
+.endereco-item.selected {
+  border-color: #d4799e;
+  background-color: #fdf2f8;
+}
