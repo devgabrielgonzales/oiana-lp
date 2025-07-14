@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Função para consultar CRO na API da DentalUni
+  // Função para consultar CRO na API da Dental Uni
   async function validarCRO(cro, uf) {
     try {
       const response = await fetch(`https://api.dentaluni.com.br/grc/dentista?cro=${cro}&uf=${uf}`);
@@ -612,7 +612,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (btn.textContent.includes('Consultórios') || btn.textContent.includes('Contratar')) {
             selecionarPlanoEFecharModal('Plano para Consultórios');
           } else {
-            selecionarPlanoEFecharModal('Plano DentalUni (Gratuito)');
+            selecionarPlanoEFecharModal('Plano Dental Uni (Gratuito)');
           }
         });
       });
@@ -632,7 +632,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (dentaluniCard) {
         dentaluniCard.addEventListener('click', function(e) {
           if (!e.target.closest('a[href="#form"]')) {
-            selecionarPlano('Plano DentalUni (Gratuito)');
+            selecionarPlano('Plano Dental Uni (Gratuito)');
           }
         });
       }
