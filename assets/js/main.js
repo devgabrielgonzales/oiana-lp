@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function validarCROApi(cro, uf) {
     try {
       const response = await fetch(
-        `https://api.dentaluni.com.br/grc/dentista?cro=${cro}&uf=${uf}`
+        `https://api.dentaluni.com.br/oiana/dentista?cro=${cro}&uf=${uf}`
       );
       const data = await response.json();
       if (data.error === 1 || !Array.isArray(data) || data.length === 0) {
