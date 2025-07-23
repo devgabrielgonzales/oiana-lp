@@ -569,4 +569,38 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 700);
     }, 3500);
   }
+
+  const toggles = document.querySelectorAll('.faq-toggle');
+  toggles.forEach(btn => {
+    btn.addEventListener('click', function () {
+      const dd = document.getElementById(this.getAttribute('aria-controls'));
+      const expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', !expanded);
+      // Alterna ícones
+      const icons = this.querySelectorAll('svg');
+      icons[0].classList.toggle('hidden');
+      icons[1].classList.toggle('hidden');
+      // Animação de entrada/saída
+      if (!expanded) {
+        dd.classList.remove('hidden', 'faq-anim-leave', 'faq-anim-leave-active');
+        dd.classList.add('faq-anim-enter');
+        setTimeout(() => {
+          dd.classList.add('faq-anim-enter-active');
+        }, 10);
+        setTimeout(() => {
+          dd.classList.remove('faq-anim-enter', 'faq-anim-enter-active');
+        }, 410);
+      } else {
+        dd.classList.remove('faq-anim-enter', 'faq-anim-enter-active');
+        dd.classList.add('faq-anim-leave');
+        setTimeout(() => {
+          dd.classList.add('faq-anim-leave-active');
+        }, 10);
+        setTimeout(() => {
+          dd.classList.remove('faq-anim-leave', 'faq-anim-leave-active');
+          dd.classList.add('hidden');
+        }, 410);
+      }
+    });
+  });
 });
