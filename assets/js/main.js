@@ -66,6 +66,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  function mostrarModalCRONaoEncontrado() {
+    const modalOverlay = document.getElementById("cro-not-found-modal-overlay");
+    if (modalOverlay) {
+      modalOverlay.classList.remove("hidden");
+      setTimeout(() => modalOverlay.classList.add("visible"), 20);
+    }
+  }
+
+  function fecharModalCRONaoEncontrado() {
+    const modalOverlay = document.getElementById("cro-not-found-modal-overlay");
+    if (modalOverlay) {
+      modalOverlay.classList.remove("visible");
+      setTimeout(() => modalOverlay.classList.add("hidden"), 400);
+    }
+  }
+
   function processarEnderecos(enderecos) {
     if (!enderecos || enderecos.length === 0) {
       enderecoContainer.style.display = "none";
@@ -138,8 +154,8 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (error) {
       croInput.classList.add("border-red-500");
       estadoSelect.classList.add("border-red-500");
-      // Opcional: mostrar erro no modal de resposta
-      // mostrarModal(error.message, 'erro', 'Erro de Validação');
+      // Mostrar modal específico para CRO não encontrado
+      mostrarModalCRONaoEncontrado();
     } finally {
       nomeCompletoInput.placeholder =
         "Nome será preenchido automaticamente após validação do CRO";
@@ -180,6 +196,24 @@ document.addEventListener("DOMContentLoaded", () => {
       "click",
       (e) => e.target === authModalOverlay && hideAuthModal()
     );
+
+  // Event listeners para o modal de CRO não encontrado
+  const croNotFoundModalOverlay = document.getElementById("cro-not-found-modal-overlay");
+  const croNotFoundCloseButton = document.getElementById("cro-not-found-modal-close-button");
+  const croNotFoundOkButton = document.getElementById("cro-not-found-ok-button");
+
+  if (croNotFoundCloseButton) {
+    croNotFoundCloseButton.addEventListener("click", fecharModalCRONaoEncontrado);
+  }
+  if (croNotFoundOkButton) {
+    croNotFoundOkButton.addEventListener("click", fecharModalCRONaoEncontrado);
+  }
+  if (croNotFoundModalOverlay) {
+    croNotFoundModalOverlay.addEventListener(
+      "click",
+      (e) => e.target === croNotFoundModalOverlay && fecharModalCRONaoEncontrado()
+    );
+  }
 
   // --- RESTANTE DO SEU CÓDIGO JS ORIGINAL (MODAIS, ANIMAÇÕES, ETC.) ---
 
@@ -446,6 +480,16 @@ document.addEventListener("DOMContentLoaded", () => {
         fecharModalResposta()
     );
   }
+
+  // Event listener para fechar modal de CRO não encontrado com Escape
+  document.addEventListener(
+    "keydown",
+    (e) =>
+      e.key === "Escape" &&
+      croNotFoundModalOverlay &&
+      croNotFoundModalOverlay.classList.contains("visible") &&
+      fecharModalCRONaoEncontrado()
+  );
 
   // --- Animações e outros scripts da página ---
   // (O restante do código, como menu mobile, back-to-top, animações de scroll, etc., permanece o mesmo)

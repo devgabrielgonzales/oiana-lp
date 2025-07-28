@@ -183,7 +183,7 @@
         <div
           class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
           aria-hidden="true"
-          style="pointer-events: none;"
+          style="pointer-events: none"
         >
           <div
             class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
@@ -269,7 +269,7 @@
         <div
           class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
           aria-hidden="true"
-          style="pointer-events: none;"
+          style="pointer-events: none"
         >
           <div
             class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
@@ -1017,9 +1017,10 @@
                 </dt>
                 <dd class="mt-2 pr-12 hidden" id="faq-1">
                   <p class="text-base/7 text-gray-600">
-                    Cooperados e credenciados Dental Uni têm acesso ao plano
-                    gratuito com funcionalidades essenciais. Para recursos
-                    avançados, há o plano Gestão de Consultório.
+                    Cooperados e credenciados Dental Uni têm acesso sem custo a
+                    funcionalidades essenciais de agendamento e liberação de
+                    guia de beneficiários Dentla Uni. A OiAna oferece planos com
+                    recursos completos para gerir clínicas e consultórios.
                   </p>
                 </dd>
               </div>
@@ -1032,8 +1033,9 @@
                     aria-expanded="false"
                   >
                     <span class="text-base/7 font-semibold"
-                      >Quais benefícios a OiAna oferece?</span
-                    >
+                      >Quais recursos estão disponíveis nos outros planos da
+                      OiAna?
+                    </span>
                     <span class="ml-6 flex h-7 items-center">
                       <svg
                         class="size-6"
@@ -1071,8 +1073,8 @@
                 <dd class="mt-2 pr-12 hidden" id="faq-2">
                   <p class="text-base/7 text-gray-600">
                     Agenda online, emissão de guias, controle financeiro,
-                    prontuário eletrônico, relatórios e integração total com a
-                    Dental Uni.
+                    prontuário eletrônico, gestão de documentos, relatórios,
+                    gestão de equipe e integração com a Dental Uni.
                   </p>
                 </dd>
               </div>
@@ -1138,7 +1140,8 @@
                     aria-expanded="false"
                   >
                     <span class="text-base/7 font-semibold"
-                      >Como disponibilizo os horários que quero atender na agenda online?</span
+                      >Como disponibilizo os horários que quero atender na
+                      agenda online?</span
                     >
                     <span class="ml-6 flex h-7 items-center">
                       <svg
@@ -1176,7 +1179,11 @@
                 </dt>
                 <dd class="mt-2 pr-12 hidden" id="faq-4">
                   <p class="text-base/7 text-gray-600">
-                    Para disponibilizar os horários que deseja atender na agenda online, basta acessar o sistema OiAna e configurar os dias e horários em que estará disponível. Assim, apenas os períodos definidos por você aparecerão para agendamento dos beneficiários da Dental Uni.
+                    Para disponibilizar os horários que deseja atender na agenda
+                    online, basta acessar o sistema OiAna e configurar os dias e
+                    horários em que estará disponível. Assim, apenas os períodos
+                    definidos por você aparecerão para agendamento dos
+                    beneficiários da Dental Uni.
                   </p>
                 </dd>
               </div>
@@ -1189,7 +1196,7 @@
         <div
           class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
           aria-hidden="true"
-          style="pointer-events: none;"
+          style="pointer-events: none"
         >
           <div
             class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
@@ -1218,7 +1225,7 @@
         <div
           class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
           aria-hidden="true"
-          style="pointer-events: none;"
+          style="pointer-events: none"
         >
           <div
             class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
@@ -2981,6 +2988,49 @@
           >
             Autorizo
           </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="cro-not-found-modal-overlay" class="modal-overlay hidden">
+      <div class="modal-content max-w-md text-center">
+        <button
+          id="cro-not-found-modal-close-button"
+          class="modal-close-button"
+          aria-label="Fechar modal"
+        >
+          &times;
+        </button>
+        <div class="text-center">
+          <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-red-100 mb-4">
+            <svg
+              class="h-8 w-8 text-red-600"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"
+              />
+            </svg>
+          </div>
+          <h3 class="text-lg font-medium text-gray-900 mb-2">
+            CRO não encontrado
+          </h3>
+          <p class="text-sm text-gray-600 mb-6">
+            O CRO informado não foi encontrado em nossa base de dados. Verifique se o número e o estado estão corretos.
+          </p>
+          <div class="flex justify-center gap-x-4">
+            <button
+              id="cro-not-found-ok-button"
+              class="inline-flex justify-center rounded-md border border-transparent bg-oiana-rosa px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-oiana-rosa-claro focus:outline-none focus:ring-2 focus:ring-oiana-rosa focus:ring-offset-2 transition"
+            >
+              Entendi
+            </button>
+          </div>
         </div>
       </div>
     </div>
