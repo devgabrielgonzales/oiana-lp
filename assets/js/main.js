@@ -763,17 +763,61 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Proteção adicional para o chat no mobile
+  if (helpChat) {
+    // Previne fechamento acidental no mobile
+    helpChat.addEventListener('touchstart', (e) => {
+      e.stopPropagation();
+    });
+
+    helpChat.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  }
+
+
+
   if (closeChat) {
     closeChat.addEventListener('click', () => {
       helpChat.classList.add('hidden');
     });
   }
 
-  // Fechar chat ao clicar fora
+  // Fechar chat ao clicar fora - lógica otimizada para mobile
   document.addEventListener('click', (e) => {
     const floatingButton = document.getElementById('floating-help-button');
-    if (floatingButton && helpChat && !floatingButton.contains(e.target) && !helpChat.contains(e.target)) {
-      helpChat.classList.add('hidden');
+    const helpChat = document.getElementById('help-chat');
+    
+    // Se o chat está visível
+    if (helpChat && !helpChat.classList.contains('hidden')) {
+      // Se clicou fora do botão flutuante E fora do chat
+      if (!floatingButton.contains(e.target) && !helpChat.contains(e.target)) {
+        // No mobile, não fechar se o input está focado
+        const chatInput = document.getElementById('chat-input');
+        if (window.innerWidth < 768 && chatInput && document.activeElement === chatInput) {
+          return;
+        }
+        helpChat.classList.add('hidden');
+      }
+    }
+  });
+
+  // Adicionar listener específico para touch events no mobile
+  document.addEventListener('touchstart', (e) => {
+    const floatingButton = document.getElementById('floating-help-button');
+    const helpChat = document.getElementById('help-chat');
+    
+    // Se o chat está visível
+    if (helpChat && !helpChat.classList.contains('hidden')) {
+      // Se tocou fora do botão flutuante E fora do chat
+      if (!floatingButton.contains(e.target) && !helpChat.contains(e.target)) {
+        // No mobile, não fechar se o input está focado
+        const chatInput = document.getElementById('chat-input');
+        if (window.innerWidth < 768 && chatInput && document.activeElement === chatInput) {
+          return;
+        }
+        helpChat.classList.add('hidden');
+      }
     }
   });
 
@@ -811,12 +855,36 @@ document.addEventListener("DOMContentLoaded", () => {
     chatInput.addEventListener('focus', () => {
       if (window.innerWidth < 768) { // Mobile/tablet
         helpChat.style.bottom = '20vh';
+        // Previne que o modal feche quando o input ganha foco
+        setTimeout(() => {
+          if (helpChat.classList.contains('hidden')) {
+            helpChat.classList.remove('hidden');
+          }
+        }, 100);
       }
     });
 
     chatInput.addEventListener('blur', () => {
       if (window.innerWidth < 768) { // Mobile/tablet
         helpChat.style.bottom = '5rem';
+        // Pequeno delay para evitar fechamento acidental
+        setTimeout(() => {
+          if (document.activeElement !== chatInput) {
+            // Só fecha se realmente perdeu o foco
+          }
+        }, 200);
+      }
+    });
+
+    // Previne fechamento acidental no mobile
+    chatInput.addEventListener('touchstart', (e) => {
+      e.stopPropagation();
+    });
+
+    chatInput.addEventListener('input', (e) => {
+      // Garante que o modal permaneça aberto durante a digitação
+      if (window.innerWidth < 768 && helpChat.classList.contains('hidden')) {
+        helpChat.classList.remove('hidden');
       }
     });
   }
