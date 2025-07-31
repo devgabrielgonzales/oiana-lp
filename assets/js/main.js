@@ -647,4 +647,177 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // --- CHAT FLUTUANTE ---
+  
+  // Dados das perguntas do FAQ
+  const faqData = [
+    {
+      question: "Como funciona a integração com a Dental Uni?",
+      answer: "A OiAna está integrada ao portal da Dental Uni, permitindo que beneficiários agendem consultas diretamente com você e que você emita guias de forma simplificada."
+    },
+    {
+      question: "Preciso pagar para usar a OiAna?",
+      answer: "Dentistas Dental Uni têm acesso sem custo a funcionalidades essenciais de agendamento e liberação de guia de beneficiários Dental Uni. A OiAna oferece planos com recursos completos para gerir clínicas e consultórios."
+    },
+    {
+      question: "Quais recursos estão disponíveis nos outros planos da OiAna?",
+      answer: "Agenda online, emissão de guias, controle financeiro, prontuário eletrônico, gestão de documentos, relatórios, gestão de equipe e integração com a Dental Uni."
+    },
+    {
+      question: "Como faço para resgatar o benefício?",
+      answer: "Para resgatar o benefício, preencha o formulário disponível nesta página com seu CRO, estado e selecione o plano desejado. Nossa equipe entrará em contato para finalizar o processo."
+    },
+    {
+      question: "Como disponibilizo os horários na agenda online?",
+      answer: "Após ativar sua conta OiAna, você pode configurar sua agenda definindo horários de atendimento, intervalos e disponibilidade. Os beneficiários Dental Uni poderão visualizar e agendar consultas diretamente."
+    }
+  ];
+
+  // Elementos do DOM do chat
+  const helpButton = document.getElementById('help-button');
+  const helpChat = document.getElementById('help-chat');
+  const closeChat = document.getElementById('close-chat');
+  const chatMessages = document.getElementById('chat-messages');
+  const chatInput = document.getElementById('chat-input');
+  const sendMessage = document.getElementById('send-message');
+  const faqOptions = document.querySelectorAll('.faq-option');
+  const helpText = document.getElementById('help-text');
+
+  // Função para adicionar mensagem
+  function addMessage(message, isUser = false) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `flex items-start space-x-3 ${isUser ? 'justify-end' : ''}`;
+    
+    const iconDiv = document.createElement('div');
+    iconDiv.className = `w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${isUser ? 'bg-gray-400' : 'bg-oiana-rosa'}`;
+    
+    if (isUser) {
+      // Avatar do usuário (imagem)
+      const userImg = document.createElement('img');
+      userImg.src = 'assets/images/user.png';
+      userImg.alt = 'Usuário';
+      userImg.className = 'w-8 h-8 rounded-full';
+      iconDiv.appendChild(userImg);
+    } else {
+      // Avatar da Ana (foto)
+      const anaImg = document.createElement('img');
+      anaImg.src = 'assets/images/ana-rosa.png';
+      anaImg.alt = 'Ana';
+      anaImg.className = 'w-8 h-8 rounded-full';
+      iconDiv.appendChild(anaImg);
+    }
+    
+    const textDiv = document.createElement('div');
+    textDiv.className = `rounded-lg p-3 max-w-xs ${isUser ? 'bg-oiana-rosa text-white' : 'bg-gray-100 text-gray-800'}`;
+    textDiv.innerHTML = `<p class="text-sm">${message}</p>`;
+    
+    messageDiv.appendChild(iconDiv);
+    messageDiv.appendChild(textDiv);
+    
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  // Enviar mensagem
+  function sendChatMessage() {
+    const message = chatInput.value.trim();
+    if (message) {
+      addMessage(message, true);
+      chatInput.value = '';
+      
+      // Simula resposta automática
+      setTimeout(() => {
+        addMessage('Obrigada pela sua pergunta! Para obter informações mais detalhadas, entre em contato conosco através do formulário de resgate de benefício. <a href="#form" class="text-oiana-rosa underline font-medium hover:text-oiana-rosa-claro" id="form-link">Clique aqui para acessar o formulário de resgate do benefício</a>.');
+        
+        // Adiciona evento de clique ao link do formulário
+        setTimeout(() => {
+          const formLink = document.getElementById('form-link');
+          if (formLink) {
+            formLink.addEventListener('click', (e) => {
+              e.preventDefault();
+              // Fecha o modal do chat
+              helpChat.classList.add('hidden');
+              // Rola para a seção do formulário
+              const formSection = document.getElementById('form');
+              if (formSection) {
+                formSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            });
+          }
+        }, 100);
+      }, 1000);
+    }
+  }
+
+  // Event listeners do chat (só executar se os elementos existirem)
+  if (helpButton) {
+    helpButton.addEventListener('click', () => {
+      helpChat.classList.toggle('hidden');
+    });
+  }
+
+  if (helpText) {
+    helpText.addEventListener('click', () => {
+      helpChat.classList.toggle('hidden');
+    });
+  }
+
+  if (closeChat) {
+    closeChat.addEventListener('click', () => {
+      helpChat.classList.add('hidden');
+    });
+  }
+
+  // Fechar chat ao clicar fora
+  document.addEventListener('click', (e) => {
+    const floatingButton = document.getElementById('floating-help-button');
+    if (floatingButton && helpChat && !floatingButton.contains(e.target) && !helpChat.contains(e.target)) {
+      helpChat.classList.add('hidden');
+    }
+  });
+
+  // Event listeners para as opções do FAQ
+  if (faqOptions.length > 0) {
+    faqOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        const questionIndex = parseInt(option.dataset.question);
+        const faq = faqData[questionIndex];
+        
+        // Adiciona a pergunta do usuário
+        addMessage(faq.question, true);
+        
+        // Adiciona a resposta da OiAna
+        setTimeout(() => {
+          addMessage(faq.answer);
+        }, 500);
+      });
+    });
+  }
+
+  // Event listeners para envio de mensagem
+  if (sendMessage) {
+    sendMessage.addEventListener('click', sendChatMessage);
+  }
+
+  if (chatInput) {
+    chatInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        sendChatMessage();
+      }
+    });
+
+    // Ajusta posição do chat no mobile quando o teclado aparece
+    chatInput.addEventListener('focus', () => {
+      if (window.innerWidth < 768) { // Mobile/tablet
+        helpChat.style.bottom = '20vh';
+      }
+    });
+
+    chatInput.addEventListener('blur', () => {
+      if (window.innerWidth < 768) { // Mobile/tablet
+        helpChat.style.bottom = '5rem';
+      }
+    });
+  }
 });
