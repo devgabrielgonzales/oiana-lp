@@ -792,9 +792,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (helpChat && !helpChat.classList.contains('hidden')) {
       // Se clicou fora do botão flutuante E fora do chat
       if (!floatingButton.contains(e.target) && !helpChat.contains(e.target)) {
-        // No mobile, não fechar se o input está focado
+        // No mobile, não fechar se o input está focado ou se está digitando
         const chatInput = document.getElementById('chat-input');
-        if (window.innerWidth < 768 && chatInput && document.activeElement === chatInput) {
+        if (window.innerWidth < 768 && chatInput && (document.activeElement === chatInput || chatInput.value.length > 0)) {
           return;
         }
         helpChat.classList.add('hidden');
@@ -811,9 +811,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (helpChat && !helpChat.classList.contains('hidden')) {
       // Se tocou fora do botão flutuante E fora do chat
       if (!floatingButton.contains(e.target) && !helpChat.contains(e.target)) {
-        // No mobile, não fechar se o input está focado
+        // No mobile, não fechar se o input está focado ou se está digitando
         const chatInput = document.getElementById('chat-input');
-        if (window.innerWidth < 768 && chatInput && document.activeElement === chatInput) {
+        if (window.innerWidth < 768 && chatInput && (document.activeElement === chatInput || chatInput.value.length > 0)) {
           return;
         }
         helpChat.classList.add('hidden');
@@ -851,28 +851,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Ajusta posição do chat no mobile quando o teclado aparece
+    // Previne que o modal feche quando o input ganha foco
     chatInput.addEventListener('focus', () => {
       if (window.innerWidth < 768) { // Mobile/tablet
-        helpChat.style.bottom = '20vh';
         // Previne que o modal feche quando o input ganha foco
         setTimeout(() => {
           if (helpChat.classList.contains('hidden')) {
             helpChat.classList.remove('hidden');
           }
         }, 100);
-      }
-    });
-
-    chatInput.addEventListener('blur', () => {
-      if (window.innerWidth < 768) { // Mobile/tablet
-        helpChat.style.bottom = '5rem';
-        // Pequeno delay para evitar fechamento acidental
-        setTimeout(() => {
-          if (document.activeElement !== chatInput) {
-            // Só fecha se realmente perdeu o foco
-          }
-        }, 200);
       }
     });
 
