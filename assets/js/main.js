@@ -26,13 +26,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function formatarEndereco(endereco) {
     const partes = [];
-    if (endereco.logradouro) partes.push(endereco.logradouro);
-    if (endereco.numero) partes.push(endereco.numero);
-    if (endereco.complemento) partes.push(endereco.complemento);
-    if (endereco.bairro) partes.push(endereco.bairro);
-    if (endereco.cidade) partes.push(endereco.cidade);
-    if (endereco.uf) partes.push(endereco.uf);
-    if (endereco.cep) partes.push(`CEP: ${endereco.cep}`);
+    if (endereco.nomelogradouroclinica) partes.push(endereco.nomelogradouroclinica);
+    if (endereco.numerologradouroclinica) partes.push(endereco.numerologradouroclinica);
+    if (endereco.complementoclinica) partes.push(endereco.complementoclinica);
+    if (endereco.bairroclinica) partes.push(endereco.bairroclinica);
+    if (endereco.cidadeclinica) partes.push(endereco.cidadeclinica);
+    if (endereco.ufclinica) partes.push(endereco.ufclinica);
+    if (endereco.cepclinica) partes.push(`CEP: ${endereco.cepclinica}`);
     return partes.join(", ");
   }
 
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const dadosDentista = await validarCROApi(cro, uf);
       dadosCompletosDentista = dadosDentista;
       nomeCompletoInput.value = toCamelCase(dadosDentista.nome);
-      processarEnderecos(dadosDentista.enderecos);
+      processarEnderecos(dadosDentista.enderecos_atendimento);
       croInput.classList.remove("border-red-500");
       estadoSelect.classList.remove("border-red-500");
     } catch (error) {
@@ -288,10 +288,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const plano = document.getElementById("select-planos")?.value;
 
       let enderecosSelecionados = [];
-      if (dadosCompletosDentista?.enderecos) {
-        if (dadosCompletosDentista.enderecos.length === 1) {
+      if (dadosCompletosDentista?.enderecos_atendimento) {
+        if (dadosCompletosDentista.enderecos_atendimento.length === 1) {
           enderecosSelecionados.push(
-            formatarEndereco(dadosCompletosDentista.enderecos[0])
+            formatarEndereco(dadosCompletosDentista.enderecos_atendimento[0])
           );
         } else {
           document
@@ -299,7 +299,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .forEach((cb) => {
               enderecosSelecionados.push(
                 formatarEndereco(
-                  dadosCompletosDentista.enderecos[parseInt(cb.value)]
+                  dadosCompletosDentista.enderecos_atendimento[parseInt(cb.value)]
                 )
               );
             });
@@ -315,7 +315,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
       if (
-        dadosCompletosDentista?.enderecos?.length > 1 &&
+        dadosCompletosDentista?.enderecos_atendimento?.length > 1 &&
         enderecosSelecionados.length === 0
       ) {
         mostrarModal(
